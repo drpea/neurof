@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neuro Reviewer</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f4f5fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .container {
+    text-align: center;
+  }
+
+  h1 {
+    margin-bottom: 30px;
+    color: #2d2d5a;
+  }
+
+  .btn {
+    display: block;
+    width: 260px;
+    margin: 10px auto;
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #4b5bdc;
+    color: white;
+    transition: 0.2s;
+  }
+
+  .btn:hover {
+    background: #3545c5;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>🧠 Neuro Reviewer</h1>
+
+  <button class="btn" onclick="go('neuro1.html')">
+    Neuro Module 1
+  </button>
+
+  <button class="btn" onclick="go('neuro2.html')">
+    Neuro Module 2
+  </button>
+
+  <button class="btn" onclick="go('neuro3.html')">
+    Neuro Module 3
+  </button>
+</div>
+
+<script>
+function go(page) {
+  window.location.href = page;
+}
+</script>
+
+</body>
+</html>
