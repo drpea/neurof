@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neurosciences 1 — High Yield Reviewer</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+–bg: #f5f3ef;
+–card: #ffffff;
+–border: #e2ddd6;
+–text: #2c2825;
+–muted: #7a736b;
+
+```
+--diz: #4a7c59;    --diz-light: #edf5f0;    --diz-mid: #c2dccb;
+--head: #7c5a3a;   --head-light: #fdf4ec;   --head-mid: #e8d0b8;
+--mem: #3a5a7c;    --mem-light: #eff4fd;    --mem-mid: #bdd0e8;
+--sz: #7c3a5a;     --sz-light: #fdefF4;     --sz-mid: #e8bdd0;
+
+--danger: #c0392b; --danger-light: #fdf0ef;
+--warn: #d4820a;   --warn-light: #fef9ec;
+--ok: #27ae60;     --ok-light: #edfaf3;
+--info: #2980b9;   --info-light: #eef6fc;
+
+--rad: 10px;
+--shadow: 0 2px 12px rgba(0,0,0,0.07);
+```
+
+}
+
+- { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+font-family: ‘DM Sans’, sans-serif;
+background: var(–bg);
+color: var(–text);
+font-size: 14px;
+line-height: 1.6;
+}
+
+/* ── Header ── */
+.site-header {
+background: var(–text);
+color: #fff;
+padding: 24px 32px;
+text-align: center;
+}
+.site-header h1 {
+font-family: ‘Playfair Display’, serif;
+font-size: 2rem;
+letter-spacing: .5px;
+}
+.site-header p { color: #bbb; font-size: 13px; margin-top: 4px; }
+
+/* ── Tab Nav ── */
+.tab-nav {
+display: flex;
+gap: 0;
+background: #fff;
+border-bottom: 2px solid var(–border);
+position: sticky;
+top: 0;
+z-index: 100;
+overflow-x: auto;
+}
+.tab-btn {
+padding: 14px 24px;
+border: none;
+background: none;
+font-family: ‘DM Sans’, sans-serif;
+font-size: 13px;
+font-weight: 500;
+cursor: pointer;
+color: var(–muted);
+border-bottom: 3px solid transparent;
+white-space: nowrap;
+transition: all .2s;
+}
+.tab-btn:hover { color: var(–text); background: var(–bg); }
+.tab-btn.active { color: var(–text); font-weight: 600; border-bottom-color: var(–text); }
+.tab-btn.t0.active { border-bottom-color: var(–diz); color: var(–diz); }
+.tab-btn.t1.active { border-bottom-color: var(–head); color: var(–head); }
+.tab-btn.t2.active { border-bottom-color: var(–mem); color: var(–mem); }
+.tab-btn.t3.active { border-bottom-color: var(–sz); color: var(–sz); }
+.tab-btn.t4.active { border-bottom-color: #555; color: #555; }
+
+/* ── Tab Panels ── */
+.tab-panel { display: none; padding: 28px 32px; max-width: 1100px; margin: 0 auto; }
+.tab-panel.active { display: block; }
+
+/* ── Section ── */
+.section { margin-bottom: 32px; }
+.section-title {
+font-family: ‘Playfair Display’, serif;
+font-size: 1.25rem;
+margin-bottom: 14px;
+padding-bottom: 8px;
+border-bottom: 2px solid var(–border);
+}
+.sub-title {
+font-size: 13px;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: .8px;
+margin: 16px 0 8px;
+color: var(–muted);
+}
+
+/* ── Cards ── */
+.card {
+background: var(–card);
+border: 1px solid var(–border);
+border-radius: var(–rad);
+padding: 18px;
+margin-bottom: 14px;
+box-shadow: var(–shadow);
+}
+.card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.card-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+@media (max-width: 700px) { .card-grid, .card-grid-3 { grid-template-columns: 1fr; } }
+
+.badge {
+display: inline-block;
+padding: 2px 10px;
+border-radius: 20px;
+font-size: 11px;
+font-weight: 600;
+margin-bottom: 8px;
+}
+.badge-diz { background: var(–diz-mid); color: var(–diz); }
+.badge-head { background: var(–head-mid); color: var(–head); }
+.badge-mem { background: var(–mem-mid); color: var(–mem); }
+.badge-sz { background: var(–sz-mid); color: var(–sz); }
+.badge-danger { background: #fce8e6; color: var(–danger); }
+.badge-ok { background: #e6f7ed; color: var(–ok); }
+.badge-warn { background: #fef3dc; color: var(–warn); }
+
+/* ── Tables ── */
+.tbl-wrap { overflow-x: auto; margin-bottom: 14px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; background: var(–card); border-radius: var(–rad); overflow: hidden; box-shadow: var(–shadow); }
+th { background: var(–text); color: #fff; padding: 10px 14px; text-align: left; font-size: 12px; font-weight: 600; letter-spacing: .4px; }
+td { padding: 9px 14px; border-bottom: 1px solid var(–border); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: #faf9f7; }
+.th-diz { background: var(–diz) !important; }
+.th-head { background: var(–head) !important; }
+.th-mem { background: var(–mem) !important; }
+.th-sz { background: var(–sz) !important; }
+
+/* ── Highlight boxes ── */
+.hbox {
+border-left: 4px solid;
+padding: 12px 16px;
+border-radius: 0 var(–rad) var(–rad) 0;
+margin-bottom: 12px;
+font-size: 13px;
+}
+.hbox-danger { border-color: var(–danger); background: var(–danger-light); }
+.hbox-warn { border-color: var(–warn); background: var(–warn-light); }
+.hbox-ok { border-color: var(–ok); background: var(–ok-light); }
+.hbox-info { border-color: var(–info); background: var(–info-light); }
+.hbox-diz { border-color: var(–diz); background: var(–diz-light); }
+.hbox-head { border-color: var(–head); background: var(–head-light); }
+.hbox-mem { border-color: var(–mem); background: var(–mem-light); }
+.hbox-sz { border-color: var(–sz); background: var(–sz-light); }
+.hbox strong { display: block; margin-bottom: 4px; }
+
+/* ── Key facts ── */
+ul.kf { list-style: none; padding: 0; }
+ul.kf li { padding: 4px 0 4px 20px; position: relative; font-size: 13px; }
+ul.kf li::before { content: ‘▸’; position: absolute; left: 0; color: var(–muted); }
+ul.kf li.star::before { content: ‘⭐’; font-size: 12px; }
+ul.kf li.danger::before { content: ‘🚨’; font-size: 12px; }
+ul.kf li.ok::before { content: ‘✅’; font-size: 12px; }
+
+em.hl { background: #fff3cd; padding: 1px 4px; border-radius: 3px; font-style: normal; font-weight: 600; }
+code { font-family: ‘DM Mono’, monospace; background: #f0ede8; padding: 1px 5px; border-radius: 3px; font-size: 12px; }
+
+/* ── Flowchart ── */
+.flow { display: flex; flex-direction: column; align-items: center; gap: 0; }
+.flow-box {
+background: var(–card);
+border: 2px solid var(–border);
+border-radius: var(–rad);
+padding: 10px 20px;
+text-align: center;
+font-size: 13px;
+font-weight: 500;
+min-width: 220px;
+max-width: 340px;
+box-shadow: var(–shadow);
+}
+.flow-arr { font-size: 22px; color: var(–muted); line-height: 1; padding: 2px 0; }
+.flow-row { display: flex; gap: 16px; align-items: flex-start; justify-content: center; flex-wrap: wrap; }
+.flow-col { display: flex; flex-direction: column; align-items: center; }
+.flow-diz .flow-box { border-color: var(–diz); }
+.flow-head .flow-box { border-color: var(–head); }
+.flow-mem .flow-box { border-color: var(–mem); }
+.flow-sz .flow-box { border-color: var(–sz); }
+.flow-danger .flow-box { border-color: var(–danger); background: var(–danger-light); }
+.flow-ok .flow-box { border-color: var(–ok); background: var(–ok-light); }
+
+/* ── MCQ ── */
+.mcq-item {
+background: var(–card);
+border: 1px solid var(–border);
+border-radius: var(–rad);
+padding: 18px;
+margin-bottom: 14px;
+box-shadow: var(–shadow);
+}
+.mcq-q { font-weight: 600; margin-bottom: 10px; font-size: 13.5px; }
+.mcq-opts { list-style: none; }
+.mcq-opts li {
+padding: 7px 12px;
+border-radius: 6px;
+margin-bottom: 5px;
+border: 1px solid var(–border);
+cursor: pointer;
+font-size: 13px;
+transition: all .15s;
+}
+.mcq-opts li:hover { background: var(–bg); }
+.mcq-opts li.correct { background: var(–ok-light); border-color: var(–ok); color: var(–ok); font-weight: 600; }
+.mcq-opts li.wrong { background: var(–danger-light); border-color: var(–danger); color: var(–danger); text-decoration: line-through; }
+.mcq-exp {
+display: none;
+margin-top: 10px;
+padding: 10px 14px;
+background: var(–info-light);
+border-left: 3px solid var(–info);
+border-radius: 0 6px 6px 0;
+font-size: 13px;
+color: #1a5276;
+}
+.mcq-exp.show { display: block; }
+.mcq-tag { font-size: 11px; font-weight: 600; color: var(–muted); margin-bottom: 6px; }
+
+/* ── Buzzword pills ── */
+.buzz-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+.buzz {
+display: inline-flex;
+flex-direction: column;
+padding: 8px 14px;
+border-radius: 8px;
+border: 1px solid var(–border);
+background: var(–card);
+font-size: 12px;
+}
+.buzz strong { font-size: 13px; font-weight: 600; }
+.buzz span { color: var(–muted); font-size: 11px; }
+
+/* ── Compare strips ── */
+.vs { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; border-radius: var(–rad); overflow: hidden; border: 1px solid var(–border); margin-bottom: 14px; }
+.vs-a { background: var(–danger-light); padding: 14px; }
+.vs-b { background: var(–ok-light); padding: 14px; }
+.vs h4 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 8px; }
+.vs-a h4 { color: var(–danger); }
+.vs-b h4 { color: var(–ok); }
+
+/* ── Progress stepper ── */
+.stepper { display: flex; gap: 0; margin-bottom: 14px; }
+.step { flex: 1; background: var(–card); border: 1px solid var(–border); border-right: none; padding: 10px 12px; font-size: 12px; position: relative; }
+.step:last-child { border-right: 1px solid var(–border); border-radius: 0 var(–rad) var(–rad) 0; }
+.step:first-child { border-radius: var(–rad) 0 0 var(–rad); }
+.step .sn { display: block; font-size: 10px; font-weight: 700; color: var(–muted); text-transform: uppercase; letter-spacing: .5px; }
+.step .sv { display: block; font-size: 12px; font-weight: 600; margin-top: 2px; }
+
+/* Score bars */
+.score-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.score-bar .label { font-size: 12px; min-width: 80px; }
+.bar-track { flex: 1; height: 8px; background: var(–border); border-radius: 4px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 4px; }
+
+/* ── Mnemonic box ── */
+.mnemonic {
+background: linear-gradient(135deg, #fff8e1, #fff3cd);
+border: 2px solid #f9c740;
+border-radius: var(–rad);
+padding: 16px 20px;
+margin-bottom: 14px;
+text-align: center;
+}
+.mnemonic .mn-word { font-family: ‘Playfair Display’, serif; font-size: 2rem; color: var(–warn); letter-spacing: 8px; }
+.mnemonic .mn-expand { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 8px; }
+.mnemonic .mn-item { font-size: 12px; }
+.mnemonic .mn-item strong { display: block; font-size: 16px; color: var(–warn); font-family: ‘Playfair Display’, serif; }
+
+/* hints diagram */
+.hints-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 14px; }
+.hints-card { background: var(–card); border: 2px solid var(–diz-mid); border-radius: var(–rad); padding: 14px; text-align: center; }
+.hints-card .letter { font-family: ‘Playfair Display’, serif; font-size: 2.5rem; color: var(–diz); }
+.hints-card .hname { font-weight: 700; font-size: 13px; margin-bottom: 6px; }
+.hints-card .hdesc { font-size: 12px; color: var(–muted); }
+.hints-card .hresult { margin-top: 8px; font-size: 12px; }
+
+/* ── Aphasia table coloring ── */
+.yes { color: var(–ok); font-weight: 700; }
+.no { color: var(–danger); font-weight: 700; }
+
+.tag { display: inline-block; font-size: 10px; padding: 1px 6px; border-radius: 3px; font-weight: 600; margin-left: 4px; background: #eee; color: #555; }
+.tag-r { background: #fce8e6; color: #c0392b; }
+.tag-g { background: #e6f7ed; color: #27ae60; }
+</style>
+
+</head>
+<body>
+
+<div class="site-header">
+  <h1>Neurosciences 1 — High Yield Reviewer</h1>
+  <p>Dizziness &nbsp;·&nbsp; Headache &nbsp;·&nbsp; Memory &amp; Cognition &nbsp;·&nbsp; Seizures &nbsp;·&nbsp; MCQs &amp; Buzzwords</p>
+</div>
+
+<!-- NAV -->
+
+<div class="tab-nav">
+  <button class="tab-btn t0 active" onclick="showTab(0)">🌀 Dizziness</button>
+  <button class="tab-btn t1" onclick="showTab(1)">🤕 Headache</button>
+  <button class="tab-btn t2" onclick="showTab(2)">🧠 Memory &amp; Cognition</button>
+  <button class="tab-btn t3" onclick="showTab(3)">⚡ Seizures</button>
+  <button class="tab-btn t4" onclick="showTab(4)">📝 MCQs &amp; Buzzwords</button>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+
+<!--  TAB 0 — DIZZINESS                          -->
+
+<!-- ════════════════════════════════════════════ -->
+
+<div class="tab-panel active" id="panel-0">
+
+  <div class="section">
+    <div class="section-title" style="color:var(--diz)">Classifications of Dizziness</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr>
+          <th class="th-diz">Type</th>
+          <th class="th-diz">Patient's Description</th>
+          <th class="th-diz">Cause</th>
+          <th class="th-diz">Key Feature</th>
+        </tr></thead>
+        <tbody>
+          <tr><td><strong>Vertigo</strong></td><td>"Room is spinning"</td><td>Vestibular system</td><td>Peripheral (inner ear) or Central (brainstem/cerebellum)</td></tr>
+          <tr><td><strong>Presyncope</strong></td><td>"About to faint"</td><td>Cardiovascular</td><td>No illusion of motion; drop in BP/perfusion</td></tr>
+          <tr><td><strong>Disequilibrium</strong></td><td>"Falling / leaning"</td><td>Locomotor / proprioception</td><td>Drunk-like gait; no head sensation</td></tr>
+          <tr><td><strong>Non-specific</strong></td><td>"Lightheaded / foggy"</td><td>Psychiatric / idiopathic</td><td>No anatomic localizer; anxiety, depression, meds</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--diz)">Central vs Peripheral Vertigo ⭐⭐⭐</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr>
+          <th class="th-diz">Feature</th>
+          <th class="th-diz">Central (BAD — ADMIT)</th>
+          <th class="th-diz">Peripheral (GOOD — send home)</th>
+        </tr></thead>
+        <tbody>
+          <tr><td><strong>Nystagmus direction</strong></td><td>Vertical, direction-changing, multidirectional</td><td>Horizontal–torsional, UNIDIRECTIONAL</td></tr>
+          <tr><td><strong>Nystagmus fatiguability</strong></td><td>NON-fatigable (unrelenting)</td><td>FATIGABLE (stops with fixation/time)</td></tr>
+          <tr><td><strong>Head Impulse (HI)</strong></td><td>NORMAL (no catch-up saccades)</td><td>ABNORMAL (catch-up saccades present)</td></tr>
+          <tr><td><strong>Skew deviation</strong></td><td><em class="hl">PRESENT</em> — 100% central</td><td>Absent</td></tr>
+          <tr><td><strong>Onset</strong></td><td>Continuous, minutes–hours</td><td>Positional, &lt;1 min unless re-provoked</td></tr>
+          <tr><td><strong>Neurologic deficits</strong></td><td>Often present (diplopia, dysarthria, ataxia)</td><td>ABSENT</td></tr>
+          <tr><td><strong>Pattern</strong></td><td>NOT positional</td><td>Positional vertigo (BPPV)</td></tr>
+          <tr><td><strong>Classic example</strong></td><td>Stroke / TIA</td><td>Vestibular neuritis</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hbox hbox-danger">
+      <strong>🚨 Central Red Flags: Double vision + dizziness, Thunderclap headache, Horner's syndrome, Skew deviation, Direction-changing nystagmus, Vertical nystagmus</strong>
+    </div>
+    <div class="hbox hbox-ok">
+      <strong>✅ Peripheral = Safe to manage outpatient if no vomiting/dehydration:</strong>
+      BPPV · Vestibular Neuritis · Orthostatic Hypotension · Migraine
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--diz)">HINTS Examination ⭐⭐⭐</div>
+    <div class="hbox hbox-diz"><strong>Sensitivity 99.2%, Specificity 97%</strong> for stroke within first 48 hrs. Perform on ANY patient with dizziness not clearly peripheral.</div>
+    <div class="hints-grid">
+      <div class="hints-card">
+        <div class="letter">H</div>
+        <div class="hname">Head Impulse</div>
+        <div class="hdesc">Hold head, fix on examiner's nose, rapidly turn head side-to-side. Watch for CATCH-UP SACCADES.</div>
+        <div class="hresult">
+          <span class="tag tag-g">ABNORMAL = peripheral</span><br>
+          <span class="tag tag-r">NORMAL = central 🚨</span>
+        </div>
+      </div>
+      <div class="hints-card">
+        <div class="letter">N</div>
+        <div class="hname">Nystagmus</div>
+        <div class="hdesc">Observe in primary, left, right, up, down gaze.</div>
+        <div class="hresult">
+          <span class="tag tag-g">Horizontal unidirectional = peripheral</span><br>
+          <span class="tag tag-r">Vertical / direction-changing = central 🚨</span>
+        </div>
+      </div>
+      <div class="hints-card">
+        <div class="letter">TS</div>
+        <div class="hname">Test of Skew</div>
+        <div class="hdesc">Cover/uncover alternate eyes. Watch for sudden VERTICAL movement of uncovered eye.</div>
+        <div class="hresult">
+          <span class="tag tag-g">Absent = peripheral</span><br>
+          <span class="tag tag-r">PRESENT vertical skew = central 🚨 (100%!)</span>
+        </div>
+      </div>
+    </div>
+    <div class="hbox hbox-info"><strong>HINTS interpretation:</strong> HI=normal + N=vertical + TS=present skew → <em class="hl">CENTRAL — Rush to ER!</em></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--diz)">Dix-Hallpike Maneuver (for BPPV) ⭐⭐⭐</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="badge badge-diz">Procedure</div>
+        <ul class="kf">
+          <li>Seat patient upright</li>
+          <li>Turn head <strong>45°</strong> toward tested side</li>
+          <li>Rapidly lay patient back, neck extended, head hangs over edge</li>
+          <li>Hold 30 seconds — observe for nystagmus</li>
+          <li>Repeat on contralateral side</li>
+        </ul>
+        <p style="margin-top:8px;font-size:12px;color:var(--muted)">Pre-check: No cervical instability, no vertebral artery insufficiency</p>
+      </div>
+      <div class="card">
+        <div class="badge badge-ok">Positive Test = BPPV</div>
+        <ul class="kf">
+          <li class="star">Latency of <strong>5–40 seconds</strong></li>
+          <li class="star">Torsional + <strong>upbeating</strong> nystagmus</li>
+          <li class="star">FATIGABLE (diminishes with repeated provocation)</li>
+          <li class="star">Reproducible with position change</li>
+          <li>Nystagmus <strong>changes direction</strong> when patient sits up again</li>
+          <li class="ok">If positive → EPLEY maneuver</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--diz)">Vertigo Duration → Diagnosis ⭐⭐⭐</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="th-diz">Duration</th><th class="th-diz">Etiology</th></tr></thead>
+        <tbody>
+          <tr><td><em class="hl">Seconds (5–40s latency)</em></td><td>BPPV · Vasovagal reaction</td></tr>
+          <tr><td><em class="hl">Minutes</em></td><td>VBI (Vertebrobasilar Insufficiency) · TIA · Hypoglycemia</td></tr>
+          <tr><td><em class="hl">Hours (up to 7 hrs)</em></td><td>Ménière's Disease</td></tr>
+          <tr><td><em class="hl">Days</em></td><td>Vestibular Neuritis · Vertiginous Migraine · Brainstem/Cerebellar Stroke</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--diz)">Common Otologic Etiologies</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr>
+          <th class="th-diz">Condition</th>
+          <th class="th-diz">Key Features</th>
+          <th class="th-diz">Duration</th>
+          <th class="th-diz">Differentiating Feature</th>
+        </tr></thead>
+        <tbody>
+          <tr><td><strong>BPPV</strong> ⭐ Most Common</td><td>Brief, positional, no hearing loss</td><td>Seconds</td><td>Triggered by head movement, Dix-Hallpike (+)</td></tr>
+          <tr><td><strong>Vestibular Neuritis</strong></td><td>Constant vertigo, post-viral, ± hearing loss</td><td>Days</td><td>Acute onset, abnormal head impulse, peripheral HINTS</td></tr>
+          <tr><td><strong>Ménière's Disease</strong></td><td>Episodic vertigo, chronic</td><td>Hours (≤7)</td><td><em class="hl">Fluctuating hearing loss + tinnitus + ear fullness</em></td></tr>
+          <tr><td><strong>Vestibular Migraine</strong></td><td>Vertigo without severe headache</td><td>Minutes–hours</td><td>History of migraine, episodic</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--diz)">Imaging & Labs</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="badge badge-ok">MRI ✅ Best</div>
+        <ul class="kf">
+          <li>Best for posterior circulation (brainstem/cerebellum)</li>
+          <li>Acute DWI: 80% detection rate (20% false negative)</li>
+          <li>53% false negative for small strokes at 6–48hrs</li>
+          <li>Preferred during brain attacks (1st hour)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="badge badge-warn">CT Scan ⚠️ Limited</div>
+        <ul class="kf">
+          <li>Only 16% sensitive for stroke</li>
+          <li>Good for hemorrhage (HYPERDENSE/white)</li>
+          <li>MISSES brainstem & cerebellar infarcts</li>
+          <li>Do NOT order CT/MRI unless ABCD2 or HINTS favors stroke</li>
+          <li>Do NOT perform CTA in the ED routinely</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sub-title">Most Notorious Ototoxic Antibiotics</div>
+    <div class="hbox hbox-danger"><strong>Aminoglycosides</strong> = #1 medication cause of dizziness (Gentamicin, Streptomycin, Tobramycin, Amikacin)</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--diz)">Management Algorithm</div>
+    <div class="flow flow-diz">
+      <div class="flow-box" style="background:var(--diz);color:#fff;font-weight:700">Patient with Dizziness</div>
+      <div class="flow-arr">↓</div>
+      <div class="flow-box">Take BP (standing), HR, rhythm<br>Check hearing, unidirectional nystagmus, DTR, Babinski</div>
+      <div class="flow-arr">↓</div>
+      <div class="flow-row">
+        <div class="flow-col">
+          <div class="flow-box" style="border-color:var(--diz);background:var(--diz-light)"><strong>HINTS → PERIPHERAL</strong><br>BPPV? → Epley<br>Neuritis → Hydrate, Meclizine<br>Ortho-hypotension → Stop antihypertensives, elevate legs<br>Migraine → Abortives</div>
+          <div class="flow-arr">↓</div>
+          <div class="flow-box" style="border-color:var(--ok);background:var(--ok-light)">✅ SEND HOME<br>(unless vomiting/dehydrated)</div>
+        </div>
+        <div class="flow-col">
+          <div class="flow-box" style="border-color:var(--danger);background:var(--danger-light)"><strong>HINTS → CENTRAL</strong><br>Possible stroke, TIA<br>Intractable vomiting<br>Vertical/direction-changing nystagmus</div>
+          <div class="flow-arr">↓</div>
+          <div class="flow-box" style="border-color:var(--danger);background:var(--danger-light)">🚨 ADMIT<br>MRI, ECG, CBC, Glucose, Electrolytes</div>
+        </div>
+      </div>
+    </div>
+    <div class="sub-title">Treatment of Acute Vertigo</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="th-diz">Drug</th><th class="th-diz">Dose</th><th class="th-diz">Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Diazepam</td><td>5–10 mg</td><td>Max 3 days only</td></tr>
+          <tr><td>Clonazepam</td><td>0.5 mg</td><td>Vestibular suppressant</td></tr>
+          <tr><td>Dimenhydrinate</td><td>1–3× 100 mg/day</td><td>Antihistamine</td></tr>
+          <tr><td>Betahistine</td><td>24 mg BID → 96 mg TID × 2 weeks</td><td>For central compensation</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hbox hbox-warn"><strong>⚠️ Vestibular suppressants MAX 3 days!</strong> Prolonged use delays central compensation → chronic dizziness</div>
+  </div>
+
+</div><!-- end panel 0 -->
+
+<!-- ════════════════════════════════════════════ -->
+
+<!--  TAB 1 — HEADACHE                           -->
+
+<!-- ════════════════════════════════════════════ -->
+
+<div class="tab-panel" id="panel-1">
+
+  <div class="section">
+    <div class="section-title" style="color:var(--head)">Key Facts First</div>
+    <div class="card-grid">
+      <div class="hbox hbox-head">
+        <strong>The brain parenchyma is NOT pain-sensitive!</strong>
+        Pain arises from: Circle of Willis · Proximal dural arteries (middle meningeal) · Dural venous sinuses · Meninges · Dura · First 3 cervical nerves (connected to trigeminal nucleus caudalis)
+      </div>
+      <div class="hbox hbox-info">
+        <strong>Most Important Clinical Point:</strong>
+        History ALONE can give the diagnosis in primary headache. No biomarkers exist. CT/MRI only rules OUT secondary causes.
+      </div>
+    </div>
+    <div class="sub-title">Brain Mechanisms of Headache Pain</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="th-head">Mechanism</th><th class="th-head">Example</th></tr></thead>
+        <tbody>
+          <tr><td>Traction on Circle of Willis</td><td>Aneurysm, mass</td></tr>
+          <tr><td>Dilatation of intra/extracranial vessels</td><td><strong>Migraine</strong></td></tr>
+          <tr><td>Induced SPASM of vessels</td><td>Cervicogenic, Tension HA</td></tr>
+          <tr><td>Inflammation of structures + meninges</td><td><strong>Meningitis</strong></td></tr>
+          <tr><td>Inflammation of blood vessels</td><td><strong>Arteritis</strong></td></tr>
+          <tr><td>Sustained contraction of neck/scalp muscles</td><td><strong>Tension HA</strong></td></tr>
+          <tr><td>Changes in ICP (nasal, paranasal, orbits, teeth)</td><td>Tumor, sinusitis</td></tr>
+          <tr><td>Direct pressure on nerve pain fibers</td><td>Neuralgia</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--head)">Primary vs Secondary HA ⭐</div>
+    <div class="vs">
+      <div class="vs-a">
+        <h4>Secondary HA (MORE DANGEROUS — rule out FIRST)</h4>
+        <ul class="kf">
+          <li>WITH identifiable underlying cause</li>
+          <li>Brain tumor (progressive, worse AM, papilledema)</li>
+          <li>Traumatic Brain Injury</li>
+          <li>Giant Cell Arteritis (age &gt;50, ESR &gt;50, jaw claudication)</li>
+          <li>Meningitis (fever, neck stiffness)</li>
+          <li class="danger">Subarachnoid Hemorrhage — MUST RULE OUT first in thunderclap HA</li>
+          <li>Cerebral venous sinus thrombosis (female + OCP) ⭐</li>
+          <li>Ruptured aneurysm ⭐</li>
+        </ul>
+      </div>
+      <div class="vs-b">
+        <h4>Primary HA (NO identifiable cause)</h4>
+        <ul class="kf">
+          <li>Migraine</li>
+          <li>Tension-type headache (TTH) — Most Common</li>
+          <li>Cluster headache</li>
+          <li>Hemicrania continua</li>
+          <li>Primary thunderclap HA (only after excluding SAH!)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sub-title">SNOOP10 Red Flags for Secondary HA ⭐⭐</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="th-head">Flag</th><th class="th-head">What to look for</th></tr></thead>
+        <tbody>
+          <tr><td><strong>S</strong>ystemic</td><td>Fever, chills, weight loss, malignancy, HIV, immunosuppression, jaw claudication (GCA)</td></tr>
+          <tr><td><strong>N</strong>eurologic</td><td>Focal/global neuro deficits, diplopia, motor weakness, ataxia, pulsatile tinnitus</td></tr>
+          <tr><td><strong>O</strong>nset (sudden)</td><td>Thunderclap — reaches peak &lt;1 minute → rule out SAH</td></tr>
+          <tr><td><strong>O</strong>nset (age)</td><td>New-onset HA &gt;50 years OR &lt;5 years</td></tr>
+          <tr><td><strong>P</strong>attern change</td><td>Progressive HA, change in character, evolution to daily HA</td></tr>
+          <tr><td><strong>P</strong>ostural</td><td>Worse lying down (↑ICP) or standing (↓ICP — CSF leak)</td></tr>
+          <tr><td><strong>P</strong>recipitated by Valsalva</td><td>Cough, exertion, sex-induced HA</td></tr>
+          <tr><td><strong>P</strong>apilledema</td><td>On fundoscopy — always order imaging</td></tr>
+          <tr><td><strong>P</strong>regnancy</td><td>New or changed HA during/after pregnancy</td></tr>
+          <tr><td><strong>P</strong>ainkiller overuse</td><td>MOH — NSAIDs/Triptans/Opioids too frequently</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--head)">Temporal Profiles of Headache</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="th-head">Pattern</th><th class="th-head">Associated Condition</th></tr></thead>
+        <tbody>
+          <tr><td><strong>A — Acute Recurrent</strong></td><td>Migraine (common, classical, complicated)</td></tr>
+          <tr><td><strong>B — Chronic Non-progressive</strong></td><td>Tension HA · Anxiety · Depression · Somatization</td></tr>
+          <tr><td><strong>C — Chronic Progressive ⚠️ DANGEROUS</strong></td><td>Tumor · Idiopathic intracranial hypertension · Brain abscess · Hydrocephalus</td></tr>
+          <tr><td><strong>D — Acute on Chronic Non-progressive</strong></td><td>Mixed HA syndrome (Tension + Migraine)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--head)">Primary Headache Comparison ⭐⭐⭐</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr>
+          <th class="th-head">Feature</th>
+          <th class="th-head">Migraine</th>
+          <th class="th-head">Tension-Type (Most Common)</th>
+          <th class="th-head">Cluster (Suicidal)</th>
+        </tr></thead>
+        <tbody>
+          <tr><td><strong>Sex</strong></td><td>♀ 3× more</td><td>♀ more common</td><td>♂ 5× more (ages 20–50)</td></tr>
+          <tr><td><strong>Location</strong></td><td>Unilateral (adult)</td><td>Bilateral, band-like</td><td>Unilateral ORBITAL/periorbital</td></tr>
+          <tr><td><strong>Quality</strong></td><td>Throbbing/pulsating</td><td>Pressing/tightening</td><td>Deep, sharp, boring, drilling</td></tr>
+          <tr><td><strong>Severity</strong></td><td>Moderate–severe</td><td>Mild–moderate</td><td>SEVERE/excruciating</td></tr>
+          <tr><td><strong>Duration</strong></td><td>4–72 hours</td><td>30 min–7 days</td><td>15–180 min</td></tr>
+          <tr><td><strong>Frequency</strong></td><td>Variable</td><td>Variable</td><td>1–8×/day during cluster period</td></tr>
+          <tr><td><strong>Activity effect</strong></td><td>WORSE with activity ⭐</td><td>NOT worsened by activity ⭐</td><td>Patient is RESTLESS/pacing ⭐</td></tr>
+          <tr><td><strong>Associated symptoms</strong></td><td>N/V, photophobia, phonophobia, ± aura</td><td>Pericranial tenderness, mild photo/phonophobia (NOT both)</td><td>Ipsilateral: lacrimation, injection, rhinorrhea, ptosis, miosis, facial sweating ⭐</td></tr>
+          <tr><td><strong>Onset</strong></td><td>AM or daytime</td><td>Under stress</td><td>During sleep (1–2 hrs after)</td></tr>
+          <tr><td><strong>MNEMONIC</strong></td><td><em class="hl">PUMA</em></td><td>Non-PUMA</td><td><em class="hl">RESTLESS + AUTONOMIC</em></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--head)">Migraine Deep Dive ⭐⭐⭐</div>
+    <div class="mnemonic">
+      <div class="mn-word">PUMA</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:4px">If ANY ONE present → suspect migraine</div>
+      <div class="mn-expand">
+        <div class="mn-item"><strong>P</strong>ulsating quality</div>
+        <div class="mn-item"><strong>U</strong>nilateral</div>
+        <div class="mn-item"><strong>M</strong>oderate or severe intensity</div>
+        <div class="mn-item"><strong>A</strong>ggravated by activity</div>
+      </div>
+    </div>
+    <div class="mnemonic" style="margin-top:0">
+      <div style="font-size:1rem;font-weight:700;color:var(--warn)">ICHD-3 Migraine Without Aura: 5-4-3-2-1 PUMA</div>
+      <div class="mn-expand">
+        <div class="mn-item"><strong>5</strong> previous attacks</div>
+        <div class="mn-item"><strong>4–72</strong> hours duration</div>
+        <div class="mn-item"><strong>3</strong> days max</div>
+        <div class="mn-item"><strong>2</strong> of PUMA features</div>
+        <div class="mn-item"><strong>1</strong> of: N/V OR photo+phonophobia</div>
+      </div>
+    </div>
+    <div class="sub-title">Migraine Stages</div>
+    <div class="stepper">
+      <div class="step"><span class="sn">1 · Hours–Days</span><span class="sv">PRODROME</span><span style="font-size:11px">Food cravings, neck stiffness, fatigue</span></div>
+      <div class="step"><span class="sn">2 · 5–60 min (20%)</span><span class="sv">AURA</span><span style="font-size:11px">Visual (most common), sensory, language</span></div>
+      <div class="step" style="background:#fff3cd"><span class="sn">3 · 4–72 hrs</span><span class="sv">HEADACHE</span><span style="font-size:11px">Severe, unilateral, pulsating</span></div>
+      <div class="step"><span class="sn">4 · Hours–Days</span><span class="sv">POSTDROME</span><span style="font-size:11px">Fatigue, brain fog, neck stiffness</span></div>
+    </div>
+    <div class="sub-title">Migraine with Aura Subtypes</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="th-head">Subtype</th><th class="th-head">Key Feature</th><th class="th-head">DDx</th></tr></thead>
+        <tbody>
+          <tr><td>1.2.1 Typical aura</td><td>Visual/sensory/language aura, reversible, 5–60 min</td><td>—</td></tr>
+          <tr><td>1.2.2 Brainstem aura</td><td>Vertigo, diplopia, tinnitus, dysarthria + HA</td><td>Brainstem stroke (MRI normal)</td></tr>
+          <tr><td>1.2.3 Hemiplegic</td><td>Motor weakness (hemiparesis) resolves &lt;72 hrs</td><td>Stroke (MRI normal)</td></tr>
+          <tr><td>1.2.4 Retinal</td><td>Monocular visual disturbance</td><td>Amaurosis fugax</td></tr>
+          <tr><td>1.4.1 Status migrainosus</td><td>&gt;72 hours, unrelenting → treat with steroids</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hbox hbox-info"><strong>Familial Hemiplegic Migraine:</strong> Chromosomes 1, 2, and 19 (channelopathy — CACNA1a, ATP1A2, SCN1A). At least 1 first-degree relative required.</div>
+    <div class="sub-title">Migraine Food Triggers — 5 C's ⭐</div>
+    <div class="card" style="background:var(--head-light)">
+      <strong>Aged Cheese · Chocolate · Caffeine · Citrus · Cola</strong>
+      <br><span style="font-size:12px;color:var(--muted)">Also: Alcohol, MSG, Aspartame, Nitrates, OCP. #1 trigger: STRESS</span>
+    </div>
+    <div class="sub-title">Migraine Treatment</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="th-head">Type</th><th class="th-head">When</th><th class="th-head">Examples</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Abortive (Acute)</strong></td><td>During attack</td><td>Triptans ⭐ (most effective) · NSAIDs · Ergotamine · Antiemetics (metoclopramide) · Steroids for status</td></tr>
+          <tr><td><strong>Prophylactic</strong></td><td>Daily (weeks–months)</td><td>ABCD: Antiepileptics (Topiramate/Valproate) · Beta-blockers (Propranolol) · Ca-channel blockers (Flunarizine ⭐ doc favorite) · Antidepressants (Amitriptyline) · CGRP antagonists (Erenumab)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="badge badge-head">Triptans ⭐ Most Effective Abortive</div>
+        <p style="font-size:12px">Mechanism: Selective <strong>5-HT 1B/1D/1F agonists</strong><br>Examples: Sumatriptan (50mg), Zolmitriptan (2.5mg)</p>
+        <p style="font-size:12px;margin-top:6px"><strong>Contraindications:</strong> CAD, CVD, PVD, Severe HTN, Smoker + OCP, Complicated migraine</p>
+      </div>
+      <div class="card">
+        <div class="badge badge-head">CGRP — Key Peptide</div>
+        <p style="font-size:12px">Released during migraine attack → inflammation + vasodilation of cerebral/meningeal vessels. Normalizes with Triptan therapy. Led to development of <strong>CGRP antagonists</strong> (Rimegepant, Atogepant) and <strong>CGRP mAbs</strong> (Erenumab, Fremanezumab, Galcanezumab).</p>
+      </div>
+    </div>
+    <div class="hbox hbox-warn"><strong>Prophylaxis indications:</strong> &gt;8 headache days/month · &gt;4 attacks/month · Acute meds ineffective/contraindicated · Patient preference · Hemiplegic/prolonged aura subtypes</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--head)">Cluster HA Management</div>
+    <div class="hbox hbox-head">
+      <strong>First-line: 100% Oxygen at 10–12 L/min for 15–20 min</strong> — Many patients respond very well
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="th-head">Treatment</th><th class="th-head">Notes</th></tr></thead>
+        <tbody>
+          <tr><td>100% O₂ 10–12 L/min × 15–20 min</td><td><em class="hl">FIRST LINE ⭐</em></td></tr>
+          <tr><td>Sumatriptan <strong>subcutaneous</strong> 6 mg</td><td>Rapid onset; shortens attack to 10–15 min; NO tachyphylaxis</td></tr>
+          <tr><td>Sumatriptan 20 mg / Zolmitriptan 5 mg nasal spray</td><td>Alternative route</td></tr>
+          <tr><td>Intranasal lignocaine / Greater occipital nerve block</td><td>Additional options</td></tr>
+          <tr><td style="color:var(--danger)"><s>Oral sumatriptan</s></td><td><em class="hl">NOT effective in cluster HA ⭐</em></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--head)">Location of Headache → Lesion</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="th-head">Location of Pain</th><th class="th-head">Likely Etiology</th></tr></thead>
+        <tbody>
+          <tr><td>Occipito-nuchal (back of head/neck)</td><td>Posterior fossa lesion</td></tr>
+          <tr><td>Frontotemporal</td><td>Supratentorial lesion</td></tr>
+          <tr><td>Frontal region</td><td>Glaucoma / increased IOP</td></tr>
+          <tr><td>Temporal region</td><td>Arteritis (Giant Cell Arteritis)</td></tr>
+          <tr><td>Around eyes / maxilla</td><td>Paranasal sinus lesions</td></tr>
+          <tr><td>Parieto-occipital + neck</td><td>Cervicogenic headache</td></tr>
+          <tr><td>Sinus cavities</td><td>Sinusitis (clockwise AM regularity)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div><!-- end panel 1 -->
+
+<!-- ════════════════════════════════════════════ -->
+
+<!--  TAB 2 — MEMORY & COGNITION                 -->
+
+<!-- ════════════════════════════════════════════ -->
+
+<div class="tab-panel" id="panel-2">
+
+  <div class="section">
+    <div class="section-title" style="color:var(--mem)">Bedside Cognitive Assessment Tools ⭐⭐</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr>
+          <th class="th-mem">Tool</th>
+          <th class="th-mem">Cutoff</th>
+          <th class="th-mem">Best For</th>
+          <th class="th-mem">Limitation</th>
+        </tr></thead>
+        <tbody>
+          <tr><td><strong>AMTS</strong></td><td>6–8/10</td><td>Quick screening, general wards</td><td>Very crude, brevity only</td></tr>
+          <tr><td><strong>MMSE ⭐</strong></td><td><em class="hl">24/30</em></td><td>Widely used; staging moderate–severe dementia</td><td>Not sensitive to very mild impairment; biased to verbal</td></tr>
+          <tr><td><strong>MoCA ⭐</strong></td><td><em class="hl">26/30</em></td><td>Early/mild dementia detection; more comprehensive</td><td>Not for advanced dementia</td></tr>
+          <tr><td><strong>MoCA-P</strong></td><td><em class="hl">21/30</em></td><td>Filipino version; add 2pts (&lt;9yr edu), add 1pt (10–12yr edu)</td><td>100% sensitive, 87% specific for AD</td></tr>
+          <tr><td><strong>ACE-III</strong></td><td>82–88/100</td><td>Subtle impairment, differential diagnosis</td><td>Too long for busy clinics</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hbox hbox-mem">
+      <strong>MMSE Interpretation:</strong> 24–30 = Normal · 19–23 = Mild · 10–18 = Moderate · &lt;9 = Severe impairment<br>
+      <strong>MoCA &gt; MMSE in sensitivity</strong> — Problems on MMSE → proceed to MoCA. MoCA problems → formal neuropsych battery.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--mem)">MMSE Components (30 points total)</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="th-mem">Domain</th><th class="th-mem">Points</th><th class="th-mem">What's Tested</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Orientation</strong></td><td>10</td><td>Year/Season/Month/Date/Day + State/Country/Town/Hospital/Floor</td></tr>
+          <tr><td><strong>Registration</strong></td><td>3</td><td>Immediate repeat of 3 words (Ball/Flag/Tree or Mango/Table/Money). Repeat up to 6× — 1st repetition scores.</td></tr>
+          <tr><td><strong>Attention/Calculation</strong></td><td>5</td><td>Serial 7s from 100 (score each correct subtraction, not answer). Alt: spell WORLD/MUNDO backwards.</td></tr>
+          <tr><td><strong>Recall</strong></td><td>3</td><td>Recall the 3 objects from registration</td></tr>
+          <tr><td><strong>Language — Naming</strong></td><td>2</td><td>Name pencil and watch</td></tr>
+          <tr><td><strong>Language — Repetition</strong></td><td>1</td><td>"No ifs, ands, or buts" / "Minikaniko ni Monika ang Makina"</td></tr>
+          <tr><td><strong>Language — 3-Step Command</strong></td><td>3</td><td>Take paper, fold in half, put on floor — given ALL AT ONCE</td></tr>
+          <tr><td><strong>Language — Reading</strong></td><td>1</td><td>Read and obey "CLOSE YOUR EYES" (no verbal instruction)</td></tr>
+          <tr><td><strong>Language — Writing</strong></td><td>1</td><td>Write a sentence (must have subject + verb)</td></tr>
+          <tr><td><strong>Copying Figures</strong></td><td>1</td><td>Copy intersecting pentagons (all 10 angles, 2 must intersect)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hbox hbox-warn"><strong>Serial 7s scoring:</strong> Score each correct SUBTRACTION (not the answer). If patient says 100→93→85→78→71→64: errors at 85 and later chain is still scored if subtraction between consecutive numbers is correct. 93=✓, 85=✗, 78=✓, 71=✓, 64=✓ → 4/5 pts.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--mem)">MoCA-P Domains (30 points)</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="th-mem">Domain</th><th class="th-mem">Points</th><th class="th-mem">Specifics</th></tr></thead>
+        <tbody>
+          <tr><td>Visuospatial/Executive</td><td>5</td><td>Alternating trail: 1-A-2-B-3-C-4-D-5-E (1pt) + Cube copy (1pt) + Clock 10:10 (3pts: contour, numbers, hands)</td></tr>
+          <tr><td>Naming</td><td>3</td><td>Leon (lion), Kwago (owl), Kamelyo (camel)</td></tr>
+          <tr><td>Memory</td><td>0 pts</td><td>Read 5 words × 2 trials — no points, needed for delayed recall</td></tr>
+          <tr><td>Attention</td><td>6</td><td>Forward digits: 2-1-8-5-4 · Backward: 7-4-2 · Vigilance: tap on "A" (0–1 error = 1pt) · Serial 7s (0/1/2/3 pts)</td></tr>
+          <tr><td>Language</td><td>3</td><td>Sentence repetition × 2 (1pt each) + Verbal fluency letter "B" ≥11 words/min (1pt)</td></tr>
+          <tr><td>Abstraction</td><td>2</td><td>tren–bisikleta (transportation) · timbangan–ruler (pangsukat). Score only ABSTRACT not literal answers.</td></tr>
+          <tr><td>Delayed Recall</td><td>5</td><td>Free recall of 5 words: mukha, asul, simbahan, rosas, seda (1pt each uncued)</td></tr>
+          <tr><td>Orientation</td><td>6</td><td>Date/Month/Year/Day/City/Place</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--mem)">Agnosia ⭐⭐</div>
+    <div class="hbox hbox-mem">
+      <strong>Agnosia = inability to recognize familiar stimuli despite intact sensory pathways, sensorium, and prior knowledge</strong>. Requires: (1) Intact sensory pathways, (2) Intact sensorium, (3) Previously knew the stimulus, (4) Organic cerebral lesion.
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="th-mem">Type</th><th class="th-mem">Deficit</th><th class="th-mem">What's Preserved</th><th class="th-mem">Lesion</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Apperceptive Visual Agnosia</strong></td>
+            <td>Cannot perceive object as coherent whole (cannot see the forest for the trees)</td>
+            <td>Can identify individual features (lines, angles, colors). Identifies by touch.</td>
+            <td>Medial (color) + Lateral (shape) occipital cortex</td>
+          </tr>
+          <tr>
+            <td><strong>Associative Visual Agnosia</strong></td>
+            <td>Cannot connect visual percept to semantic memory (name, use)</td>
+            <td>Describes object, confuses with similar-shaped objects. Recognizes by TOUCH. ⭐</td>
+            <td>Occipito-temporal gyri (bilateral)</td>
+          </tr>
+          <tr>
+            <td><strong>Prosopagnosia</strong></td>
+            <td>Cannot recognize FACES (familiar or new) ⭐</td>
+            <td>Recognizes by VOICE immediately. Can describe facial features.</td>
+            <td>Bilateral ventromedial occipitotemporal (inferior occipital / midfusiform gyri)</td>
+          </tr>
+          <tr>
+            <td><strong>Balint Syndrome TRIAD</strong></td>
+            <td>1. Optic ataxia (cannot reach object) · 2. Oculomotor apraxia · 3. Simultagnosia (focuses on one thing only)</td>
+            <td>Can see individual objects</td>
+            <td>Bilateral parieto-occipital (vascular border zones)</td>
+          </tr>
+          <tr>
+            <td><strong>Auditory Agnosia — Pure Word Deafness</strong></td>
+            <td>Cannot understand SPOKEN words</td>
+            <td>Hears and recognizes non-verbal sounds</td>
+            <td>Disconnection bilateral primary auditory cortex from Wernicke's</td>
+          </tr>
+          <tr>
+            <td><strong>Auditory Agnosia — Phonagnosia</strong></td>
+            <td>Cannot recognize familiar VOICES</td>
+            <td>Language comprehension intact</td>
+            <td>Temporal (uni/bilateral); right parietal for familiar voices</td>
+          </tr>
+          <tr>
+            <td><strong>Astereognosia</strong></td>
+            <td>Cannot identify objects by TOUCH</td>
+            <td>Vision intact</td>
+            <td>Postcentral gyrus (parietal)</td>
+          </tr>
+          <tr>
+            <td><strong>Asomatognosia</strong></td>
+            <td>Unaware of own body parts + R-L disorientation (Gerstmann Syndrome)</td>
+            <td>Motor strength intact</td>
+            <td>Left angular gyrus (posterior perisylvian)</td>
+          </tr>
+          <tr>
+            <td><strong>Anosognosia</strong></td>
+            <td>Denial of neurologic deficit (e.g., denies hemiplegia)</td>
+            <td>—</td>
+            <td>Often right parietal</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--mem)">Apraxia ⭐</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="th-mem">Type</th><th class="th-mem">Deficit</th><th class="th-mem">Preserved</th><th class="th-mem">Lesion</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Ideomotor Apraxia</strong> (more common)</td><td>Cannot execute on VERBAL COMMAND; cannot gesture/pantomime on command</td><td>Spontaneous gestures; one-step tasks in context</td><td>Dominant anterior-inferior parietal (parietal); Callosal (anterior CC); Sympathetic (left premotor)</td></tr>
+          <tr><td><strong>Ideational Apraxia</strong></td><td>Cannot SEQUENCE multi-step tasks (e.g., mailing a letter)</td><td>Individual steps can be done</td><td>Dominant temporo-parieto-occipital</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hbox hbox-info"><strong>Testing Sequence:</strong> Give verbal command → ask to mimic → demonstrate and ask to identify. Apraxia ≠ Agnosia: patient CAN recognize the object and knows how it's used, but cannot demonstrate the motor action on command.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--mem)">Aphasia ⭐⭐⭐</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr>
+          <th class="th-mem">Type</th>
+          <th class="th-mem">Fluent?</th>
+          <th class="th-mem">Comprehend?</th>
+          <th class="th-mem">Repeat?</th>
+          <th class="th-mem">Naming</th>
+          <th class="th-mem">Lesion</th>
+        </tr></thead>
+        <tbody>
+          <tr><td><strong>Global</strong></td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td>Poor</td><td>Large perisylvian (Broca + Wernicke)</td></tr>
+          <tr><td><strong>Mixed Transcortical</strong></td><td class="no">✗</td><td class="no">✗</td><td class="yes">✓</td><td>Poor</td><td>Border zone MCA–ACA watershed</td></tr>
+          <tr><td><strong>Broca's</strong></td><td class="no">✗</td><td class="yes">✓</td><td class="no">✗</td><td>Poor</td><td>Broca's area, anterior insula, frontal operculum</td></tr>
+          <tr><td><strong>Transcortical Motor</strong></td><td class="no">✗</td><td class="yes">✓</td><td class="yes">✓</td><td>Normal</td><td>Anterior/superior to Broca's</td></tr>
+          <tr><td><strong>Wernicke's</strong></td><td class="yes">✓</td><td class="no">✗</td><td class="no">✗</td><td>Poor</td><td>Post. superior temporal gyrus / planum temporale</td></tr>
+          <tr><td><strong>Transcortical Sensory</strong></td><td class="yes">✓</td><td class="no">✗</td><td class="yes">✓</td><td>Normal</td><td>Surrounding Wernicke's</td></tr>
+          <tr><td><strong>Conduction</strong></td><td class="yes">✓</td><td class="yes">✓</td><td class="no">✗</td><td>Poor</td><td>Posterior perisylvian (arcuate fasciculus)</td></tr>
+          <tr><td><strong>Anomic</strong></td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td>Poor</td><td>Inferior/anterior temporal lobe</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hbox hbox-mem"><strong>Key Pearl:</strong> Fluent + good comprehension + CANNOT repeat = Conduction aphasia (arcuate fasciculus). Transcortical aphasias PRESERVE repetition (isolated from Broca/Wernicke but watershed area connects them).</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--mem)">Cognitive Domains & Localization</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="th-mem">Location</th><th class="th-mem">Cognitive Symptoms</th></tr></thead>
+        <tbody>
+          <tr><td>Dominant (left) parietal lobe</td><td>Acalculia, agraphia, apraxia (Gerstmann syndrome)</td></tr>
+          <tr><td>Non-dominant (right) parietal / occipital</td><td>Visuospatial problems, neglect, hemispatial inattention</td></tr>
+          <tr><td>Frontal lobe + connections</td><td>Behavioral: apathy, disinhibition, loss of empathy, perseveration, dietary changes → FTD</td></tr>
+          <tr><td>Occipital lobe</td><td>Visual disturbances, visual processing (optic ataxia, simultagnosia)</td></tr>
+          <tr><td>Subcortical</td><td>Prominent cognitive SLOWING (can respond, just slow)</td></tr>
+          <tr><td>Extrapyramidal involvement</td><td>Parkinsonian features, hyperkinetic movements</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--mem)">Frontal Release Signs (Primitive Reflexes)</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="th-mem">Reflex</th><th class="th-mem">Stimulus</th><th class="th-mem">Response</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Grasp</strong></td><td>Palm stimulation</td><td>Inability to release grip</td></tr>
+          <tr><td><strong>Snout</strong></td><td>Tap on lips</td><td>Involuntary puckering</td></tr>
+          <tr><td><strong>Suck</strong></td><td>Object near mouth</td><td>Involuntary sucking</td></tr>
+          <tr><td><strong>Rooting</strong></td><td>Stroke cheek</td><td>Head turns toward stimulus</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hbox hbox-mem">Normal in infancy → suppressed by mature prefrontal cortex → REAPPEAR with frontal lobe lesions or dementia</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--mem)">Diagnostic Investigation Approach</div>
+    <div class="flow flow-mem">
+      <div class="flow-box" style="background:var(--mem);color:#fff;font-weight:700">Step 1: DETECT</div>
+      <div class="flow-arr">↓</div>
+      <div class="flow-box">History (timing, progression, baseline), collateral history from caregiver, medications, lifestyle, family history</div>
+      <div class="flow-arr">↓</div>
+      <div class="flow-box" style="background:var(--mem);color:#fff;font-weight:700">Step 2: ASSESS/DIFFERENTIATE</div>
+      <div class="flow-arr">↓</div>
+      <div class="flow-box">MMSE + MoCA · Blood tests (CBC, glucose, LFTs, TFTs, B12, folate, electrolytes, ESR/CRP) · Genotyping · Neurologic + physical exam</div>
+      <div class="flow-arr">↓</div>
+      <div class="flow-box" style="background:var(--mem);color:#fff;font-weight:700">Step 3: DIAGNOSE</div>
+      <div class="flow-arr">↓</div>
+      <div class="flow-box">⭐ <strong>First rule out REVERSIBLE causes</strong> (metabolic, infectious) · Structural MRI (mandatory for ALL dementia workup) · FDG-PET/SPECT · CSF (Aβ42, p-tau, t-tau for Alzheimer's) · Amyloid PET</div>
+      <div class="flow-arr">↓</div>
+      <div class="flow-box" style="background:var(--mem);color:#fff;font-weight:700">Step 4: TREAT</div>
+      <div class="flow-arr">↓</div>
+      <div class="flow-box">Symptomatic treatment · Lifestyle changes · Family dynamics & social support · Clinical trial registries</div>
+    </div>
+    <div class="hbox hbox-warn"><strong>MRI mandatory for ALL patients investigated for dementia</strong> — checks degeneration, vascular changes, atrophy, white matter changes, infarcts, microbleeds</div>
+  </div>
+
+</div><!-- end panel 2 -->
+
+<!-- ════════════════════════════════════════════ -->
+
+<!--  TAB 3 — SEIZURES                           -->
+
+<!-- ════════════════════════════════════════════ -->
+
+<div class="tab-panel" id="panel-3">
+
+  <div class="section">
+    <div class="section-title" style="color:var(--sz)">Seizure vs Epilepsy Definitions</div>
+    <div class="card-grid">
+      <div class="hbox hbox-sz">
+        <strong>Seizure</strong> = Transient occurrence of signs/symptoms due to abnormal excessive or synchronous neuronal activity. <em class="hl">Stereotyped</em> within same patient (seizure semiology). Variable between patients.
+      </div>
+      <div class="hbox hbox-info">
+        <strong>Epilepsy (ILAE):</strong>
+        (1) ≥2 unprovoked seizures &gt;24 hrs apart, OR<br>
+        (2) 1 unprovoked seizure + ≥60% recurrence risk over 10 yrs, OR<br>
+        (3) Diagnosis of an epilepsy syndrome
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--sz)">ILAE 2017 Classification of Seizures</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="th-sz" colspan="3">SEIZURE ONSET TYPE</th></tr></thead>
+        <tbody>
+          <tr>
+            <td style="vertical-align:top;background:var(--sz-light)"><strong>FOCAL ONSET</strong><br><span style="font-size:11px">One hemisphere; may have aware or impaired awareness</span></td>
+            <td style="vertical-align:top;background:#fdf0ff"><strong>GENERALIZED ONSET</strong><br><span style="font-size:11px">Both hemispheres simultaneously</span></td>
+            <td style="vertical-align:top"><strong>UNKNOWN ONSET</strong><br><span style="font-size:11px">Onset missed/obscured</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--sz)">Generalized Motor Seizures ⭐</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="th-sz">Type</th><th class="th-sz">Definition</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Tonic-Clonic (Grand Mal) ⭐ Most Common</strong></td><td>Bilateral limb STIFFENING then rhythmic limb JERKING</td></tr>
+          <tr><td>Tonic</td><td>Bilateral limb ± neck stiffening or elevation</td></tr>
+          <tr><td>Clonic</td><td>Begin, progress, and end with bilateral clonic jerking</td></tr>
+          <tr><td>Myoclonic</td><td>Irregular, brief bilateral limb or whole-body jerks</td></tr>
+          <tr><td>Myoclonic-Tonic-Clonic</td><td>Few myoclonic jerks → tonic-clonic</td></tr>
+          <tr><td>Myoclonic-Atonic</td><td>Brief jerking of limbs/trunk → limb drop</td></tr>
+          <tr><td>Atonic (Drop attacks)</td><td>Loss of tone of both limbs → recovery within seconds</td></tr>
+          <tr><td>Epileptic Spasms</td><td>Sudden flexion or extension of proximal + truncal muscles</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sub-title">Phases of Tonic-Clonic Seizure</div>
+    <div class="stepper">
+      <div class="step"><span class="sn">Hours before</span><span class="sv">Prodrome</span><span style="font-size:11px">Irritability, anxiety</span></div>
+      <div class="step"><span class="sn">Seconds–minutes</span><span class="sv">Aura</span><span style="font-size:11px">Sensory: smell, sound, déjà vu</span></div>
+      <div class="step" style="background:var(--sz-light)"><span class="sn">Ictal</span><span class="sv">Tonic Phase</span><span style="font-size:11px">Stiffening, LOC, opisthotonus, epileptic cry, cyanosis</span></div>
+      <div class="step" style="background:var(--sz-light)"><span class="sn">Ictal</span><span class="sv">Clonic Phase</span><span style="font-size:11px">Rhythmic jerking, frothing, eye blinking</span></div>
+      <div class="step"><span class="sn">Post-ictal</span><span class="sv">Terminal</span><span style="font-size:11px">Motionless, confused, agitated, then apparently normal</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--sz)">Absence Seizures (Non-motor Generalized) ⭐</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="th-sz">Type</th><th class="th-sz">Key Features</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Typical Absence</strong></td>
+            <td>Sudden brief cessation of activity + awareness · Rapid onset & offset · NO postictal confusion · +/− minor automatisms · <em class="hl">3/sec spike-wave EEG ⭐</em> · Age: 4–8yr (CAE) · Provoked by hyperventilation</td>
+          </tr>
+          <tr>
+            <td><strong>Atypical Absence</strong></td>
+            <td>Change in tone (more pronounced) · Slower onset/cessation · Slow spike-wave EEG · No apparent LOC</td>
+          </tr>
+          <tr>
+            <td><strong>Myoclonic Absence</strong></td>
+            <td>Absence + rhythmic 3/sec myoclonic movements</td>
+          </tr>
+          <tr>
+            <td><strong>Eyelid Myoclonia</strong></td>
+            <td>Myoclonic eyelid jerks + upward gaze deviation on eye closure · Photosensitive</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hbox hbox-sz"><strong>Key criteria of absence seizure:</strong> Rapid onset · 3/sec spike-and-wave EEG · Complete loss of awareness · To an onlooker: "daydreaming" or "absentmindedness"</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--sz)">Focal Seizures — Localization ⭐⭐</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="th-sz">Clinical Feature</th><th class="th-sz">Localization</th></tr></thead>
+        <tbody>
+          <tr><td>Jacksonian march (focal motor)</td><td>Prerolandic gyrus (primary motor cortex)</td></tr>
+          <tr><td>Masticatory automatisms, salivation, speech arrest</td><td>Amygdaloid nuclei / Opercular</td></tr>
+          <tr><td>Simple contraversive (head/eye turning)</td><td>Frontal lobe</td></tr>
+          <tr><td>Head/eye turning + arm movement + athetoid posture</td><td>Supplementary motor cortex</td></tr>
+          <tr><td>Somatosensory aura</td><td>Contralateral postrolandic</td></tr>
+          <tr><td>Unformed images, lights, patterns</td><td>Occipital lobe</td></tr>
+          <tr><td>Auditory aura</td><td>Heschl gyri (superior temporal)</td></tr>
+          <tr><td>Vertiginous sensation</td><td>Superior temporal gyrus</td></tr>
+          <tr><td><strong>Olfactory aura ⭐</strong></td><td>Mesial temporal</td></tr>
+          <tr><td>Gustatory aura</td><td>Insula</td></tr>
+          <tr><td>Autonomic (palpitations, flushing)</td><td>Insular-orbital-frontal cortex</td></tr>
+          <tr><td>Formed hallucinations, déjà vu, fear, automatisms ⭐</td><td>Temporal lobe (amygdaloid-hippocampal complex)</td></tr>
+          <tr><td>Staring</td><td>Frontal cortex / Amygdaloid-hippocampal / Reticular</td></tr>
+          <tr><td>Gelastic seizure (laughing)</td><td>Hypothalamic hamartoma / Frontal</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hbox hbox-sz"><strong>Temporal lobe seizure pattern:</strong> Olfactory aura → fear → staring + lip-smacking automatisms → postictal confusion. Classic!</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--sz)">Common Primary Generalized Epilepsy Syndromes ⭐⭐</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr>
+          <th class="th-sz">Feature</th>
+          <th class="th-sz">CAE (Childhood Absence)</th>
+          <th class="th-sz">JAE (Juvenile Absence)</th>
+          <th class="th-sz">JME (Juvenile Myoclonic) ⭐</th>
+          <th class="th-sz">GTCS on Awakening</th>
+        </tr></thead>
+        <tbody>
+          <tr><td><strong>Age of Onset</strong></td><td>4–8 yrs</td><td>10–15 yrs</td><td>15–20 yrs</td><td>10–25 yrs</td></tr>
+          <tr><td><strong>Seizure type</strong></td><td>Frequent brief absences</td><td>Frequent absences (less than CAE)</td><td>GTCS + absences + <em class="hl">morning myoclonus</em></td><td>GTCS, sometimes myoclonus</td></tr>
+          <tr><td><strong>EEG</strong></td><td><em class="hl">3/sec spike-wave</em></td><td>Poly-spike and wave</td><td>Poly-spike and wave + photosensitivity</td><td>Spike-wave on waking + sleep onset</td></tr>
+          <tr><td><strong>Treatment</strong></td><td>Ethosuximide · Valproate · Levetiracetam</td><td colspan="3">Sodium Valproate · Levetiracetam</td></tr>
+          <tr><td><strong>Prognosis</strong></td><td>80% remit in adulthood; 40% develop GTCS</td><td>80% develop GTC; 80% seizure-free in adulthood</td><td>90% remit with AEDs but <em class="hl">RELAPSE if stopped ⭐</em></td><td>65% controlled; relapse off treatment</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--sz)">Causes of Seizures by Age ⭐⭐</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="th-sz">Age Group</th><th class="th-sz">Most Common Causes</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Neonates (&lt;1 mo)</strong></td><td>Perinatal hypoxia/ischemia · Intracranial hemorrhage · CNS infection · Metabolic (hypoglycemia, hypocalcemia, hypomagnesemia, pyridoxine deficiency) · Drug withdrawal · Developmental/genetic</td></tr>
+          <tr><td><strong>Infants &amp; Children (&lt;12 yr)</strong></td><td>Febrile seizures · Genetic disorders · CNS infection · Developmental · Trauma</td></tr>
+          <tr><td><strong>Adolescents (12–18 yr)</strong></td><td>Trauma · Genetic disorders · Infection · Illicit drug use · Brain tumor · Autoantibodies</td></tr>
+          <tr><td><strong>Young Adults (18–35 yr)</strong></td><td>Trauma · Alcohol withdrawal · Illicit drug use · Brain tumor · Autoantibodies</td></tr>
+          <tr><td><strong>Older Adults (&gt;35 yr) ⭐</strong></td><td><em class="hl">Cerebrovascular disease (STROKE)</em> · Brain tumor · Alcohol withdrawal · Metabolic disorders (uremia, hepatic failure, electrolyte abnormalities, hyperglycemia, hypoglycemia) · Alzheimer's/CNS degeneration · Autoantibodies</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hbox hbox-sz"><strong>⭐ Trauma is common in ALL age groups. New-onset seizure in elderly = cerebrovascular disease until proven otherwise.</strong></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--sz)">Stigmata of Neurocutaneous Syndromes</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="th-sz">Syndrome</th><th class="th-sz">Skin Finding</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Neurofibromatosis Type 1</strong></td><td>Café-au-lait spots · Neurofibromas · Plexiform neurofibromas · Lisch nodules (iris)</td></tr>
+          <tr><td><strong>Tuberous Sclerosis</strong></td><td>Ash-leaf spots (hypopigmented) · Angiofibromas (facial) · Ungual fibromas · Shagreen patch</td></tr>
+          <tr><td><strong>Sturge-Weber Syndrome</strong></td><td>Port-wine stain (capillary hemangioma) on face — unilateral V1 distribution</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sub-title">Examination Clues for Epilepsy</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="th-sz">Finding</th><th class="th-sz">Implication</th></tr></thead>
+        <tbody>
+          <tr><td>Hemiatrophy (limb/body asymmetry)</td><td>Perinatal cerebral insult</td></tr>
+          <tr><td>Tongue bite marks (lateral borders)</td><td>Generalized tonic-clonic seizure</td></tr>
+          <tr><td>Gingival hyperplasia</td><td>Phenytoin use ⭐</td></tr>
+          <tr><td>Dupuytren's contractures</td><td>Chronic barbiturate use</td></tr>
+          <tr><td>End-gaze nystagmus + diplopia + poor tandem walk</td><td>AED toxicity (carbamazepine, phenytoin, lamotrigine)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--sz)">Metabolic Causes of Seizures — Workup</div>
+    <div class="hbox hbox-sz"><strong>Most common metabolic cause: Hyper- or Hypo-natremia ⭐</strong> (sometimes hyper/hypocalcemia)</div>
+    <div class="sub-title">Common Antiepileptic Drugs</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="th-sz">Drug</th><th class="th-sz">Indications</th></tr></thead>
+        <tbody>
+          <tr><td>Valproic Acid</td><td>GTC · Focal · Absence · Myoclonic (broad spectrum)</td></tr>
+          <tr><td>Phenytoin</td><td>GTC · Focal · (NOT absence-1st line)</td></tr>
+          <tr><td>Carbamazepine</td><td>GTC · Focal</td></tr>
+          <tr><td>Ethosuximide</td><td>Absence ONLY ⭐</td></tr>
+          <tr><td>Lamotrigine</td><td>Generalized · Focal</td></tr>
+          <tr><td>Levetiracetam</td><td>Frontal · Broad spectrum</td></tr>
+          <tr><td>Topiramate</td><td>GTC · Atypical absence · Myoclonic · Focal</td></tr>
+          <tr><td>Clonazepam</td><td>Absence · Myoclonus</td></tr>
+          <tr><td>ACTH</td><td>Infantile spasms</td></tr>
+          <tr><td><em>Status epilepticus:</em> Diazepam · Lorazepam · Midazolam · Propofol · Fosphenytoin</td><td>IV/IM urgency</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="color:var(--sz)">Approach to Seizures — Algorithm</div>
+    <div class="flow flow-sz">
+      <div class="flow-box" style="background:var(--sz);color:#fff;font-weight:700">Suspected Seizure Episode</div>
+      <div class="flow-arr">↓</div>
+      <div class="flow-box"><strong>Is this truly a seizure?</strong><br>Rule out: syncope, hypoglycemia, migraine, psychogenic, TIA, panic attack, sleep disorder</div>
+      <div class="flow-arr">↓</div>
+      <div class="flow-box">History: When? Triggers? Duration? Semiology? Drug use? PMH? Birth/developmental Hx? Family Hx (JME/JAE)?</div>
+      <div class="flow-arr">↓</div>
+      <div class="flow-box">Exam: Hemiatrophy? Tongue bite? Gingival hyperplasia? Neurocutaneous stigmata? Dupuytren's? Nystagmus?</div>
+      <div class="flow-arr">↓</div>
+      <div class="flow-row">
+        <div class="flow-col">
+          <div class="flow-box" style="border-color:var(--sz)"><strong>WHERE does epilepsy arise?</strong><br>Standard EEG (first-line) → Sleep EEG → Special electrodes → Ambulatory EEG / Video-EEG</div>
+        </div>
+        <div class="flow-col">
+          <div class="flow-box" style="border-color:var(--sz)"><strong>WHAT is the cause?</strong><br>MRI (best) · Metabolic labs (Na, K, Ca, glucose) · Lumbar puncture if infection suspected · Serology · CBC/ESR/CRP</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end panel 3 -->
+
+<!-- ════════════════════════════════════════════ -->
+
+<!--  TAB 4 — MCQs & BUZZWORDS                   -->
+
+<!-- ════════════════════════════════════════════ -->
+
+<div class="tab-panel" id="panel-4">
+
+  <div class="section">
+    <div class="section-title">MCQ Practice Questions</div>
+
+```
+<!-- Q1 -->
+<div class="mcq-item">
+  <div class="mcq-tag">🌀 DIZZINESS</div>
+  <div class="mcq-q">1. A 60-year-old man presents with sudden continuous vertigo, diplopia, and difficulty walking. On exam: vertical nystagmus, normal head impulse test, skew deviation present. The MOST appropriate next step is:</div>
+  <ul class="mcq-opts" onclick="handleMCQ(event, this, 2)">
+    <li>A. Dix-Hallpike maneuver and Epley if positive</li>
+    <li>B. Discharge with antihistamines for vestibular neuritis</li>
+    <li>C. Emergency MRI — ADMIT for central vertigo workup</li>
+    <li>D. Order CT angiography in the emergency department</li>
+  </ul>
+  <div class="mcq-exp">Correct: C. HINTS = normal HI + vertical N + skew deviation → 100% central etiology. Admit immediately. Vertical nystagmus + diplopia = central red flags. CT has only 16% sensitivity for stroke. Avoid CTA in ED routinely. MRI is preferred.</div>
+</div>
+
+<!-- Q2 -->
+<div class="mcq-item">
+  <div class="mcq-tag">🌀 DIZZINESS</div>
+  <div class="mcq-q">2. A 52-year-old woman gets brief spinning dizziness every time she turns her head to the right in bed, lasting about 20 seconds, resolving on its own. No hearing loss. Dix-Hallpike (right side): torsional upbeating nystagmus after 5-second delay, fatigable. What is the treatment?</div>
+  <ul class="mcq-opts" onclick="handleMCQ(event, this, 0)">
+    <li>A. Epley maneuver</li>
+    <li>B. Vestibular suppressants for 2 weeks</li>
+    <li>C. Urgent MRI brain</li>
+    <li>D. Betahistine 96 mg TID</li>
+  </ul>
+  <div class="mcq-exp">Correct: A. Classic BPPV: positional, brief, torsional + upbeating nystagmus with 5–40 sec latency, fatigable, reproducible. Treat with Epley maneuver. Vestibular suppressants should be max 3 days and not first-line for BPPV.</div>
+</div>
+
+<!-- Q3 -->
+<div class="mcq-item">
+  <div class="mcq-tag">🌀 DIZZINESS</div>
+  <div class="mcq-q">3. Which vertigo etiology best matches: episodic vertigo lasting several hours, accompanied by fluctuating hearing loss, tinnitus, and a sensation of ear fullness?</div>
+  <ul class="mcq-opts" onclick="handleMCQ(event, this, 2)">
+    <li>A. BPPV</li>
+    <li>B. Vertebrobasilar insufficiency</li>
+    <li>C. Ménière's disease</li>
+    <li>D. Vestibular neuritis</li>
+  </ul>
+  <div class="mcq-exp">Correct: C. Ménière's disease = episodic vertigo (hours, up to 7), fluctuating hearing loss, tinnitus, and aural fullness (ear "plugged"). Caused by excess endolymph. VBI = minutes. BPPV = seconds. Neuritis = days (continuous).</div>
+</div>
+
+<!-- Q4 -->
+<div class="mcq-item">
+  <div class="mcq-tag">🤕 HEADACHE</div>
+  <div class="mcq-q">4. A 45-year-old presents with sudden "worst headache of his life" reaching maximum intensity in 30 seconds. Non-contrast CT shows subarachnoid blood. CT angiography shows no aneurysm. What is the MOST appropriate next step?</div>
+  <ul class="mcq-opts" onclick="handleMCQ(event, this, 1)">
+    <li>A. Diagnose as primary thunderclap headache and discharge</li>
+    <li>B. Suspect angiogram-negative SAH and repeat vascular imaging</li>
+    <li>C. Start triptans — this is likely a complicated migraine</li>
+    <li>D. Discharge with NSAIDs as CT confirmed no active bleeding</li>
+  </ul>
+  <div class="mcq-exp">Correct: B. CT-confirmed SAH must be treated as secondary HA. Angiogram-negative SAH occurs due to: small aneurysm not visualized, vasospasm, thrombosed aneurysm, or perimesencephalic non-aneurysmal SAH. Repeat vascular imaging required.</div>
+</div>
+
+<!-- Q5 -->
+<div class="mcq-item">
+  <div class="mcq-tag">🤕 HEADACHE</div>
+  <div class="mcq-q">5. A 26-year-old woman with known migraines develops unilateral right arm weakness during her headache which resolves in 48 hours. MRI is normal. She has a sister with similar episodes. What is the most likely diagnosis?</div>
+  <ul class="mcq-opts" onclick="handleMCQ(event, this, 1)">
+    <li>A. TIA — refer to stroke unit urgently</li>
+    <li>B. Familial Hemiplegic Migraine</li>
+    <li>C. Sporadic Hemiplegic Migraine</li>
+    <li>D. Migraine with brainstem aura</li>
+  </ul>
+  <div class="mcq-exp">Correct: B. Hemiplegic migraine = migraine with motor weakness aura resolving &lt;72 hrs. MRI normal. Familial = at least 1 first-degree relative with similar attacks (her sister). Chromosomes 1, 2, 19. Channelopathy (CACNA1a, ATP1A2, SCN1A).</div>
+</div>
+
+<!-- Q6 -->
+<div class="mcq-item">
+  <div class="mcq-tag">🤕 HEADACHE</div>
+  <div class="mcq-q">6. A 35-year-old man is awakened from sleep by severe right orbital pain with right-sided lacrimation, nasal congestion, and ptosis. He paces around the room, unable to lie still. Duration: ~60 minutes. What is the FIRST-LINE acute treatment?</div>
+  <ul class="mcq-opts" onclick="handleMCQ(event, this, 0)">
+    <li>A. 100% Oxygen at 10–12 L/min for 15–20 minutes</li>
+    <li>B. Oral sumatriptan 100 mg</li>
+    <li>C. Ibuprofen 800 mg PO</li>
+    <li>D. Diazepam 5 mg IV</li>
+  </ul>
+  <div class="mcq-exp">Correct: A. Cluster HA = severe unilateral orbital pain, ipsilateral autonomic features, restless patient. First-line: 100% O₂ 10–12 L/min × 15–20 min. Oral sumatriptan is NOT effective in cluster HA! Subcutaneous sumatriptan 6 mg is the pharmacologic option.</div>
+</div>
+
+<!-- Q7 -->
+<div class="mcq-item">
+  <div class="mcq-tag">🧠 MEMORY & COGNITION</div>
+  <div class="mcq-q">7. During Serial 7s testing, a patient gives the following responses: 100 → 93 → 86 → 78 → 71 → 64. What is the score?</div>
+  <ul class="mcq-opts" onclick="handleMCQ(event, this, 2)">
+    <li>A. 5/5</li>
+    <li>B. 4/5</li>
+    <li>C. 3/5</li>
+    <li>D. 2/5</li>
+  </ul>
+  <div class="mcq-exp">Correct: C (4/5 per the standard but this specific example — score each correct SUBTRACTION). 100→93 (✓7), 93→86 (✓7), 86→78 (✗8), 78→71 (✓7), 71→64 (✓7) = 4/5. The error at 86→78 doesn't propagate. But in the trans example with 100,92,85,78,71,64: 92(✗8),85(✓7),78(✓7),71(✓7),64(✓7) = 4/5.</div>
+</div>
+
+<!-- Q8 -->
+<div class="mcq-item">
+  <div class="mcq-tag">🧠 MEMORY & COGNITION</div>
+  <div class="mcq-q">8. A post-stroke patient can clearly see a comb, describe "thin parallel lines," but cannot name it or demonstrate its use visually. When allowed to touch it, he immediately recognizes it and demonstrates combing. What is the diagnosis?</div>
+  <ul class="mcq-opts" onclick="handleMCQ(event, this, 1)">
+    <li>A. Apperceptive visual agnosia</li>
+    <li>B. Associative visual agnosia</li>
+    <li>C. Ideomotor apraxia</li>
+    <li>D. Prosopagnosia</li>
+  </ul>
+  <div class="mcq-exp">Correct: B. Associative visual agnosia: patient can perceive the object's features (parallel lines) but CANNOT connect the visual percept to its semantic meaning (name, use). Recognizes by TOUCH. In apperceptive, patient cannot even perceive the whole object coherently. In ideomotor apraxia, patient can name/recognize the object but cannot demonstrate use ON COMMAND.</div>
+</div>
+
+<!-- Q9 -->
+<div class="mcq-item">
+  <div class="mcq-tag">🧠 MEMORY & COGNITION</div>
+  <div class="mcq-q">9. A patient has fluent speech with intact comprehension but CANNOT repeat sentences. She produces paraphasic errors. What aphasia type is this, and where is the lesion?</div>
+  <ul class="mcq-opts" onclick="handleMCQ(event, this, 1)">
+    <li>A. Broca's aphasia — Broca's area</li>
+    <li>B. Conduction aphasia — arcuate fasciculus</li>
+    <li>C. Wernicke's aphasia — superior temporal gyrus</li>
+    <li>D. Transcortical sensory aphasia — surrounding Wernicke's</li>
+  </ul>
+  <div class="mcq-exp">Correct: B. Conduction aphasia = Fluent ✓, Comprehension ✓, Repetition ✗. Lesion = posterior perisylvian region, specifically the arcuate fasciculus. Broca's: non-fluent, comprehension ok, no repetition. Wernicke's: fluent, no comprehension, no repetition. Transcortical Sensory: fluent, no comprehension, INTACT repetition.</div>
+</div>
+
+<!-- Q10 -->
+<div class="mcq-item">
+  <div class="mcq-tag">⚡ SEIZURES</div>
+  <div class="mcq-q">10. A 7-year-old girl is noted by her teacher to have multiple daily episodes of "blank staring" lasting 5–10 seconds each, resuming activity immediately without confusion. EEG shows 3/sec spike-and-wave. What is the expected prognosis?</div>
+  <ul class="mcq-opts" onclick="handleMCQ(event, this, 0)">
+    <li>A. 80% remit in adulthood; 40% will develop GTC</li>
+    <li>B. 90% remit but relapse if AEDs withdrawn</li>
+    <li>C. Lifelong treatment required in all cases</li>
+    <li>D. 80% develop GTC and 80% seizure-free in adulthood</li>
+  </ul>
+  <div class="mcq-exp">Correct: A. Childhood Absence Epilepsy (CAE): age 4–8, frequent brief absences, 3/sec spike-wave EEG. Prognosis: 80% remit in adulthood, but 40% will eventually develop GTCS. Treatment: Ethosuximide, Valproate, or Levetiracetam.</div>
+</div>
+
+<!-- Q11 -->
+<div class="mcq-item">
+  <div class="mcq-tag">⚡ SEIZURES</div>
+  <div class="mcq-q">11. A 17-year-old boy presents with episodes of arm jerking every morning when he wakes up, causing him to drop his toothbrush. He had one generalized convulsion last month upon awakening. EEG: poly-spike-and-wave + photosensitivity. Which drug should be AVOIDED in this patient?</div>
+  <ul class="mcq-opts" onclick="handleMCQ(event, this, 2)">
+    <li>A. Valproic acid</li>
+    <li>B. Levetiracetam</li>
+    <li>C. Carbamazepine</li>
+    <li>D. Lamotrigine</li>
+  </ul>
+  <div class="mcq-exp">Correct: C. This is Juvenile Myoclonic Epilepsy (JME) — morning myoclonus + GTCS on awakening + polyspike EEG with photosensitivity. Carbamazepine (and phenytoin) can WORSEN absence and myoclonic seizures. First-line: Valproate or Levetiracetam. JME requires lifelong therapy — relapse if stopped.</div>
+</div>
+
+<!-- Q12 -->
+<div class="mcq-item">
+  <div class="mcq-tag">⚡ SEIZURES</div>
+  <div class="mcq-q">12. A 24-year-old woman describes episodes preceded by a "strange burning smell" followed by intense fear, then staring with lip-smacking. She is confused for 2–3 minutes afterward. What is the most likely seizure localization?</div>
+  <ul class="mcq-opts" onclick="handleMCQ(event, this, 3)">
+    <li>A. Occipital lobe</li>
+    <li>B. Frontal lobe supplementary motor area</li>
+    <li>C. Parietal somatosensory cortex</li>
+    <li>D. Temporal lobe (mesial — amygdaloid-hippocampal complex)</li>
+  </ul>
+  <div class="mcq-exp">Correct: D. Classic temporal lobe seizure: Olfactory aura (mesial temporal) → emotional aura (fear) → automatisms (lip-smacking) → postictal confusion. The amygdaloid-hippocampal complex generates olfactory aura, fear, and memory-related phenomena (déjà vu).</div>
+</div>
+
+<!-- Q13 -->
+<div class="mcq-item">
+  <div class="mcq-tag">🌀 DIZZINESS + ⚡ INTEGRATION</div>
+  <div class="mcq-q">13. Which of the following antiepileptic drugs is associated with gingival hyperplasia?</div>
+  <ul class="mcq-opts" onclick="handleMCQ(event, this, 1)">
+    <li>A. Carbamazepine</li>
+    <li>B. Phenytoin</li>
+    <li>C. Valproic acid</li>
+    <li>D. Ethosuximide</li>
+  </ul>
+  <div class="mcq-exp">Correct: B. Phenytoin → gingival hyperplasia. Carbamazepine → end-gaze nystagmus, diplopia, ataxia (toxicity signs). Barbiturates → Dupuytren's contractures. These are important physical exam clues in epilepsy patients.</div>
+</div>
+
+<!-- Q14 -->
+<div class="mcq-item">
+  <div class="mcq-tag">🧠 MEMORY & COGNITION</div>
+  <div class="mcq-q">14. A 75-year-old man cannot recognize his granddaughter's face when she visits but immediately knows who she is when she speaks. He can describe her facial features accurately. Lesion localization?</div>
+  <ul class="mcq-opts" onclick="handleMCQ(event, this, 0)">
+    <li>A. Bilateral ventromedial occipitotemporal (inferior occipital / midfusiform gyri)</li>
+    <li>B. Left Broca's area</li>
+    <li>C. Right parietal lobe</li>
+    <li>D. Left angular gyrus</li>
+  </ul>
+  <div class="mcq-exp">Correct: A. Prosopagnosia = inability to recognize faces despite intact visual acuity and ability to perceive features. Recognizes by voice. Associated with bilateral ventromedial occipitotemporal lesions including inferior occipital/midfusiform gyri. Can also have difficulty identifying own car among others.</div>
+</div>
+
+<!-- Q15 -->
+<div class="mcq-item">
+  <div class="mcq-tag">🤕 HEADACHE</div>
+  <div class="mcq-q">15. Which of the following correctly matches the headache type to its most distinguishing feature?</div>
+  <ul class="mcq-opts" onclick="handleMCQ(event, this, 2)">
+    <li>A. Tension HA — WORSENED by physical activity</li>
+    <li>B. Cluster HA — Bilateral, band-like, pericranial tenderness</li>
+    <li>C. Cluster HA — Patient is restless/pacing + ipsilateral autonomic features</li>
+    <li>D. Migraine — Exclusively nocturnal, wakes from sleep</li>
+  </ul>
+  <div class="mcq-exp">Correct: C. Cluster HA hallmark: restlessness/agitation (pacing, cannot lie still) + ipsilateral autonomic features (lacrimation, injection, rhinorrhea, ptosis, miosis, sweating). Migraine is AGGRAVATED by activity (Tension is NOT). Hypnic HA is exclusively nocturnal in the elderly.</div>
+</div>
+```
+
+  </div><!-- end MCQ section -->
+
+  <!-- BUZZWORDS -->
+
+  <div class="section">
+    <div class="section-title">🔑 Buzzwords & Associations Summary</div>
+
+```
+<div class="sub-title">🌀 Dizziness</div>
+<div class="buzz-grid">
+  <div class="buzz"><strong>Catch-up saccades</strong><span>Peripheral vertigo (BPPV/neuritis)</span></div>
+  <div class="buzz"><strong>Skew deviation</strong><span>100% Central → ADMIT</span></div>
+  <div class="buzz"><strong>Vertical nystagmus</strong><span>Central vertigo</span></div>
+  <div class="buzz"><strong>Direction-changing nystagmus</strong><span>Always central</span></div>
+  <div class="buzz"><strong>Horizontal nystagmus</strong><span>Can be central or peripheral</span></div>
+  <div class="buzz"><strong>Ear fullness + tinnitus + fluctuating HL</strong><span>Ménière's disease</span></div>
+  <div class="buzz"><strong>Post-viral constant vertigo</strong><span>Vestibular neuritis</span></div>
+  <div class="buzz"><strong>Torsional upbeating nystagmus, fatigable, positional</strong><span>BPPV → Dix-Hallpike (+)</span></div>
+  <div class="buzz"><strong>Arm flexion → dizziness</strong><span>Subclavian Steal Syndrome</span></div>
+  <div class="buzz"><strong>Most ototoxic antibiotic</strong><span>Aminoglycosides (Gentamicin)</span></div>
+  <div class="buzz"><strong>Vertigo lasts minutes</strong><span>VBI / TIA / Hypoglycemia</span></div>
+  <div class="buzz"><strong>Doll's eye reflex intact</strong><span>Intact brainstem</span></div>
+  <div class="buzz"><strong>Max 3 days vestibular suppressant</strong><span>Avoid chronic dizziness</span></div>
+  <div class="buzz"><strong>Carotid stenosis ALONE</strong><span>Does NOT cause vertigo</span></div>
+</div>
+
+<div class="sub-title">🤕 Headache</div>
+<div class="buzz-grid">
+  <div class="buzz"><strong>Worst headache of my life</strong><span>Thunderclap → rule out SAH</span></div>
+  <div class="buzz"><strong>Brain NOT pain-sensitive</strong><span>Pain from dura, vessels, nerves</span></div>
+  <div class="buzz"><strong>PUMA mnemonic</strong><span>Pulsating, Unilateral, Moderate-severe, Aggravated by activity</span></div>
+  <div class="buzz"><strong>5-4-3-2-1</strong><span>Migraine without aura diagnostic criteria</span></div>
+  <div class="buzz"><strong>Chromosomes 1, 2, 19</strong><span>Familial Hemiplegic Migraine</span></div>
+  <div class="buzz"><strong>CGRP</strong><span>Key peptide in migraine → vasodilation/inflammation</span></div>
+  <div class="buzz"><strong>Most effective abortive</strong><span>Triptans (5-HT 1B/1D/1F agonists)</span></div>
+  <div class="buzz"><strong>Oral sumatriptan NOT effective</strong><span>Cluster headache (use SC or O₂)</span></div>
+  <div class="buzz"><strong>100% O₂ 10–12 L/min</strong><span>First-line for Cluster HA</span></div>
+  <div class="buzz"><strong>Female + OCP + headache</strong><span>Cerebral venous sinus thrombosis → MRV</span></div>
+  <div class="buzz"><strong>ESR &gt;50 + temporal pain + jaw claudication</strong><span>Giant Cell Arteritis → risk of blindness</span></div>
+  <div class="buzz"><strong>Deep-seated, progressive, wakes from sleep</strong><span>Tumorigenic / GBM headache</span></div>
+  <div class="buzz"><strong>Catamenial migraine</strong><span>Menstruation-triggered migraine</span></div>
+  <div class="buzz"><strong>MOH</strong><span>Medication Overuse Headache — NSAIDs/triptans too frequent</span></div>
+  <div class="buzz"><strong>Posterior fossa lesion</strong><span>Occipito-nuchal headache</span></div>
+  <div class="buzz"><strong>Doc's favorite prophylactic</strong><span>Flunarizine (no hypotension, no cognitive SE)</span></div>
+</div>
+
+<div class="sub-title">🧠 Memory & Cognition</div>
+<div class="buzz-grid">
+  <div class="buzz"><strong>MMSE cutoff</strong><span>24/30 (≥8 yrs education needed)</span></div>
+  <div class="buzz"><strong>MoCA cutoff</strong><span>26/30 (more sensitive than MMSE)</span></div>
+  <div class="buzz"><strong>MoCA-P cutoff</strong><span>21/30 (+2pts &lt;9yr edu; +1pt 10–12yr edu)</span></div>
+  <div class="buzz"><strong>Cannot recognize faces → voice identifies</strong><span>Prosopagnosia (bilateral midfusiform)</span></div>
+  <div class="buzz"><strong>Sees object but can't reach it</strong><span>Optic ataxia (Balint syndrome)</span></div>
+  <div class="buzz"><strong>Focuses on 1 thing only</strong><span>Simultagnosia</span></div>
+  <div class="buzz"><strong>Cannot name/use on command → recognizes by touch</strong><span>Associative visual agnosia</span></div>
+  <div class="buzz"><strong>Fluent + comprehend + CANNOT repeat</strong><span>Conduction aphasia (arcuate fasciculus)</span></div>
+  <div class="buzz"><strong>Non-fluent + comprehend + cannot repeat</strong><span>Broca's aphasia</span></div>
+  <div class="buzz"><strong>Fluent + CANNOT comprehend + cannot repeat</strong><span>Wernicke's aphasia</span></div>
+  <div class="buzz"><strong>BOTH transcortical aphasias</strong><span>PRESERVE repetition</span></div>
+  <div class="buzz"><strong>Left angular gyrus</strong><span>Gerstmann syndrome (acalculia, agraphia, finger agnosia, R-L disorientation)</span></div>
+  <div class="buzz"><strong>Frontal release signs</strong><span>Dementia or frontal lobe lesion</span></div>
+  <div class="buzz"><strong>Well-formed visual hallucinations + parkinsonism</strong><span>Dementia with Lewy bodies</span></div>
+  <div class="buzz"><strong>Early behavioral change + relative memory sparing</strong><span>Frontotemporal dementia</span></div>
+  <div class="buzz"><strong>MRI mandatory in ALL dementia workup</strong><span>Structural imaging requirement</span></div>
+  <div class="buzz"><strong>First rule out in dementia</strong><span>REVERSIBLE causes (metabolic, infectious)</span></div>
+</div>
+
+<div class="sub-title">⚡ Seizures</div>
+<div class="buzz-grid">
+  <div class="buzz"><strong>Seizures are stereotyped</strong><span>Same pattern within same patient each time</span></div>
+  <div class="buzz"><strong>Epilepsy definition #1</strong><span>≥2 unprovoked seizures &gt;24 hrs apart</span></div>
+  <div class="buzz"><strong>Most common seizure type</strong><span>Tonic-clonic (Grand Mal)</span></div>
+  <div class="buzz"><strong>3/sec spike-wave on EEG</strong><span>Typical absence seizure (CAE)</span></div>
+  <div class="buzz"><strong>Morning myoclonus + GTCS on awakening</strong><span>JME → lifelong AEDs (relapse if stopped)</span></div>
+  <div class="buzz"><strong>Port-wine stain</strong><span>Sturge-Weber syndrome</span></div>
+  <div class="buzz"><strong>Ash-leaf spots</strong><span>Tuberous sclerosis</span></div>
+  <div class="buzz"><strong>Café-au-lait spots</strong><span>Neurofibromatosis</span></div>
+  <div class="buzz"><strong>Gingival hyperplasia</strong><span>Phenytoin use</span></div>
+  <div class="buzz"><strong>Olfactory aura → fear → automatisms → postictal confusion</strong><span>Temporal lobe epilepsy</span></div>
+  <div class="buzz"><strong>Jacksonian march</strong><span>Focal aware motor seizure (prerolandic gyrus)</span></div>
+  <div class="buzz"><strong>New-onset seizure in elderly</strong><span>Cerebrovascular disease (stroke) #1</span></div>
+  <div class="buzz"><strong>Most common metabolic cause of seizure</strong><span>Hyper/hyponatremia ⭐</span></div>
+  <div class="buzz"><strong>Ethosuximide</strong><span>Absence seizures ONLY</span></div>
+  <div class="buzz"><strong>AVOID carbamazepine in JME</strong><span>Can worsen myoclonic/absence seizures</span></div>
+  <div class="buzz"><strong>Hyperventilation on EEG</strong><span>Provocative test for absence seizures</span></div>
+  <div class="buzz"><strong>Febrile seizures most common in</strong><span>Infants and children &gt;1 month–12 years</span></div>
+</div>
+```
+
+  </div>
+
+  <!-- Quick Reference Flowcharts -->
+
+  <div class="section">
+    <div class="section-title">⚡ Quick Reference Flowcharts</div>
+
+```
+<div class="sub-title">Approach to Dizziness</div>
+<div class="flow" style="font-size:12px">
+  <div class="flow-box" style="background:#2c2825;color:#fff">Dizzy Patient</div>
+  <div class="flow-arr">↓</div>
+  <div class="flow-box">Classify: Vertigo / Presyncope / Disequilibrium / Non-specific</div>
+  <div class="flow-arr">↓</div>
+  <div class="flow-box">If VERTIGO → Is it Central or Peripheral?</div>
+  <div class="flow-arr">↓</div>
+  <div class="flow-box"><strong>HINTS Exam</strong> + History (duration, triggers, vascular risk factors)</div>
+  <div class="flow-arr">↓</div>
+  <div class="flow-row">
+    <div class="flow-col">
+      <div class="flow-box" style="border-color:var(--ok);background:var(--ok-light)">PERIPHERAL<br>(Abnormal HI, horizontal nystagmus, no skew, fatigable)<br>Duration + triggers → BPPV / Neuritis / Ménière's</div>
+      <div class="flow-arr">↓</div>
+      <div class="flow-box" style="border-color:var(--ok)">SEND HOME<br>Epley / Meclizine / Hydrate / Anti-vertigo max 3 days</div>
+    </div>
+    <div class="flow-col">
+      <div class="flow-box" style="border-color:var(--danger);background:var(--danger-light)">CENTRAL<br>(Normal HI, vertical/direction-changing nystagmus, skew present, diplopia, dysarthria)</div>
+      <div class="flow-arr">↓</div>
+      <div class="flow-box" style="border-color:var(--danger)">ADMIT + MRI + Stroke workup</div>
+    </div>
+  </div>
+</div>
+
+<div class="sub-title" style="margin-top:24px">Approach to Headache</div>
+<div class="flow" style="font-size:12px">
+  <div class="flow-box" style="background:#2c2825;color:#fff">New Headache</div>
+  <div class="flow-arr">↓</div>
+  <div class="flow-box"><strong>SNOOP10 screening</strong> — Any red flags?</div>
+  <div class="flow-arr">↓</div>
+  <div class="flow-row">
+    <div class="flow-col">
+      <div class="flow-box" style="border-color:var(--danger);background:var(--danger-light)">YES → Suspect SECONDARY<br>Thunderclap? → CT → LP (SAH)<br>Progressive? → MRI (tumor)<br>Fever + neck stiffness? → LP (meningitis)<br>Female + OCP? → MRV (CVST)</div>
+    </div>
+    <div class="flow-col">
+      <div class="flow-box" style="border-color:var(--ok);background:var(--ok-light)">NO → Likely PRIMARY<br>Characterize by PUMA, duration, associated Sx<br>Migraine / Tension / Cluster / Other</div>
+      <div class="flow-arr">↓</div>
+      <div class="flow-box" style="border-color:var(--ok)">Migraine → Triptans (acute) + Prophylaxis<br>Tension → NSAIDs; NO triptans<br>Cluster → O₂ first-line; SC Sumatriptan</div>
+    </div>
+  </div>
+</div>
+
+<div class="sub-title" style="margin-top:24px">Approach to Cognitive Complaints</div>
+<div class="flow" style="font-size:12px">
+  <div class="flow-box" style="background:#2c2825;color:#fff">Cognitive Complaint</div>
+  <div class="flow-arr">↓</div>
+  <div class="flow-box">Collateral history (timing, progression, domains affected, meds, PMHx)</div>
+  <div class="flow-arr">↓</div>
+  <div class="flow-box">MMSE + MoCA (if MMSE normal but still suspected) → Labs → MRI (mandatory)</div>
+  <div class="flow-arr">↓</div>
+  <div class="flow-box"><strong>FIRST: Rule out REVERSIBLE causes</strong> (thyroid, B12, glucose, electrolytes, infection, medications)</div>
+  <div class="flow-arr">↓</div>
+  <div class="flow-box">If irreversible: Amyloid PET / CSF biomarkers (Aβ42, p-tau, t-tau) for specific diagnosis</div>
+  <div class="flow-arr">↓</div>
+  <div class="flow-box">Treat: Symptomatic + Lifestyle + Family support</div>
+</div>
+
+<div class="sub-title" style="margin-top:24px">Approach to Seizures</div>
+<div class="flow" style="font-size:12px">
+  <div class="flow-box" style="background:#2c2825;color:#fff">Suspected Seizure Event</div>
+  <div class="flow-arr">↓</div>
+  <div class="flow-box">Is this truly a seizure? (Rule out mimics: syncope, hypoglycemia, TIA, panic, PNES)</div>
+  <div class="flow-arr">↓</div>
+  <div class="flow-box">Characterize: Focal vs Generalized vs Unknown onset<br>Semiology, duration, postictal state, triggers</div>
+  <div class="flow-arr">↓</div>
+  <div class="flow-box">EEG (standard → sleep EEG → video-EEG) + MRI brain</div>
+  <div class="flow-arr">↓</div>
+  <div class="flow-box">Metabolic workup: Na, K, Ca, Mg, glucose, LFTs, renal function<br>Most common metabolic cause: HYPO/HYPERNATREMIA</div>
+  <div class="flow-arr">↓</div>
+  <div class="flow-box">AED based on seizure type + patient factors (age, sex, other meds)<br>Goal: Seizure-free with fewest side effects</div>
+</div>
+```
+
+  </div>
+
+</div><!-- end panel 4 -->
+
+<script>
+function showTab(n) {
+  document.querySelectorAll('.tab-panel').forEach((p,i) => p.classList.toggle('active', i===n));
+  document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', i===n));
+  window.scrollTo(0,0);
+}
+
+function handleMCQ(e, list, correctIdx) {
+  const items = list.querySelectorAll('li');
+  if ([...items].some(i => i.classList.contains('correct') || i.classList.contains('wrong'))) return;
+  const clicked = e.target.closest('li');
+  if (!clicked) return;
+  const clickedIdx = [...items].indexOf(clicked);
+  items.forEach((item, i) => {
+    if (i === correctIdx) item.classList.add('correct');
+    else if (i === clickedIdx && clickedIdx !== correctIdx) item.classList.add('wrong');
+  });
+  const exp = list.closest('.mcq-item').querySelector('.mcq-exp');
+  exp.classList.add('show');
+}
+</script>
+
+</body>
+</html>
