@@ -1,0 +1,2237 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neurosciences 1 — High-Yield Reviewer</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f4ef;
+  --surface: #ffffff;
+  --surface2: #f0ece4;
+  --border: #e2d9cc;
+  --text: #2c2416;
+  --text-muted: #7a6e5f;
+  --accent: #2d6a6a;
+  --accent2: #8b3a3a;
+  --accent3: #5a4a8a;
+  --accent4: #1a5276;
+  --green: #1e6b4a;
+  --yellow-bg: #fff9e6;
+  --yellow-border: #f0d060;
+  --red-bg: #fff0f0;
+  --red-border: #e8a0a0;
+  --blue-bg: #eef4fb;
+  --blue-border: #a0c0e8;
+  --purple-bg: #f2eefb;
+  --purple-border: #c0a8e8;
+  --green-bg: #edf7f0;
+  --green-border: #90cca8;
+  --teal-bg: #e6f4f4;
+  --teal-border: #7fc0c0;
+  --sidebar-w: 260px;
+}
+
+- { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+font-family: ‘DM Sans’, sans-serif;
+background: var(–bg);
+color: var(–text);
+font-size: 14px;
+line-height: 1.6;
+}
+
+/* SIDEBAR */
+#sidebar {
+position: fixed;
+left: 0; top: 0;
+width: var(–sidebar-w);
+height: 100vh;
+background: #1e2a2a;
+color: #c8d8d8;
+overflow-y: auto;
+z-index: 100;
+padding-bottom: 40px;
+}
+
+#sidebar-header {
+padding: 22px 18px 14px;
+border-bottom: 1px solid #2e3e3e;
+}
+
+#sidebar-header h1 {
+font-family: ‘Lora’, serif;
+font-size: 14px;
+font-weight: 700;
+color: #e8f4f4;
+letter-spacing: 0.02em;
+}
+
+#sidebar-header p {
+font-size: 11px;
+color: #8aacac;
+margin-top: 4px;
+}
+
+.nav-section {
+padding: 10px 0 4px;
+}
+
+.nav-label {
+font-size: 9px;
+font-weight: 600;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+color: #5a7a7a;
+padding: 6px 18px 4px;
+}
+
+.nav-item {
+display: block;
+padding: 7px 18px;
+color: #a8c4c4;
+text-decoration: none;
+font-size: 12.5px;
+transition: all 0.15s;
+cursor: pointer;
+border-left: 3px solid transparent;
+}
+
+.nav-item:hover, .nav-item.active {
+background: #253535;
+color: #e8f4f4;
+border-left-color: #5ab0b0;
+}
+
+.nav-item.sub {
+padding-left: 28px;
+font-size: 12px;
+color: #8aacac;
+}
+
+/* MAIN */
+#main {
+margin-left: var(–sidebar-w);
+padding: 0 0 80px;
+min-height: 100vh;
+}
+
+/* TOP BAR */
+#topbar {
+background: var(–accent);
+color: white;
+padding: 14px 40px;
+display: flex;
+align-items: center;
+gap: 16px;
+position: sticky;
+top: 0;
+z-index: 50;
+}
+
+#topbar h2 {
+font-family: ‘Lora’, serif;
+font-size: 18px;
+font-weight: 600;
+}
+
+#topbar span {
+font-size: 12px;
+opacity: 0.8;
+background: rgba(255,255,255,0.15);
+padding: 3px 10px;
+border-radius: 20px;
+}
+
+/* SECTIONS */
+.page-section {
+padding: 40px 40px 20px;
+border-bottom: 2px solid var(–border);
+}
+
+.section-header {
+display: flex;
+align-items: center;
+gap: 12px;
+margin-bottom: 24px;
+}
+
+.section-tag {
+background: var(–accent);
+color: white;
+font-size: 10px;
+font-weight: 600;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+padding: 3px 10px;
+border-radius: 4px;
+}
+
+.section-tag.red { background: var(–accent2); }
+.section-tag.purple { background: var(–accent3); }
+.section-tag.navy { background: var(–accent4); }
+.section-tag.green { background: var(–green); }
+
+.section-title {
+font-family: ‘Lora’, serif;
+font-size: 22px;
+font-weight: 700;
+color: var(–text);
+}
+
+/* CARDS & CALLOUTS */
+.card-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+gap: 16px;
+margin-bottom: 20px;
+}
+
+.card {
+background: var(–surface);
+border: 1px solid var(–border);
+border-radius: 10px;
+padding: 18px;
+box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.card h4 {
+font-family: ‘Lora’, serif;
+font-size: 14px;
+font-weight: 600;
+margin-bottom: 10px;
+color: var(–accent);
+}
+
+.card.red h4 { color: var(–accent2); border-bottom: 2px solid var(–red-border); padding-bottom: 6px; }
+.card.purple h4 { color: var(–accent3); border-bottom: 2px solid var(–purple-border); padding-bottom: 6px; }
+.card.green h4 { color: var(–green); border-bottom: 2px solid var(–green-border); padding-bottom: 6px; }
+.card.teal h4 { color: var(–accent); border-bottom: 2px solid var(–teal-border); padding-bottom: 6px; }
+
+.callout {
+border-radius: 8px;
+padding: 14px 18px;
+margin-bottom: 16px;
+border-left: 4px solid;
+font-size: 13.5px;
+}
+
+.callout.yellow { background: var(–yellow-bg); border-color: var(–yellow-border); }
+.callout.red { background: var(–red-bg); border-color: var(–red-border); }
+.callout.blue { background: var(–blue-bg); border-color: var(–blue-border); }
+.callout.green { background: var(–green-bg); border-color: var(–green-border); }
+.callout.purple { background: var(–purple-bg); border-color: var(–purple-border); }
+.callout.teal { background: var(–teal-bg); border-color: var(–teal-border); }
+
+.callout strong { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; opacity: 0.7; }
+
+/* TABLES */
+.tbl-wrap { overflow-x: auto; margin-bottom: 20px; border-radius: 10px; border: 1px solid var(–border); box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+
+table {
+width: 100%;
+border-collapse: collapse;
+font-size: 13px;
+background: var(–surface);
+}
+
+th {
+background: var(–accent);
+color: white;
+padding: 10px 14px;
+text-align: left;
+font-weight: 600;
+font-size: 12px;
+letter-spacing: 0.04em;
+}
+
+th.red { background: var(–accent2); }
+th.purple { background: var(–accent3); }
+th.navy { background: var(–accent4); }
+th.green { background: var(–green); }
+
+td {
+padding: 9px 14px;
+border-bottom: 1px solid var(–border);
+vertical-align: top;
+}
+
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: #fafaf8; }
+
+td.hl { font-weight: 600; color: var(–accent); }
+td.hl-red { font-weight: 600; color: var(–accent2); }
+td.hl-purple { font-weight: 600; color: var(–accent3); }
+
+/* BADGES */
+.badge {
+display: inline-block;
+padding: 2px 8px;
+border-radius: 4px;
+font-size: 11px;
+font-weight: 600;
+margin: 1px;
+}
+
+.badge.teal { background: var(–teal-bg); color: var(–accent); border: 1px solid var(–teal-border); }
+.badge.red { background: var(–red-bg); color: var(–accent2); border: 1px solid var(–red-border); }
+.badge.purple { background: var(–purple-bg); color: var(–accent3); border: 1px solid var(–purple-border); }
+.badge.green { background: var(–green-bg); color: var(–green); border: 1px solid var(–green-border); }
+.badge.yellow { background: var(–yellow-bg); color: #7a5a00; border: 1px solid var(–yellow-border); }
+
+/* STAR */
+.star { color: #d4a017; }
+
+/* ALGORITHM BOX */
+.algo {
+background: var(–surface);
+border: 1px solid var(–border);
+border-radius: 10px;
+padding: 20px;
+margin-bottom: 20px;
+}
+
+.algo h4 {
+font-family: ‘Lora’, serif;
+font-size: 15px;
+color: var(–accent);
+margin-bottom: 14px;
+padding-bottom: 8px;
+border-bottom: 1px solid var(–border);
+}
+
+.flow {
+display: flex;
+align-items: flex-start;
+gap: 0;
+flex-direction: column;
+}
+
+.flow-step {
+display: flex;
+align-items: flex-start;
+gap: 12px;
+width: 100%;
+position: relative;
+}
+
+.flow-step:not(:last-child)::after {
+content: ‘’;
+position: absolute;
+left: 19px;
+top: 40px;
+bottom: -10px;
+width: 2px;
+background: var(–border);
+}
+
+.flow-num {
+width: 38px;
+height: 38px;
+min-width: 38px;
+background: var(–accent);
+color: white;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: 700;
+font-size: 14px;
+margin-bottom: 18px;
+}
+
+.flow-num.red { background: var(–accent2); }
+.flow-num.purple { background: var(–accent3); }
+
+.flow-content {
+background: var(–surface2);
+border-radius: 8px;
+padding: 10px 14px;
+flex: 1;
+margin-bottom: 10px;
+border: 1px solid var(–border);
+}
+
+.flow-content h5 { font-weight: 600; font-size: 13px; color: var(–accent); margin-bottom: 4px; }
+
+/* MCQ */
+.mcq-section { padding: 40px; }
+
+.mcq {
+background: var(–surface);
+border: 1px solid var(–border);
+border-radius: 10px;
+padding: 20px;
+margin-bottom: 16px;
+box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.mcq-num {
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: var(–text-muted);
+margin-bottom: 6px;
+}
+
+.mcq-q {
+font-size: 14px;
+font-weight: 500;
+margin-bottom: 12px;
+color: var(–text);
+line-height: 1.5;
+}
+
+.mcq-opts {
+display: grid;
+gap: 6px;
+}
+
+.mcq-opt {
+padding: 8px 12px;
+border: 1px solid var(–border);
+border-radius: 6px;
+font-size: 13px;
+cursor: pointer;
+transition: all 0.15s;
+background: var(–bg);
+display: flex;
+gap: 8px;
+}
+
+.mcq-opt span.letter {
+font-weight: 700;
+color: var(–accent);
+min-width: 18px;
+}
+
+.mcq-opt:hover { border-color: var(–accent); background: var(–teal-bg); }
+.mcq-opt.correct { background: var(–green-bg) !important; border-color: var(–green-border) !important; }
+.mcq-opt.incorrect { background: var(–red-bg) !important; border-color: var(–red-border) !important; }
+
+.mcq-explain {
+margin-top: 12px;
+padding: 10px 14px;
+background: var(–blue-bg);
+border: 1px solid var(–blue-border);
+border-radius: 6px;
+font-size: 13px;
+display: none;
+}
+
+.mcq-explain.show { display: block; }
+
+/* DIAGRAM */
+.diagram-box {
+background: var(–surface);
+border: 1px solid var(–border);
+border-radius: 10px;
+padding: 20px;
+margin-bottom: 20px;
+text-align: center;
+}
+
+.diagram-title {
+font-family: ‘Lora’, serif;
+font-size: 14px;
+font-weight: 600;
+margin-bottom: 14px;
+color: var(–accent);
+}
+
+/* MNEMONIC */
+.mnemonic {
+background: linear-gradient(135deg, #f0f8f0, #e8f4e8);
+border: 2px dashed var(–green-border);
+border-radius: 10px;
+padding: 16px 20px;
+margin-bottom: 16px;
+}
+
+.mnemonic-label {
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: var(–green);
+margin-bottom: 6px;
+}
+
+.mnemonic-text {
+font-family: ‘Lora’, serif;
+font-size: 14px;
+font-style: italic;
+color: #1e4a2e;
+margin-bottom: 6px;
+}
+
+.mnemonic-expand {
+font-size: 12.5px;
+color: var(–text-muted);
+}
+
+/* COMPARE TABLE */
+.compare {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 12px;
+margin-bottom: 20px;
+}
+
+.compare-col {
+background: var(–surface);
+border: 1px solid var(–border);
+border-radius: 10px;
+overflow: hidden;
+}
+
+.compare-col-head {
+padding: 10px 16px;
+font-weight: 700;
+font-size: 13px;
+color: white;
+letter-spacing: 0.04em;
+}
+
+.compare-col-head.teal { background: var(–accent); }
+.compare-col-head.red { background: var(–accent2); }
+.compare-col-head.purple { background: var(–accent3); }
+
+.compare-col-body {
+padding: 12px 16px;
+}
+
+.compare-col-body li {
+list-style: none;
+padding: 3px 0;
+font-size: 13px;
+border-bottom: 1px solid var(–border);
+}
+
+.compare-col-body li:last-child { border-bottom: none; }
+.compare-col-body li::before { content: ’• ’; color: var(–accent); }
+
+/* TWO COL LAYOUT */
+.two-col {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 16px;
+margin-bottom: 20px;
+}
+
+/* BUZZWORDS */
+.bz-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+gap: 10px;
+margin-bottom: 20px;
+}
+
+.bz-item {
+background: var(–surface);
+border: 1px solid var(–border);
+border-radius: 8px;
+padding: 12px 14px;
+display: flex;
+flex-direction: column;
+gap: 4px;
+}
+
+.bz-term {
+font-family: ‘DM Mono’, monospace;
+font-size: 12px;
+font-weight: 500;
+color: var(–accent);
+background: var(–teal-bg);
+padding: 2px 8px;
+border-radius: 4px;
+width: fit-content;
+}
+
+.bz-def {
+font-size: 12.5px;
+color: var(–text);
+}
+
+/* PROGRESS BAR */
+#score-bar {
+background: var(–surface);
+border: 1px solid var(–border);
+border-radius: 10px;
+padding: 16px 20px;
+margin-bottom: 20px;
+display: flex;
+align-items: center;
+gap: 16px;
+}
+
+#score-display { font-family: ‘Lora’, serif; font-size: 18px; font-weight: 700; color: var(–accent); }
+#score-label { font-size: 13px; color: var(–text-muted); }
+
+/* SCROLL ANCHOR */
+.anchor { scroll-margin-top: 70px; }
+
+/* RESPONSIVE */
+@media (max-width: 800px) {
+:root { –sidebar-w: 0px; }
+#sidebar { display: none; }
+.two-col, .compare { grid-template-columns: 1fr; }
+.page-section { padding: 24px 16px; }
+}
+
+/* DIVIDER */
+.divider {
+height: 1px;
+background: var(–border);
+margin: 20px 0;
+}
+
+h3 {
+font-family: ‘Lora’, serif;
+font-size: 16px;
+font-weight: 600;
+color: var(–text);
+margin: 20px 0 10px;
+padding-left: 10px;
+border-left: 3px solid var(–accent);
+}
+
+h3.red { border-color: var(–accent2); }
+h3.purple { border-color: var(–accent3); }
+
+p { margin-bottom: 10px; }
+ul, ol { padding-left: 20px; margin-bottom: 10px; }
+li { margin-bottom: 3px; }
+
+code {
+background: #e8e0d0;
+padding: 1px 5px;
+border-radius: 3px;
+font-family: ‘DM Mono’, monospace;
+font-size: 12px;
+}
+
+/* TABS */
+.tab-bar {
+display: flex;
+gap: 0;
+border-bottom: 2px solid var(–border);
+margin-bottom: 20px;
+}
+
+.tab-btn {
+padding: 9px 18px;
+font-size: 13px;
+font-weight: 500;
+color: var(–text-muted);
+cursor: pointer;
+border-bottom: 2px solid transparent;
+margin-bottom: -2px;
+transition: all 0.15s;
+background: none;
+border-top: none;
+border-left: none;
+border-right: none;
+font-family: ‘DM Sans’, sans-serif;
+}
+
+.tab-btn.active { color: var(–accent); border-bottom-color: var(–accent); font-weight: 600; }
+.tab-pane { display: none; }
+.tab-pane.active { display: block; }
+
+/* EYE DIAGRAM */
+.eye-row {
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 6px 0;
+border-bottom: 1px solid var(–border);
+font-size: 13px;
+}
+.eye-icon {
+font-size: 18px;
+letter-spacing: -2px;
+}
+.eye-label { color: var(–text-muted); font-size: 11px; min-width: 80px; }
+
+/* SPINAL DIAGRAM */
+.sc-diagram {
+display: grid;
+grid-template-columns: 80px 1fr;
+gap: 8px;
+font-size: 12px;
+}
+.sc-label { text-align: right; font-weight: 600; color: var(–text-muted); padding-top: 4px; }
+.sc-bar {
+height: 26px;
+border-radius: 4px;
+display: flex;
+align-items: center;
+padding-left: 10px;
+font-size: 12px;
+font-weight: 500;
+color: white;
+}
+
+/* VISUAL PATHWAY */
+.vp-step {
+display: flex;
+align-items: center;
+gap: 8px;
+margin-bottom: 6px;
+}
+.vp-dot {
+width: 10px;
+height: 10px;
+border-radius: 50%;
+min-width: 10px;
+}
+.vp-arrow {
+color: var(–text-muted);
+font-size: 16px;
+}
+</style>
+
+</head>
+<body>
+
+<!-- SIDEBAR -->
+
+<nav id="sidebar">
+  <div id="sidebar-header">
+    <h1>Neurosciences 1</h1>
+    <p>High-Yield Reviewer</p>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">1.01 Intro to Neuro</div>
+    <a class="nav-item sub" onclick="scrollTo('cortex-layers')">Cortical Layers</a>
+    <a class="nav-item sub" onclick="scrollTo('neuron-parts')">Neuron & Glial Cells</a>
+    <a class="nav-item sub" onclick="scrollTo('csf-flow')">CSF & Meninges</a>
+    <a class="nav-item sub" onclick="scrollTo('brain-lobes')">Brain Lobes & Functions</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">1.04 Localization</div>
+    <a class="nav-item sub" onclick="scrollTo('three-ls')">3 Ls Framework</a>
+    <a class="nav-item sub" onclick="scrollTo('umn-lmn')">UMN vs LMN</a>
+    <a class="nav-item sub" onclick="scrollTo('spinal-cord')">Spinal Cord Syndromes</a>
+    <a class="nav-item sub" onclick="scrollTo('aphasia')">Aphasia Types</a>
+    <a class="nav-item sub" onclick="scrollTo('visual-path')">Visual Pathway</a>
+    <a class="nav-item sub" onclick="scrollTo('gaze')">Gaze Pathway</a>
+    <a class="nav-item sub" onclick="scrollTo('pupils-loc')">Pupils & Vascular</a>
+    <a class="nav-item sub" onclick="scrollTo('cases')">Case Approach</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">1.03 History & Exam</div>
+    <a class="nav-item sub" onclick="scrollTo('mental-status')">Mental Status / MMSE</a>
+    <a class="nav-item sub" onclick="scrollTo('cn-exam')">Cranial Nerve Exam</a>
+    <a class="nav-item sub" onclick="scrollTo('motor-exam')">Motor & Reflex Exam</a>
+    <a class="nav-item sub" onclick="scrollTo('comatose')">Comatose Patient</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Quick Reference</div>
+    <a class="nav-item sub" onclick="scrollTo('buzzwords')">Buzzwords</a>
+    <a class="nav-item sub" onclick="scrollTo('flowcharts')">Flowcharts</a>
+    <a class="nav-item sub" onclick="scrollTo('mcq')">MCQ Practice</a>
+  </div>
+</nav>
+
+<!-- MAIN -->
+
+<main id="main">
+
+<div id="topbar">
+  <h2>Neurosciences 1 — High-Yield Reviewer</h2>
+  <span>AY 2025–2026</span>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     MODULE 1.01 — INTRO TO CLINICAL NEUROLOGY
+═══════════════════════════════════════════════ -->
+
+<section class="page-section anchor" id="cortex-layers">
+  <div class="section-header">
+    <span class="section-tag">1.01</span>
+    <h2 class="section-title">Cortical Layers, Neurons & History</h2>
+  </div>
+
+  <h3>⭐ Six Layers of the Cerebral Cortex</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Layer</th><th>Name</th><th>Key Features</th><th>High Yield</th></tr>
+      <tr><td class="hl">I</td><td>Molecular Layer</td><td>Outermost; sparse cell bodies</td><td>—</td></tr>
+      <tr><td class="hl">II</td><td>External Granule Cell Layer</td><td>Densely packed small neurons</td><td>—</td></tr>
+      <tr><td class="hl">III</td><td>External Pyramidal Cell Layer</td><td>More prominent pyramidal cells</td><td>—</td></tr>
+      <tr><td class="hl">IV</td><td>Internal Granule Cell Layer</td><td>Receives thalamic input</td><td>Thalamic relay</td></tr>
+      <tr><td class="hl" style="background:#fff3e0"><strong>V ⭐</strong></td><td><strong>Internal Pyramidal Cell Layer</strong></td><td><strong>Largest pyramidal cells; Betz cells</strong></td><td class="hl-red"><strong>Major output layer; corticospinal tract & motor control</strong></td></tr>
+      <tr><td class="hl">VI</td><td>Multiform Layer</td><td>Diverse cell types</td><td>—</td></tr>
+    </table>
+  </div>
+
+  <div class="callout yellow"><strong>⭐ High-Yield</strong> Betz cells = Layer V = Internal Pyramidal Cell Layer → motor output via corticospinal tract. "Layer 5 drives!"</div>
+
+  <h3>History of Neuroscience — Key People</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Person</th><th>Title</th><th>Key Contributions</th></tr>
+      <tr><td class="hl">Santiago Ramón y Cajal</td><td>Father of Modern <em>Neuroscience</em></td><td>Neuron Doctrine (neurons are separate, individual cells); identified 6 layers of cortex; neuron as functional unit of brain</td></tr>
+      <tr><td class="hl">Camillo Golgi</td><td>—</td><td>Golgi stain (silver staining); proposed continuous network theory (debunked by Cajal); shared Nobel 1906</td></tr>
+      <tr><td class="hl">Jean-Martin Charcot</td><td>Father of Modern <em>Neurology</em></td><td>Named multiple sclerosis; Charcot's Triad (fever, RUQ pain, jaundice); Charcot-Marie-Tooth disease; first neurological CPC</td></tr>
+      <tr><td>Charles Sherrington</td><td>—</td><td>Coined term "synapse"</td></tr>
+    </table>
+  </div>
+
+  <div class="callout red"><strong>⭐ Trick</strong> Cajal = Neuroscience. Charcot = Neurology. Don't mix them up!</div>
+</section>
+
+<!-- NEURON -->
+
+<section class="page-section anchor" id="neuron-parts">
+  <h3>Parts of a Neuron</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Structure</th><th>Function</th><th>High Yield</th></tr>
+      <tr><td class="hl">Dendrites</td><td>Receive signals; INPUT zone</td><td>Branches profusely; extends ~100s µm from soma</td></tr>
+      <tr><td class="hl">Cell Body (Soma)</td><td>INTEGRATION zone; metabolic center; houses nucleus & DNA</td><td>—</td></tr>
+      <tr><td class="hl">Axon Hillock</td><td>Connects soma to axon; action potential initiation</td><td>—</td></tr>
+      <tr><td class="hl">Axon</td><td>CONDUCTION zone; transmits electrical impulses away from soma</td><td>Single extension</td></tr>
+      <tr><td class="hl">Myelin</td><td>Insulating layer; rapid signal transmission</td><td>CNS → Oligodendrocytes; PNS → Schwann cells</td></tr>
+      <tr><td class="hl">Nodes of Ranvier</td><td>Gaps in myelin; saltatory conduction</td><td>Key for rapid nerve impulse conduction</td></tr>
+      <tr><td class="hl">Axon Terminals (Synaptic Boutons)</td><td>OUTPUT zone; release neurotransmitters into synaptic cleft</td><td>Presynaptic component</td></tr>
+    </table>
+  </div>
+
+  <h3>Neuron Classification</h3>
+  <div class="two-col">
+    <div class="tbl-wrap">
+      <table>
+        <tr><th colspan="2">By Shape</th></tr>
+        <tr><td class="hl">Unipolar</td><td>Single process; exclusively sensory</td></tr>
+        <tr><td class="hl">Bipolar ⭐</td><td>1 axon + 1 dendrite; <strong>olfactory epithelium & retina</strong></td></tr>
+        <tr><td class="hl">Multipolar</td><td>1 axon + ≥2 dendrites; Golgi neurons, pyramidal, Purkinje, granule cells</td></tr>
+        <tr><td class="hl">Pseudounipolar</td><td>Single process → branches; ALL are sensory</td></tr>
+      </table>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th colspan="2">By Function</th></tr>
+        <tr><td class="hl">Motor (Efferent)</td><td>Brain/spinal cord → muscles; e.g., UMN, LMN via corticospinal tract</td></tr>
+        <tr><td class="hl">Sensory (Afferent)</td><td>Periphery → CNS (post-central gyrus); touch, sound, light</td></tr>
+        <tr><td class="hl">Interneuron (Connector)</td><td>Neither motor nor sensory; reflexes, neural circuitry in CNS</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h3>Glial Cells</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Cell</th><th>Location</th><th>Function</th><th>Tumor</th></tr>
+      <tr><td class="hl">Oligodendrocytes</td><td>CNS</td><td>Produce myelin in CNS; one cell myelinates multiple axons</td><td>Oligodendroglioma</td></tr>
+      <tr><td class="hl">Astrocytes ⭐</td><td>CNS</td><td>Star-shaped; most numerous; nourishment; protective barrier (BBB)</td><td>Glioma/Astrocytoma (most common); Glioblastoma (most aggressive)</td></tr>
+      <tr><td class="hl">Ependymal Cells</td><td>CNS</td><td>CSF homeostasis; brain metabolism; <strong>waste clearance</strong></td><td>—</td></tr>
+      <tr><td class="hl">Microglia</td><td>CNS</td><td>Resident immune cells; scavengers; respond to pathogens</td><td>—</td></tr>
+      <tr><td class="hl">Schwann Cells</td><td>PNS</td><td>Myelinate PNS axons; axon maintenance & regeneration</td><td>Schwannoma</td></tr>
+      <tr><td class="hl">Satellite Cells</td><td>PNS</td><td>Maintenance/repair of skeletal muscle</td><td>—</td></tr>
+    </table>
+  </div>
+
+  <div class="callout blue"><strong>⭐ Memory</strong> Glioblastoma originates from <strong>astrocytes</strong> — most aggressive brain tumor. Astrocytoma/Glioma = astrocytes = most common. Oligodendroglioma = less common.</div>
+
+  <h3>Neuron Doctrine (Cajal) vs Golgi's Theory</h3>
+  <div class="compare">
+    <div class="compare-col">
+      <div class="compare-col-head teal">Cajal — Neuron Doctrine ✓</div>
+      <div class="compare-col-body">
+        <ul>
+          <li>Neurons are <strong>independent, separate cells</strong></li>
+          <li>Information transmitted across <strong>synapses</strong> (tiny gaps)</li>
+          <li>Neuron = functional unit of the brain</li>
+          <li>Used Golgi's stain technique to prove this</li>
+        </ul>
+      </div>
+    </div>
+    <div class="compare-col">
+      <div class="compare-col-head red">Golgi's Theory ✗ (debunked)</div>
+      <div class="compare-col-body">
+        <ul>
+          <li>Neurons were <strong>continuous</strong> with each other</li>
+          <li>Nearly endless network of connected tubes</li>
+          <li>Synapse concept not recognized</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CSF & MENINGES -->
+
+<section class="page-section anchor" id="csf-flow">
+  <div class="section-header">
+    <span class="section-tag">1.01</span>
+    <h2 class="section-title">CSF, Meninges & Brain Support</h2>
+  </div>
+
+  <h3>Meninges (DAP)</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Layer</th><th>Description</th><th>Clinical Relevance</th></tr>
+      <tr><td class="hl">Dura Mater</td><td>Outermost; 2 sublayers (periosteal + meningeal)</td><td>Epidural hematoma, subdural hematoma</td></tr>
+      <tr><td class="hl">Arachnoid Mater</td><td>Middle; NO blood vessels; resembles spider web</td><td>Subarachnoid space = site of SAH; CSF cushion</td></tr>
+      <tr><td class="hl">Pia Mater ⭐</td><td>Innermost; <strong>contains nerves and blood vessels</strong></td><td>Directly covers brain; most vascular layer</td></tr>
+    </table>
+  </div>
+
+  <h3>⭐ CSF Flow — Mnemonic</h3>
+  <div class="mnemonic">
+    <div class="mnemonic-label">🧠 Mnemonic</div>
+    <div class="mnemonic-text">"Come Let's Migrate To States For Money, Love, and Sex"</div>
+    <div class="mnemonic-expand">
+      <strong>C</strong>horoid plexus → <strong>L</strong>ateral ventricles → foramen of <strong>M</strong>onro → <strong>T</strong>hird ventricle → aqueduct of <strong>S</strong>ylvius → <strong>F</strong>ourth ventricle → foramen of <strong>M</strong>agendie &amp; foramen of <strong>L</strong>uschka → <strong>S</strong>ubarachnoid space
+    </div>
+  </div>
+
+  <div class="callout teal"><strong>Key Facts</strong> ~500 cc CSF produced daily by choroid plexus (ependymal cells). Monro-Kellie Doctrine: cranial cavity = fixed volume of brain tissue + blood + CSF. Hydrocephalus → emergent if untreated → herniation. Causative agent in PH: TB meningitis.</div>
+
+  <h3>Ventricular System</h3>
+  <div class="algo">
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div class="flow-content"><h5>Choroid Plexus</h5>Produces CSF; located in ependymal cells</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div class="flow-content"><h5>Lateral Ventricles (Right & Left)</h5>Connected to 3rd ventricle via foramen of Monro</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div class="flow-content"><h5>3rd Ventricle → Aqueduct of Sylvius</h5>Also called cerebral aqueduct</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <div class="flow-content"><h5>4th Ventricle → Foramina of Magendie &amp; Luschka</h5>Exit points to subarachnoid space</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">5</div>
+        <div class="flow-content"><h5>Subarachnoid Space → Arachnoid Villi</h5>Reabsorbed into superior sagittal sinus</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout yellow"><strong>⭐ Exam Pearl</strong> The cerebral aqueduct = Aqueduct of Sylvius (NOT the foramen of Monro, NOT the central canal). It connects the 3rd and 4th ventricles.</div>
+</section>
+
+<!-- BRAIN LOBES -->
+
+<section class="page-section anchor" id="brain-lobes">
+  <div class="section-header">
+    <span class="section-tag">1.01</span>
+    <h2 class="section-title">Brain Lobes & Cortical Functions</h2>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Lobe</th><th>Structure</th><th>Function</th><th>Clinical Deficit</th></tr>
+      <tr><td rowspan="4" class="hl" style="background:#fff3e0"><strong>Frontal</strong></td><td>Motor Cortex (Precentral Gyrus)</td><td>Plans & executes voluntary movements</td><td>Contralateral weakness</td></tr>
+      <tr><td>Basal Ganglia (Subcortical)</td><td>Smoothens movements</td><td>Parkinsonism, chorea</td></tr>
+      <tr><td><strong>Broca's Area</strong> (Inferior Frontal Lobe) ⭐</td><td>Controls speech production</td><td>Broca's aphasia: non-fluent, can understand, cannot express</td></tr>
+      <tr><td>Prefrontal Cortex</td><td>Planning, impulse control, anger management</td><td>Disinhibition, abulia</td></tr>
+      <tr><td rowspan="2" class="hl" style="background:#e8f4e8"><strong>Parietal</strong></td><td>Somatosensory Cortex (Post-central Gyrus) ⭐</td><td>Projection area for body senses; proprioception</td><td>Sensory loss, agnosia</td></tr>
+      <tr><td>Association Cortex</td><td>Location of body/objects in space (proprioception)</td><td>Hemispatial neglect</td></tr>
+      <tr><td rowspan="3" class="hl" style="background:#eef4fb"><strong>Temporal</strong></td><td>Auditory Complex</td><td>Auditory information</td><td>Deafness, cortical</td></tr>
+      <tr><td><strong>Wernicke's Area</strong> ⭐</td><td>Language area — meaning/comprehension</td><td>Wernicke's aphasia: fluent but meaningless, poor comprehension</td></tr>
+      <tr><td>Inferior Temporal Cortex</td><td>Visual identification of objects (memory)</td><td>Prosopagnosia, agnosia</td></tr>
+      <tr><td rowspan="2" class="hl" style="background:#f2eefb"><strong>Occipital</strong></td><td>Primary Visual Cortex (BA 17)</td><td>Projection area for visual info</td><td>Cortical blindness</td></tr>
+      <tr><td>Visual Association Cortex</td><td>Processes components of visual info</td><td>Visual agnosia</td></tr>
+    </table>
+  </div>
+
+  <h3>Other Forebrain Structures</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Structure</th><th>Location</th><th>Function</th></tr>
+      <tr><td class="hl">Thalamus</td><td>Deep/center of brain; grey matter</td><td><strong>Relay station</strong> — filters &amp; directs info throughout brain</td></tr>
+      <tr><td class="hl">Hypothalamus</td><td>Ventral brain; above pituitary</td><td><strong>Control center</strong> — regulates vital functions; hormone release</td></tr>
+      <tr><td class="hl">Corpus Callosum</td><td>Between hemispheres; white matter</td><td>Communication &amp; coordination between hemispheres</td></tr>
+    </table>
+  </div>
+
+  <div class="callout green"><strong>White vs Grey Matter</strong> White matter = myelinated fiber tracts (inner portion). Grey matter = unmyelinated cell bodies &amp; dendrites (outer portion/cortex).</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     MODULE 1.04 — ESSENTIAL TRACTS & LOCALIZATION
+═══════════════════════════════════════════════ -->
+
+<section class="page-section anchor" id="three-ls">
+  <div class="section-header">
+    <span class="section-tag red">1.04</span>
+    <h2 class="section-title">Principles of Localization — The 3 Ls</h2>
+  </div>
+
+  <div class="callout teal"><strong>Two Questions to Answer</strong> (1) WHERE is the lesion? → Anatomic Localization &nbsp;|&nbsp; (2) WHAT is the lesion? → Etiologic Diagnosis</div>
+
+  <h3>⭐ Steps in Localization (Principle of Parsimony)</h3>
+  <div class="algo">
+    <div class="flow">
+      <div class="flow-step"><div class="flow-num">1</div><div class="flow-content"><h5>Get All Clues</h5>History, PE, Neurologic PE — already forming a picture during history taking</div></div>
+      <div class="flow-step"><div class="flow-num">2</div><div class="flow-content"><h5>List All Neurologic Problems</h5>Both subjective complaints AND objective findings; PE may be normal but patient feels otherwise</div></div>
+      <div class="flow-step"><div class="flow-num">3</div><div class="flow-content"><h5>Determine Neuroanatomic Correlates</h5>Which anatomic areas explain each finding?</div></div>
+      <div class="flow-step"><div class="flow-num red">4</div><div class="flow-content"><h5>⭐ Look for "Intersections" — Principle of Parsimony</h5>ONE single localization that accounts for ALL findings = the final localization (simplest explanation)</div></div>
+    </div>
+  </div>
+
+  <h3>⭐ Temporal Profile — Clue to Etiology</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Time Course</th><th>Think of...</th></tr>
+      <tr><td class="hl-red">Hyperacute (seconds–minutes)</td><td>Vascular: Ischemic stroke, intracerebral hemorrhage, SAH; Seizure</td></tr>
+      <tr><td class="hl-red">Acute (hours–days)</td><td>Infection (bacterial meningitis, viral encephalitis), acute demyelinating, trauma</td></tr>
+      <tr><td class="hl">Subacute (weeks–months)</td><td>Fungal meningitis, TB meningitis, neoplasm (malignant), abscess</td></tr>
+      <tr><td class="hl">Chronic (years)</td><td>Neurodegenerative (Alzheimer's, Parkinson's), benign neoplasm, multiple sclerosis</td></tr>
+    </table>
+  </div>
+
+  <h3>⭐ 3 Ls of Localization</h3>
+  <div class="card-grid">
+    <div class="card teal">
+      <h4>1. LEVELIZE</h4>
+      <ul>
+        <li>Central vs Peripheral (CNS vs PNS)</li>
+        <li>UMN vs LMN</li>
+        <li>Supratentorial vs Infratentorial</li>
+        <li>Brain vs Spinal Cord</li>
+        <li>If brain → Cortex vs Brainstem</li>
+        <li>If brainstem → Midbrain / Pons / Medulla</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <h4>2. LATERALIZE</h4>
+      <ul>
+        <li>Left, Right, Both, Midline, or Generalized</li>
+        <li>Hemispheric vs Brainstem (cross-deficit pattern)</li>
+        <li>Look for cranial nerve involvement → ipsilateral to lesion</li>
+        <li>Motor/sensory deficits → contralateral for cortical/SC</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <h4>3. LOCALIZE</h4>
+      <ul>
+        <li>Find the specific area</li>
+        <li>Cortical signs → frontal/parietal/temporal/occipital</li>
+        <li>CN involvement identifies brainstem level</li>
+        <li>Sensory level → spinal cord level</li>
+        <li>Apply Principle of Parsimony</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- UMN vs LMN -->
+
+<section class="page-section anchor" id="umn-lmn">
+  <div class="section-header">
+    <span class="section-tag red">1.04</span>
+    <h2 class="section-title">UMN vs LMN & Corticospinal Tract</h2>
+  </div>
+
+  <div class="compare">
+    <div class="compare-col">
+      <div class="compare-col-head teal">Upper Motor Neuron (UMN)</div>
+      <div class="compare-col-body">
+        <ul>
+          <li>Little or NO wasting</li>
+          <li>↑ Tone — <strong>SPASTICITY</strong></li>
+          <li>↑ Reflexes — <strong>HYPERREFLEXIA</strong> (+3/+4)</li>
+          <li>(+) <strong>Babinski sign</strong></li>
+          <li>(+) Hoffman sign</li>
+          <li>Clonus may be present</li>
+          <li>Involves larger muscle groups</li>
+        </ul>
+      </div>
+    </div>
+    <div class="compare-col">
+      <div class="compare-col-head red">Lower Motor Neuron (LMN)</div>
+      <div class="compare-col-body">
+        <ul>
+          <li>WASTING / Atrophy</li>
+          <li>↓ Tone — <strong>FLACCIDITY</strong></li>
+          <li>↓/Absent reflexes — <strong>HYPOREFLEXIA/AREFLEXIA</strong></li>
+          <li><strong>FASCICULATIONS</strong></li>
+          <li>No Babinski</li>
+          <li>(−) Clonus</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout yellow"><strong>⭐ Exam Pearl</strong> Both UMN + LMN signs together = ALS (Amyotrophic Lateral Sclerosis) or spinal cord lesion. ALS: tongue fibrillations (LMN) + Babinski/hyperreflexia (UMN) + NORMAL SENSATION.</div>
+
+  <h3>⭐ Levels Along the Corticospinal Tract</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Level</th><th>Location</th><th>Presentation</th><th>Clue</th></tr>
+      <tr><td rowspan="2" class="hl">Cortex</td><td>Cortical</td><td>Contralateral arm &amp; leg weakness + <strong>CORTICAL SIGNS</strong> (aphasia, gaze deviation)</td><td>Aphasia = cortex</td></tr>
+      <tr><td>Subcortical (Corona radiata, Internal capsule)</td><td>Contralateral arm &amp; leg weakness; <strong>NO cortical signs</strong> = pure weakness</td><td>Internal capsule → pure motor stroke</td></tr>
+      <tr><td class="hl">Brainstem (Midbrain, Pons, Medulla rostral)</td><td>—</td><td>Contralateral arm &amp; leg weakness</td><td>Midbrain: CN III/IV; Pons: CN V/VI/VII/VIII; Medulla: CN IX/X/XI/XII</td></tr>
+      <tr><td class="hl-red">Brainstem (Medulla caudal)</td><td>—</td><td><strong>IPSILATERAL</strong> arm &amp; leg weakness (decussation at pyramids)</td><td>Cross-deficit = brainstem lesion</td></tr>
+      <tr><td class="hl">Spinal Cord Medial</td><td>—</td><td>Upper extremity weakness</td><td>—</td></tr>
+      <tr><td class="hl">Spinal Cord Lateral</td><td>—</td><td>Lower extremity weakness</td><td>—</td></tr>
+    </table>
+  </div>
+
+  <div class="callout red"><strong>⭐ Decussation Points (Must Memorize!)</strong><br>• Corticospinal Tract → Medulla (pyramidal decussation)<br>• Dorsal Column Medial Lemniscal → Lower Medulla<br>• Spinothalamic Tract → Anterior white commissure of SPINAL CORD (1–2 levels above entry)</div>
+
+  <h3>⭐ Patterns of Weakness</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Pattern</th><th>Localization</th><th>Key Feature</th></tr>
+      <tr><td class="hl">One side — face, arm, leg</td><td>Hemispheric lesion (cortex, internal capsule)</td><td>Cortical signs if cortex; pure weakness if internal capsule</td></tr>
+      <tr><td class="hl">Cross-deficit: face one side, body opposite</td><td><strong>Brainstem</strong></td><td>Highest ipsilateral CN identifies level (midbrain/pons/medulla)</td></tr>
+      <tr><td class="hl">Sensory level + bilateral weakness</td><td>Spinal cord</td><td>Band-like sensory loss; bowel/bladder issues</td></tr>
+      <tr><td class="hl">Root distribution</td><td>Root lesion</td><td>Dermatomal pattern; radicular pain</td></tr>
+      <tr><td class="hl">Glove-and-stocking</td><td>Polyneuropathy</td><td>Distal, symmetric; DM neuropathy</td></tr>
+      <tr><td class="hl">Proximal &gt; distal</td><td>Myopathy</td><td>Hip/shoulder girdle weakness</td></tr>
+      <tr><td class="hl">Fatigable ptosis + proximal weakness</td><td>NMJ (Myasthenia Gravis)</td><td>Ice pack test (+); worse at end of day; no atrophy/fasciculations</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- SPINAL CORD -->
+
+<section class="page-section anchor" id="spinal-cord">
+  <div class="section-header">
+    <span class="section-tag red">1.04</span>
+    <h2 class="section-title">Spinal Cord Tracts & Syndromes</h2>
+  </div>
+
+  <h3>⭐ Three Key Tracts (Location + Function + Side)</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Tract</th><th>Location in SC</th><th>Function</th><th>Side of Effect</th><th>Decussation</th></tr>
+      <tr><td class="hl">Dorsal Column</td><td>Posterior SC (<em>"likod"</em> = back)</td><td>Fine touch, vibration, proprioception</td><td><strong>Ipsilateral</strong></td><td>Lower Medulla</td></tr>
+      <tr><td class="hl">Corticospinal Tract</td><td>Lateral SC</td><td>Motor</td><td><strong>Ipsilateral</strong> (below decussation)</td><td>Medulla (pyramids)</td></tr>
+      <tr><td class="hl">Spinothalamic Tract</td><td>Anterolateral SC</td><td>Pain &amp; temperature</td><td><strong>Contralateral</strong></td><td>Anterior white commissure of SC (1–2 levels above)</td></tr>
+    </table>
+  </div>
+
+  <h3>⭐ Spinal Cord Syndromes</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Syndrome</th><th>What's Hit</th><th>What's Lost</th><th>What's Spared</th><th>Classic Cause</th></tr>
+      <tr>
+        <td class="hl">Posterior Cord Syndrome</td>
+        <td>Dorsal Columns</td>
+        <td>Proprioception, vibration, fine touch → <strong>"stomping gait"</strong></td>
+        <td>Motor strength, pain sensation</td>
+        <td>B12 deficiency, syphilis</td>
+      </tr>
+      <tr>
+        <td class="hl">Anterior Cord Syndrome</td>
+        <td>Anterior horn, corticospinal, spinothalamic (spares dorsal column)</td>
+        <td>Motor, pain &amp; temperature</td>
+        <td>Fine touch, vibration, proprioception</td>
+        <td>Anterior spinal artery infarct</td>
+      </tr>
+      <tr>
+        <td class="hl" style="background:#fff3e0">Central Cord Syndrome ⭐</td>
+        <td>Center of cord first</td>
+        <td>UE &gt;&gt; LE weakness ("Man in a barrel")</td>
+        <td>Sacral sensation often preserved</td>
+        <td>Hyperextension injury (elderly)</td>
+      </tr>
+      <tr>
+        <td class="hl" style="background:#fff3e0">Brown-Séquard Syndrome ⭐</td>
+        <td>Half (hemi-section) of cord</td>
+        <td><strong>Ipsilateral</strong>: motor (CST) + proprioception/vibration (DC); <strong>Contralateral</strong>: pain &amp; temp (ST)</td>
+        <td>Varies</td>
+        <td>Penetrating trauma, tumor</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="callout yellow"><strong>⭐ Brown-Séquard Memory Trick</strong> SAME side (ipsilateral) = Motor + Proprioception lost. OPPOSITE side (contralateral) = Pain + Temperature lost. "Split the cord, split the deficits."</div>
+
+  <div class="two-col">
+    <div class="diagram-box">
+      <div class="diagram-title">Spinal Cord Cross-Section — Tract Locations</div>
+      <svg viewBox="0 0 300 220" style="width:100%;max-width:280px">
+        <ellipse cx="150" cy="110" rx="120" ry="90" fill="#eef" stroke="#888" stroke-width="2"/>
+        <!-- Posterior -->
+        <rect x="115" y="28" width="70" height="35" rx="6" fill="#5a8a5a" opacity="0.8"/>
+        <text x="150" y="44" text-anchor="middle" fill="white" font-size="9" font-weight="bold">Dorsal Column</text>
+        <text x="150" y="56" text-anchor="middle" fill="white" font-size="8">Posterior SC</text>
+        <!-- Lateral -->
+        <rect x="32" y="90" width="72" height="35" rx="6" fill="#2d6a6a" opacity="0.8"/>
+        <text x="68" y="106" text-anchor="middle" fill="white" font-size="9" font-weight="bold">CST (L)</text>
+        <text x="68" y="118" text-anchor="middle" fill="white" font-size="8">Lateral</text>
+        <rect x="196" y="90" width="72" height="35" rx="6" fill="#2d6a6a" opacity="0.8"/>
+        <text x="232" y="106" text-anchor="middle" fill="white" font-size="9" font-weight="bold">CST (R)</text>
+        <text x="232" y="118" text-anchor="middle" fill="white" font-size="8">Lateral</text>
+        <!-- Anterior -->
+        <rect x="105" y="155" width="90" height="35" rx="6" fill="#8b3a3a" opacity="0.8"/>
+        <text x="150" y="170" text-anchor="middle" fill="white" font-size="9" font-weight="bold">Spinothalamic</text>
+        <text x="150" y="183" text-anchor="middle" fill="white" font-size="8">Anterolateral</text>
+        <!-- Labels -->
+        <text x="150" y="15" text-anchor="middle" fill="#444" font-size="10" font-weight="bold">POSTERIOR</text>
+        <text x="150" y="210" text-anchor="middle" fill="#444" font-size="10" font-weight="bold">ANTERIOR</text>
+        <text x="8" y="112" fill="#5a8a5a" font-size="9" font-weight="bold">Ipsi</text>
+        <text x="258" y="185" fill="#8b3a3a" font-size="9" font-weight="bold">Contra</text>
+      </svg>
+    </div>
+
+```
+<div class="card">
+  <h4>Dermatome Landmarks ⭐</h4>
+  <div class="tbl-wrap" style="margin:0">
+    <table>
+      <tr><th>Level</th><th>Landmark</th></tr>
+      <tr><td class="hl">T4</td><td>Nipple line</td></tr>
+      <tr><td class="hl">T10</td><td>Umbilicus</td></tr>
+      <tr><td class="hl">L1</td><td>Inguinal ligament</td></tr>
+      <tr><td class="hl">L4</td><td>Medial ankle</td></tr>
+      <tr><td class="hl">S1</td><td>Lateral foot</td></tr>
+      <tr><td class="hl">S2–S4</td><td>Perineum, anal wink</td></tr>
+    </table>
+  </div>
+</div>
+```
+
+  </div>
+
+  <h3>Carpal Tunnel Syndrome (Median Nerve)</h3>
+  <div class="callout blue"><strong>Sensory loss</strong>: thumb, index, middle, radial half of ring finger | <strong>Motor</strong>: thenar weakness, impaired thumb opposition | <strong>Spared</strong>: thenar eminence (palmar cutaneous branch) | <strong>Test</strong>: NCS ± EMG</div>
+</section>
+
+<!-- APHASIA -->
+
+<section class="page-section anchor" id="aphasia">
+  <div class="section-header">
+    <span class="section-tag red">1.04</span>
+    <h2 class="section-title">Cortical Signs — Aphasia & Frontal Lobe</h2>
+  </div>
+
+  <h3>⭐ Cortical Signs Definitions</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Sign</th><th>Definition</th></tr>
+      <tr><td class="hl">Aphasia</td><td>Inability to understand or express words despite intact sensorimotor pathways</td></tr>
+      <tr><td class="hl">Agnosia</td><td>Inability to understand meaning of sensory stimuli despite intact sensory pathways</td></tr>
+      <tr><td class="hl">Apraxia</td><td>Inability to perform voluntary acts despite intact motor, sensory, and mental status — patient is awake but cannot perform learned movements</td></tr>
+      <tr><td class="hl">Agraphia</td><td>Inability to write — Left parietal, angular gyrus</td></tr>
+      <tr><td class="hl">Acalculia</td><td>Difficulty with math — Left parietal, angular gyrus</td></tr>
+      <tr><td class="hl">Alexia</td><td>"Word blindness" — can see words, cannot interpret meaning</td></tr>
+    </table>
+  </div>
+
+  <h3>⭐ Types of Aphasia (F=Fluency, C=Comprehension, R=Repetition)</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Aphasia</th><th>F</th><th>C</th><th>R</th><th>Naming</th><th>Location</th><th>Classic Description</th></tr>
+      <tr><td class="hl">Global</td><td class="hl-red">✗</td><td class="hl-red">✗</td><td class="hl-red">✗</td><td>Poor</td><td>Entire perisylvian area</td><td>Most severe — all language modalities impaired</td></tr>
+      <tr><td class="hl">Mixed Transcortical</td><td class="hl-red">✗</td><td class="hl-red">✗</td><td class="hl">✓</td><td>Poor</td><td>Perisylvian cortex (ant &amp; post)</td><td>Like global but CAN repeat</td></tr>
+      <tr><td class="hl" style="background:#fff3e0">Broca's ⭐</td><td class="hl-red">✗</td><td class="hl">✓</td><td class="hl-red">✗</td><td>Poor</td><td>Left posterior inferior frontal operculum</td><td>Non-fluent; telegraphic speech ("Want cookie"); understands; frustrated</td></tr>
+      <tr><td class="hl">Transcortical Motor</td><td class="hl-red">✗</td><td class="hl">✓</td><td class="hl">✓</td><td>Normal</td><td>Frontally + superiorly → striatum</td><td>Broca's that can repeat</td></tr>
+      <tr><td class="hl" style="background:#fff3e0">Wernicke's ⭐</td><td class="hl">✓</td><td class="hl-red">✗</td><td class="hl-red">✗</td><td>Poor</td><td>Posterior perisylvian, temporal operculum</td><td>Fluent but meaningless "Word Salad"; poor comprehension</td></tr>
+      <tr><td class="hl">Transcortical Sensory</td><td class="hl">✓</td><td class="hl-red">✗</td><td class="hl">✓</td><td>Normal</td><td>Parietal/temporal, thalamocortical circuit</td><td>Wernicke's that can repeat</td></tr>
+      <tr><td class="hl">Conduction</td><td class="hl">✓</td><td class="hl">✓</td><td class="hl-red">✗</td><td>Poor</td><td>Posterior perisylvian (arcuate fasciculus)</td><td>Fluent, understands, CANNOT repeat</td></tr>
+      <tr><td class="hl">Anomic</td><td class="hl">✓</td><td class="hl">✓</td><td class="hl">✓</td><td>Poor</td><td>Angular gyrus</td><td>Cannot name objects; everything else intact</td></tr>
+    </table>
+  </div>
+
+  <div class="callout yellow"><strong>⭐ Algorithm</strong> Is speech fluent? → YES: comprehend? → Wernicke's / Transcortical Sensory / Conduction / Anomic | NO: comprehend? → Broca's / Transcortical Motor / Global / Mixed. Repetition separates transcortical from non-transcortical.</div>
+
+  <h3>Destructive vs Irritative Lesions ⭐</h3>
+  <div class="compare">
+    <div class="compare-col">
+      <div class="compare-col-head red">Destructive Lesion</div>
+      <div class="compare-col-body">
+        <ul>
+          <li><strong>Loss</strong> of function</li>
+          <li>FEF (e.g., stroke): eyes look <strong>TOWARD</strong> the lesion</li>
+          <li>PPRF: eyes can't look <strong>AWAY</strong> from lesion (ipsilateral gaze palsy)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="compare-col">
+      <div class="compare-col-head teal">Irritative Lesion</div>
+      <div class="compare-col-body">
+        <ul>
+          <li><strong>Promotes/Stimulates</strong> function</li>
+          <li>FEF (e.g., seizure focus): eyes look <strong>AWAY</strong> from (contralateral to) lesion</li>
+          <li>Preferential gaze = HARD SIGN (cannot fake)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISUAL PATHWAY -->
+
+<section class="page-section anchor" id="visual-path">
+  <div class="section-header">
+    <span class="section-tag red">1.04</span>
+    <h2 class="section-title">Visual Pathway Lesions</h2>
+  </div>
+
+  <div class="callout blue"><strong>Rule</strong> Deficit in ONE eye only → optic nerve or ocular pathology. Deficit in BOTH eyes (same field) → homonymous → POSTERIOR to chiasm. Chiasm → bitemporal hemianopia.</div>
+
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>#</th><th>Location</th><th>Visual Loss</th><th>Buzzword</th></tr>
+      <tr><td class="hl">1</td><td>Optic Nerve</td><td>Total monocular blindness — one eye only</td><td>—</td></tr>
+      <tr><td class="hl" style="background:#fff3e0">2 ⭐</td><td>Optic Chiasm</td><td><strong>Bitemporal hemianopia</strong> ("tunnel vision") — nasal fibers from both eyes cross here</td><td>Pituitary tumor</td></tr>
+      <tr><td class="hl">3</td><td>Optic Tract</td><td>Contralateral homonymous hemianopia</td><td>—</td></tr>
+      <tr><td class="hl" style="background:#fff3e0">4 ⭐</td><td>Inferior Loop (Temporal lobe — Meyer's Loop)</td><td>Contralateral <strong>SUPERIOR</strong> Quadrantanopia</td><td>"Pie in the SKY"</td></tr>
+      <tr><td class="hl" style="background:#fff3e0">5 ⭐</td><td>Superior Fibers (Parietal lobe)</td><td>Contralateral <strong>INFERIOR</strong> Quadrantanopia</td><td>"Pie on the FLOOR"</td></tr>
+      <tr><td class="hl">6</td><td>Complete Optic Radiation</td><td>Contralateral homonymous hemianopia</td><td>Similar to optic tract</td></tr>
+      <tr><td class="hl" style="background:#fff3e0">7 ⭐</td><td>Occipital Lobe (PCA territory)</td><td><strong>Homonymous hemianopia with MACULAR SPARING</strong></td><td>PCA stroke</td></tr>
+    </table>
+  </div>
+
+  <div class="diagram-box">
+    <div class="diagram-title">Visual Pathway Summary</div>
+    <svg viewBox="0 0 500 300" style="width:100%;max-width:480px">
+      <defs>
+        <marker id="arr" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="#888"/>
+        </marker>
+      </defs>
+      <!-- Eyes -->
+      <circle cx="80" cy="50" r="22" fill="#eef" stroke="#888" stroke-width="1.5"/>
+      <text x="80" y="55" text-anchor="middle" font-size="10" fill="#444">Left Eye</text>
+      <circle cx="420" cy="50" r="22" fill="#eef" stroke="#888" stroke-width="1.5"/>
+      <text x="420" y="55" text-anchor="middle" font-size="10" fill="#444">Right Eye</text>
+      <!-- Optic nerves -->
+      <line x1="80" y1="72" x2="140" y2="120" stroke="#2d6a6a" stroke-width="2"/>
+      <line x1="420" y1="72" x2="360" y2="120" stroke="#2d6a6a" stroke-width="2"/>
+      <text x="100" y="100" font-size="9" fill="#2d6a6a">Optic N. (1)</text>
+      <text x="370" y="100" font-size="9" fill="#2d6a6a">Optic N. (1)</text>
+      <!-- Chiasm -->
+      <rect x="195" y="115" width="110" height="30" rx="6" fill="#f0d060" stroke="#c0a000" stroke-width="1.5"/>
+      <text x="250" y="134" text-anchor="middle" font-size="10" font-weight="bold" fill="#5a4000">Optic Chiasm (2)</text>
+      <!-- Crossing fibers -->
+      <line x1="195" y1="130" x2="140" y2="130" stroke="#8b3a3a" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <line x1="305" y1="130" x2="360" y2="130" stroke="#8b3a3a" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <!-- Optic tracts -->
+      <line x1="195" y1="145" x2="140" y2="180" stroke="#5a4a8a" stroke-width="2"/>
+      <line x1="305" y1="145" x2="360" y2="180" stroke="#5a4a8a" stroke-width="2"/>
+      <text x="90" y="175" font-size="9" fill="#5a4a8a">L Optic Tract (3)</text>
+      <text x="330" y="175" font-size="9" fill="#5a4a8a">R Optic Tract (3)</text>
+      <!-- LGN -->
+      <ellipse cx="130" cy="195" rx="30" ry="14" fill="#e8f0ff" stroke="#5a4a8a"/>
+      <text x="130" y="199" text-anchor="middle" font-size="9" fill="#5a4a8a">L LGN</text>
+      <ellipse cx="370" cy="195" rx="30" ry="14" fill="#e8f0ff" stroke="#5a4a8a"/>
+      <text x="370" y="199" text-anchor="middle" font-size="9" fill="#5a4a8a">R LGN</text>
+      <!-- Optic radiation -->
+      <line x1="130" y1="209" x2="130" y2="250" stroke="#1a5276" stroke-width="2"/>
+      <line x1="370" y1="209" x2="370" y2="250" stroke="#1a5276" stroke-width="2"/>
+      <!-- Visual cortex -->
+      <rect x="80" y="250" width="100" height="28" rx="6" fill="#eef4fb" stroke="#1a5276"/>
+      <text x="130" y="268" text-anchor="middle" font-size="9" fill="#1a5276">L Visual Cortex (7)</text>
+      <rect x="320" y="250" width="100" height="28" rx="6" fill="#eef4fb" stroke="#1a5276"/>
+      <text x="370" y="268" text-anchor="middle" font-size="9" fill="#1a5276">R Visual Cortex (7)</text>
+      <!-- Temporal/Parietal labels -->
+      <text x="80" y="232" font-size="8" fill="#8b3a3a">Temporal(4,Meyer's)</text>
+      <text x="330" y="232" font-size="8" fill="#8b3a3a">Parietal (5)</text>
+    </svg>
+  </div>
+
+  <div class="callout teal"><strong>⭐ Memory</strong> Superior parietal → INFERIOR visual field (pie on the floor). Inferior temporal (Meyer's loop) → SUPERIOR visual field (pie in the sky). OPPOSITE of what you'd expect!</div>
+</section>
+
+<!-- GAZE -->
+
+<section class="page-section anchor" id="gaze">
+  <div class="section-header">
+    <span class="section-tag red">1.04</span>
+    <h2 class="section-title">Gaze Pathway & Pupils</h2>
+  </div>
+
+  <h3>⭐ Horizontal Gaze Pathway</h3>
+  <div class="callout blue"><strong>Normal:</strong> Right FEF → decussates → Left PPRF → Left CN VI (lateral rectus, left eye abducts) → via MLF to Right CN III (medial rectus, right eye adducts) → GAZE TO THE LEFT.</div>
+
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Area</th><th>Function</th><th>Destructive Lesion → Gaze</th><th>Irritative Lesion → Gaze</th></tr>
+      <tr><td class="hl">FEF (BA 8) ⭐</td><td>Sends signals to contralateral PPRF</td><td>TOWARD lesion (ipsilateral)</td><td>AWAY from lesion (contralateral)</td></tr>
+      <tr><td class="hl">PPRF ⭐</td><td>Facilitates horizontal saccades ipsilaterally</td><td>AWAY from lesion (ipsilateral gaze palsy)</td><td>TOWARD lesion</td></tr>
+      <tr><td class="hl">MLF</td><td>Connects PPRF to contralateral CN III (medial rectus)</td><td>INO: impaired adduction ipsilateral eye + contralateral nystagmus</td><td>TOWARD lesion</td></tr>
+    </table>
+  </div>
+
+  <div class="callout yellow"><strong>⭐ Internuclear Ophthalmoplegia (INO)</strong> MLF lesion → Ipsilateral eye cannot ADDUCT + Contralateral eye NYSTAGMUS on abduction + CONVERGENCE preserved. Common in MS (bilateral INO = bilateral MLF lesion).</div>
+
+  <h3>⭐ Cavernous Sinus Contents</h3>
+  <div class="callout teal"><strong>CN III, IV, V1, V2, VI</strong> + Internal carotid artery + Optic chiasm nearby + Pituitary gland nearby.<br>If CN III + IV + V1 + V2 + VI all involved → Cavernous sinus syndrome. No other single location houses all these nerves together!</div>
+
+  <h3>Brainstem CN Localization</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Level</th><th>Cranial Nerves</th><th>Notes</th></tr>
+      <tr><td class="hl">Midbrain</td><td>CN III, IV</td><td>CN III emerges at interpeduncular fossa; CN IV = only CN that exits dorsally</td></tr>
+      <tr><td class="hl">Pons</td><td>CN V, VI, VII, VIII</td><td>Gaze palsy + lower face (LMN) = pons</td></tr>
+      <tr><td class="hl">Medulla</td><td>CN IX, X, XI, XII</td><td>Wallenberg (PICA), medial medullary (ASA)</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- PUPILS & VASCULAR -->
+
+<section class="page-section anchor" id="pupils-loc">
+  <div class="section-header">
+    <span class="section-tag red">1.04</span>
+    <h2 class="section-title">Pupillary Signs & Vascular Distributions</h2>
+  </div>
+
+  <h3>⭐ Pupillary Signs — Localization</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Lesion</th><th>Pupil Finding</th><th>Mnemonic</th></tr>
+      <tr><td class="hl">Diencephalon (metabolic)</td><td>Small, reactive</td><td>Drugs/metabolic encephalopathy</td></tr>
+      <tr><td class="hl">Pretectal</td><td>Large, "fixed", hippus</td><td>—</td></tr>
+      <tr><td class="hl-red">CN III (Uncal Herniation) ⭐</td><td><strong>Dilated, fixed (anisocoria)</strong></td><td>"Blown pupil" = uncal herniation = ↑ICP emergency</td></tr>
+      <tr><td class="hl">Midbrain</td><td>Mid-position, fixed</td><td><strong>Mid</strong>brain → <strong>mid</strong>-position</td></tr>
+      <tr><td class="hl-red">Pons ⭐</td><td><strong>Pinpoint pupils</strong></td><td>Pin<strong>pont</strong>ine → Pinpoint</td></tr>
+    </table>
+  </div>
+
+  <h3>Horner's Syndrome (Sympathetic Disruption)</h3>
+  <div class="callout red"><strong>Triad</strong>: Miosis + Ptosis + Anhidrosis (dry face/skin) → disrupted sympathetic supply. Ptosis = loss of Müller's muscle innervation. Miosis = unopposed parasympathetic.</div>
+
+  <h3>⭐ Vascular Distribution</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Artery</th><th>Supplies</th><th>Infarct Presentation</th></tr>
+      <tr><td class="hl">ACA</td><td>Medial &amp; superior brain, frontal pole; <strong>leg</strong> motor &amp; sensory cortex</td><td>Contralateral LEG &gt;&gt; arm weakness, urinary incontinence</td></tr>
+      <tr><td class="hl">MCA</td><td>Lateral brain, temporal pole; <strong>face &amp; arm</strong> cortex; Broca's &amp; Wernicke's</td><td>Contralateral arm &amp; face &gt;&gt; leg; aphasia (dominant hemisphere)</td></tr>
+      <tr><td class="hl">PCA</td><td>Posterior/inferior brain, occipital pole; thalamus, midbrain</td><td>Homonymous hemianopia w/ macular sparing; thalamic syndrome</td></tr>
+      <tr><td class="hl">PICA</td><td>Lateral medulla, cerebellum</td><td><strong>Wallenberg syndrome</strong>: ipsilateral facial + contralateral body pain/temp loss, vertigo, Horner's, dysphagia</td></tr>
+      <tr><td class="hl">ASA</td><td>Medial medulla</td><td><strong>Medial medullary syndrome</strong>: contralateral hemiplegia, ipsilateral tongue deviation, contralateral proprioception/vibration loss</td></tr>
+    </table>
+  </div>
+
+  <h3>⭐ Posterior Circulation (Vertebrobasilar) Symptoms</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Symptom</th><th>Structure Affected</th></tr>
+      <tr><td class="hl">Dizziness/Vertigo, Nausea</td><td>Vestibular nuclei, cerebellum, inner ear</td></tr>
+      <tr><td class="hl">Diplopia, Disconjugate gaze</td><td>Supranuclear/infranuclear eye movement pathways</td></tr>
+      <tr><td class="hl">Unsteady gait, Ataxia</td><td>Cerebellar pathways; long sensory/motor tracts</td></tr>
+      <tr><td class="hl">Dysarthria, Dysphagia</td><td>Corticobulbar pathways; brainstem CN nuclei</td></tr>
+      <tr><td class="hl">Bilateral/perioral numbness</td><td>Long somatosensory pathways; trigeminal system</td></tr>
+      <tr><td class="hl">Somnolence</td><td>Pontomesencephalic reticular formation / bilateral thalami</td></tr>
+    </table>
+  </div>
+
+  <h3>Common Brainstem Syndromes</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Syndrome</th><th>Site</th><th>CN Involved</th><th>Presentation</th><th>Cause</th></tr>
+      <tr><td class="hl">Wallenberg (Lateral Medullary)</td><td>Lateral Medulla (PICA)</td><td>V, IX, X</td><td>Vertigo, nystagmus; ipsilateral face pain/temp loss; contralateral body pain/temp loss; Horner's; dysphagia/hoarseness</td><td>PICA occlusion</td></tr>
+      <tr><td class="hl">Medial Medullary</td><td>Medial Medulla (ASA)</td><td>XII</td><td>Contralateral spastic hemiplegia; contralateral proprioception/vibration loss; ipsilateral tongue deviation</td><td>ASA infarct</td></tr>
+      <tr><td class="hl">Weber Syndrome</td><td>Midbrain ventromedial</td><td>III</td><td>Ipsilateral CN III palsy (ptosis, dilated pupil) + contralateral hemiplegia</td><td>Infarct/tumor</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- CASE APPROACH -->
+
+<section class="page-section anchor" id="cases">
+  <div class="section-header">
+    <span class="section-tag red">1.04</span>
+    <h2 class="section-title">Case Approach — Putting It Together</h2>
+  </div>
+
+  <h3>Step-by-Step Localization Framework</h3>
+  <div class="algo">
+    <h4>⭐ How to Approach ANY Neuro Case</h4>
+    <div class="flow">
+      <div class="flow-step"><div class="flow-num">1</div><div class="flow-content"><h5>LEVELIZE: UMN vs LMN?</h5>UMN → spasticity, hyperreflexia, Babinski, no atrophy | LMN → flaccid, hypo/areflexia, atrophy, fasciculations | BOTH → ALS or spinal cord</div></div>
+      <div class="flow-step"><div class="flow-num">2</div><div class="flow-content"><h5>LEVELIZE: Central (CNS) or Peripheral (PNS)?</h5>CNS → aphasia, gaze deviation, Babinski | PNS → glove-stocking pattern, dermatomal, NMJ features</div></div>
+      <div class="flow-step"><div class="flow-num">3</div><div class="flow-content"><h5>LEVELIZE: Supratentorial vs Infratentorial?</h5>Aphasia → brain (cortex) | Cross-deficit + CN involvement → brainstem (infratentorial) | Sensory level → spinal cord</div></div>
+      <div class="flow-step"><div class="flow-num">4</div><div class="flow-content"><h5>LATERALIZE: Which Side?</h5>Hemispheric: same side face + body | Brainstem: cross-deficit (face contralateral to body) | Gaze deviation: toward lesion (destructive)</div></div>
+      <div class="flow-step"><div class="flow-num red">5</div><div class="flow-content"><h5>LOCALIZE: Specific Area</h5>Cortical signs (aphasia) → which lobe? | CN involved → which brainstem level? | Sensory level + Brown-Séquard pattern → spinal level</div></div>
+    </div>
+  </div>
+
+  <div class="callout yellow"><strong>⭐ Key Shortcuts</strong><br>
+  • Gaze toward lesion (destructive) + right-sided weakness + aphasia → LEFT frontal/MCA stroke<br>
+  • Left face (LMN, forehead affected) + right body weakness → LEFT Pons (CN VI/VII + CST)<br>
+  • Ipsilateral ptosis + miosis + anhidrosis → Horner's (sympathetic disruption)<br>
+  • Bilateral motor + bilateral sensory at umbilicus, dissociated → Spinal cord (Brown-Séquard at T10)<br>
+  • UMN + LMN + NO sensory → ALS<br>
+  • Fatigable ptosis, ice pack (+), proximal weakness → MG (NMJ)</div>
+
+  <h3>Normal Pressure Hydrocephalus — Triad</h3>
+  <div class="callout teal"><strong>Wobbly + Wacky + Wet</strong><br>
+  • Wobbly = Gait disturbance (magnetic gait)<br>
+  • Wacky = Cognitive impairment<br>
+  • Wet = Impaired bladder control (urinary incontinence)</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     MODULE 1.03 — HISTORY TAKING & EXAMINATION
+═══════════════════════════════════════════════ -->
+
+<section class="page-section anchor" id="mental-status">
+  <div class="section-header">
+    <span class="section-tag purple">1.03</span>
+    <h2 class="section-title">Mental Status & Cognitive Examination</h2>
+  </div>
+
+  <h3>Levels of Consciousness</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Level</th><th>Description</th><th>Tagalog Analogy</th></tr>
+      <tr><td class="hl">Alert</td><td>Fully conscious, aware, coherent, can answer questions</td><td>Normal</td></tr>
+      <tr><td class="hl">Lethargic</td><td>Somnolent but can maintain arousal spontaneously or with light stimulation</td><td>"Parang antok-antok"</td></tr>
+      <tr><td class="hl">Obtunded</td><td>Requires touch or voice to maintain arousal</td><td>"Mas antok kaysa lethargic"</td></tr>
+      <tr><td class="hl">Stuporous</td><td>Unresponsive; aroused only by vigorous, repeated stimulus; returns to sleep</td><td>"Hirap gisingin"</td></tr>
+      <tr><td class="hl-red">Comatose</td><td>Unarousable unresponsiveness; eyes closed; lacks awareness of self and environment</td><td>—</td></tr>
+    </table>
+  </div>
+
+  <h3>⭐ MMSE — Components & Scoring</h3>
+  <div class="callout teal"><strong>Cutoff: 26/30</strong> | Screen for dementia/cortical problems | Always determine highest educational attainment first! | First attempt only for recall.</div>
+
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Component</th><th>Max Pts</th><th>What to Test</th><th>High-Yield Notes</th></tr>
+      <tr><td class="hl">Orientation</td><td>10</td><td>Date, day, season, place, floor, street, municipality, city, country (5 time + 5 place)</td><td>Tagalog versions acceptable</td></tr>
+      <tr><td class="hl">Immediate Recall</td><td>3</td><td>"Mangga-Mesa-Pera" — 1 second interval</td><td><strong>Only FIRST attempt scored</strong>; allow up to 6 attempts but score only first</td></tr>
+      <tr><td class="hl">Attention</td><td>5</td><td>Serial 7s (100-7-7...) OR backward spelling "KARNE" or "WORLD"</td><td>Serial 7s = attention; 5 subtractions</td></tr>
+      <tr><td class="hl">Delayed Recall</td><td>3</td><td>Recall the 3 words from immediate recall; 10 secs per word</td><td>—</td></tr>
+      <tr><td class="hl">Language</td><td>9</td><td>Naming (2) + Repetition (1) + 3-step command (3) + Reading (1) + Writing (1) + Copying pentagons (1)</td><td>No ruler or cues for copying; command uses NONDOMINANT hand</td></tr>
+    </table>
+  </div>
+
+  <h3>⭐ MoCA-P</h3>
+  <div class="callout green"><strong>Cutoff: 24/30</strong> | More sensitive than MMSE for mild cognitive impairment | Education adjustments: (+2) for 4–9 years education, (+1) for 10–12 years education</div>
+
+  <h3>Parietal Lobe Tests — Agnosia</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Test</th><th>What it Tests</th><th>How to Test</th></tr>
+      <tr><td class="hl">Astereognosia</td><td>Loss of form sense</td><td>Eyes closed → identify coin/pen/key placed in palm</td></tr>
+      <tr><td class="hl">Agraphesthesia</td><td>Loss of graphic sense</td><td>Eyes closed → trace number/letter on palm with blunt tip</td></tr>
+      <tr><td class="hl">Atopognosia</td><td>Loss of cutaneous localization</td><td>Left angular gyrus area; cannot localize skin stimuli</td></tr>
+      <tr><td class="hl">Hemispatial Neglect ⭐</td><td>Right parietal lesion → LEFT side ignored</td><td>Draw clock — numbers crowded only on right; left side empty</td></tr>
+      <tr><td class="hl">Sensory Extinction</td><td>Inattention to bilateral stimulation</td><td>Touch both hands simultaneously → patient reports only one side</td></tr>
+    </table>
+  </div>
+
+  <div class="callout yellow"><strong>Apraxia Types</strong><br>
+  • Ideomotor: knows how but cannot perform on command (e.g., show me how to use scissors)<br>
+  • Constructional: cannot copy geometric figures<br>
+  • Dressing: cannot orient/put on clothes → <strong>Right parietal lesion</strong></div>
+</section>
+
+<!-- CN EXAM -->
+
+<section class="page-section anchor" id="cn-exam">
+  <div class="section-header">
+    <span class="section-tag purple">1.03</span>
+    <h2 class="section-title">Cranial Nerve Examination</h2>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>CN</th><th>Name</th><th>How to Test</th><th>⭐ High-Yield Findings</th></tr>
+      <tr><td class="hl">I</td><td>Olfactory</td><td>Coffee/vanilla (NOT alcohol/perfume); one nostril at a time; 2nd trial: withhold stimulus (tests suggestibility)</td><td>Anosmia; do NOT use strong scents (activates CN V)</td></tr>
+      <tr><td class="hl">II</td><td>Optic</td><td>Snellen/Jaeger chart; confrontation testing; Ishihara (color); fundoscopy</td><td>Loss of venous pulsation on fundoscopy → ↑ICP; papilledema</td></tr>
+      <tr><td class="hl">II/III</td><td>Optic/Oculomotor</td><td>Pupillary light reflex; swinging flashlight (RAPD); convergence/miosis; accommodation</td><td>RAPD: opposite eye dilates when light shone; CN III palsy = blown pupil</td></tr>
+      <tr><td class="hl">III,IV,VI</td><td>Oculomotor, Trochlear, Abducens</td><td>H-pattern EOM testing; Hirschberg test (corneal light reflection)</td><td>CN VI = lateral rectus (abduction); CN IV = superior oblique (only CN exiting dorsally); CN III = all others + pupil</td></tr>
+      <tr><td class="hl">V</td><td>Trigeminal</td><td>Sensory: cotton to V1/V2/V3 divisions; Motor: palpate masseter during clench; jaw opening against resistance</td><td>V1=ophthalmic, V2=maxillary, V3=mandibular; masseter = V3 motor</td></tr>
+      <tr><td class="hl">V+VII</td><td>Trigem + Facial</td><td>Corneal reflex: touch lateral cornea with fine cotton; approach from side (avoid visual field)</td><td>Afferent = CN V; Efferent = CN VII; used in comatose patients</td></tr>
+      <tr><td class="hl">VII</td><td>Facial</td><td>Frontalis (wrinkle forehead); Orbicularis oculi (close eyes tight); Buccinator (smile/nasolabial fold); Platysma (pull corners down)</td><td>Peripheral (Bell's Palsy): ENTIRE face ipsilateral (forehead involved). Central UMN: LOWER face only (forehead SPARED due to bilateral cortical innervation)</td></tr>
+      <tr><td class="hl">VIII</td><td>Vestibulocochlear</td><td>Whispered voice; Weber test (tuning fork on forehead); Rinne test (mastoid vs air)</td><td>Weber lateralizes to AFFECTED ear in conductive loss; to NORMAL ear in sensorineural. Rinne: AC&gt;BC = normal; BC≥AC = conductive; AC&gt;BC both diminished = sensorineural</td></tr>
+      <tr><td class="hl">IX/X</td><td>Glossopharyngeal/Vagus</td><td>KLM test (Ka=palate/CN X; La=tongue/CN XII; Ma=lips/CN VII); palate elevation ("Ahh"); gag reflex; uvula position</td><td>Uvula deviates AWAY from affected side (toward functioning side). Absent gag: IX afferent or X efferent lesion</td></tr>
+      <tr><td class="hl">XI</td><td>Spinal Accessory</td><td>Head turn against resistance (tests contralateral SCM); shoulder shrug (trapezius)</td><td>Head turned LEFT = tests RIGHT SCM; ipsilateral CN XI lesion if weak</td></tr>
+      <tr><td class="hl">XII</td><td>Hypoglossal</td><td>Inspect tongue for hemiatrophy; protrude tongue; side-to-side movement</td><td>Tongue deviates TOWARD the side of the lesion (ipsilateral); hemiatrophy = most reliable sign</td></tr>
+    </table>
+  </div>
+
+  <div class="callout yellow"><strong>⭐ Facial Nerve Pearl</strong> Upper face (forehead) has bilateral cortical innervation. Lower face has only contralateral. So: <br>• <strong>Peripheral CN VII</strong> (Bell's palsy): forehead INVOLVED, entire face ipsilateral<br>• <strong>Central UMN</strong> lesion: forehead SPARED, only lower contralateral face weak</div>
+</section>
+
+<!-- MOTOR & REFLEX -->
+
+<section class="page-section anchor" id="motor-exam">
+  <div class="section-header">
+    <span class="section-tag purple">1.03</span>
+    <h2 class="section-title">Motor, Reflex & Sensory Examination</h2>
+  </div>
+
+  <h3>⭐ Muscle Strength Grading (MRC Scale)</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Grade</th><th>Meaning</th></tr>
+      <tr><td class="hl">5</td><td>Normal strength — full range, full resistance</td></tr>
+      <tr><td class="hl">4</td><td>Full range against gravity + some resistance</td></tr>
+      <tr><td class="hl">3</td><td>Full range against gravity, NO additional resistance</td></tr>
+      <tr><td class="hl">2</td><td>Moves only when gravity eliminated</td></tr>
+      <tr><td class="hl">1</td><td>Flicker of contraction; no movement</td></tr>
+      <tr><td class="hl">0</td><td>Complete paralysis</td></tr>
+    </table>
+  </div>
+
+  <h3>⭐ Deep Tendon Reflex Grading</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Grade</th><th>Meaning</th><th>Clinical Significance</th></tr>
+      <tr><td class="hl">0</td><td>Areflexia</td><td>LMN lesion, peripheral neuropathy</td></tr>
+      <tr><td class="hl">1</td><td>Hyporeflexia</td><td>LMN, early peripheral neuropathy</td></tr>
+      <tr><td class="hl">2</td><td>Normal</td><td>—</td></tr>
+      <tr><td class="hl">3</td><td>Hyperreflexia</td><td>UMN lesion</td></tr>
+      <tr><td class="hl">4</td><td>Clonus present</td><td><strong>Definite UMN lesion</strong></td></tr>
+    </table>
+  </div>
+
+  <h3>DTR Testing & Root Levels</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Reflex</th><th>Root Level</th><th>How to Elicit</th></tr>
+      <tr><td class="hl">Biceps</td><td>C5–C6</td><td>Examiner's thumb on biceps tendon → strike thumb</td></tr>
+      <tr><td class="hl">Triceps</td><td>C7–C8</td><td>Strike triceps tendon above olecranon</td></tr>
+      <tr><td class="hl">Brachioradialis</td><td>C5–C6</td><td>Strike radial styloid; strike examiner's thumb not bone</td></tr>
+      <tr><td class="hl">Patellar</td><td>L3–L4</td><td>Strike patellar tendon; most commonly tested</td></tr>
+      <tr><td class="hl">Achilles</td><td>S1</td><td>Strike Achilles tendon; absent = S1 lesion</td></tr>
+    </table>
+  </div>
+
+  <h3>⭐ Primitive Reflexes (UMN Signs)</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Reflex</th><th>How to Elicit</th><th>Positive Response</th><th>Significance</th></tr>
+      <tr><td class="hl">Babinski</td><td>Stroke lateral sole from heel → base of toes medially</td><td>Dorsiflexion of big toe (± fanning of toes)</td><td>UMN lesion; normal in infants (plantar grasp); afferent S1, efferent L5-S1</td></tr>
+      <tr><td class="hl">Tromner's</td><td>Briskly flip distal phalanx UPWARD</td><td>Flexion of fingers and thumb</td><td>UMN lesion</td></tr>
+      <tr><td class="hl">Hoffman's</td><td>Flick/depress distal phalanx DOWNWARD; let it flip up</td><td>Thumb/finger flexion</td><td>UMN; upper limb Babinski equivalent</td></tr>
+    </table>
+  </div>
+
+  <h3>Superficial Reflexes</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Reflex</th><th>Root</th><th>How</th><th>Clinical Use</th></tr>
+      <tr><td class="hl">Abdominal</td><td>T8–T12</td><td>Stroke toward umbilicus → umbilicus moves toward stimulus</td><td>Localizes thoracic cord lesions</td></tr>
+      <tr><td class="hl">Cremasteric</td><td>L1–L2</td><td>Stroke medial inner thigh → testis elevates</td><td>Absent in testicular torsion</td></tr>
+      <tr><td class="hl">Anal Wink</td><td>S2–S4</td><td>Prick perianal skin → sphincter constriction</td><td><strong>First reflex to return after spinal shock</strong></td></tr>
+      <tr><td class="hl">Bulbocavernosus</td><td>S3–S4</td><td>Squeeze glans → anal contraction detected by finger</td><td>Tests sacral sparing</td></tr>
+    </table>
+  </div>
+
+  <h3>Cerebellar Examination</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Test</th><th>Positive Finding</th><th>Significance</th></tr>
+      <tr><td class="hl">Finger-to-Nose</td><td>Intention tremor (↑ as approaches target); dysmetria (over/undershoot)</td><td>Cerebellar dysfunction</td></tr>
+      <tr><td class="hl">Dysdiadochokinesia</td><td>Slow, irregular, clumsy alternating movements (pronation/supination)</td><td>Cerebellar</td></tr>
+      <tr><td class="hl">Heel-to-Shin</td><td>Wobbly, misses shin</td><td>Lower limb cerebellar</td></tr>
+      <tr><td class="hl">Romberg's Test</td><td>Loses balance when eyes closed (positive = falls)</td><td><strong>NOT cerebellar</strong>; tests dorsal column/proprioception; also vestibular disease</td></tr>
+    </table>
+  </div>
+
+  <div class="callout red"><strong>⭐ Romberg's Pearl</strong> Romberg test = tests PROPRIOCEPTION (dorsal column), NOT cerebellar function. Cerebellar ataxia is present even with eyes OPEN (doesn't significantly worsen with eye closure).</div>
+
+  <h3>Sensory Modalities</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Modality</th><th>Pathway</th><th>How to Test</th></tr>
+      <tr><td class="hl">Fine touch, vibration, proprioception</td><td>Dorsal Column → ipsilateral</td><td>Cotton wisp; tuning fork on DIP joint; grasp 4th digit, move up/down</td></tr>
+      <tr><td class="hl">Pain &amp; temperature</td><td>Spinothalamic → contralateral</td><td>Toothpick (sharp/dull); warm/cold tubes; tuning fork (cold) vs finger (warm)</td></tr>
+    </table>
+  </div>
+
+  <h3>Gait Examination</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Gait Type</th><th>Characteristics</th><th>Localization</th></tr>
+      <tr><td class="hl">Parkinsonian</td><td>Shuffling steps, decreased arm swing (often unilateral), festination, incomplete foot clearance, turns en bloc</td><td>Basal ganglia (extrapyramidal)</td></tr>
+      <tr><td class="hl">Wide-based / Ataxic</td><td>Unsteady, wide base, swaying</td><td>Cerebellar</td></tr>
+      <tr><td class="hl">Magnetic / Frontal</td><td>Feet "stuck to floor," difficulty initiating, normal power</td><td>Frontal lobe (NPH)</td></tr>
+      <tr><td class="hl">Steppage</td><td>High stepping; foot drop; slap gait</td><td>Foot dorsiflexor weakness (L4-L5)</td></tr>
+      <tr><td class="hl">Stomping</td><td>High-stepping, stamps foot; cannot sense position</td><td>Dorsal column (proprioception loss)</td></tr>
+    </table>
+  </div>
+
+  <h3>⭐ Meningeal Signs</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Sign</th><th>How to Test (PASSIVE — examiner does the movement)</th><th>Positive Finding</th><th>Memory</th></tr>
+      <tr><td class="hl">Brudzinski</td><td>Patient supine; examiner passively flexes neck</td><td>Involuntary hip &amp; knee flexion</td><td><strong>B</strong>rudzinski = <strong>B</strong>atok (neck)</td></tr>
+      <tr><td class="hl">Kernig</td><td>Patient supine; flex hip and knee to 90°; passively extend knee</td><td>Pain/resistance at >135° extension</td><td><strong>K</strong>ernig = <strong>K</strong>er-<strong>knee</strong></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- COMATOSE -->
+
+<section class="page-section anchor" id="comatose">
+  <div class="section-header">
+    <span class="section-tag purple">1.03</span>
+    <h2 class="section-title">Examination of the Comatose Patient</h2>
+  </div>
+
+  <h3>⭐ Respiration → Localization</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Breathing Pattern</th><th>Lesion Location</th><th>Description</th></tr>
+      <tr><td class="hl">Sighing/yawning</td><td>Upper Diencephalon</td><td>Non-specific; early cortical dysfunction</td></tr>
+      <tr><td class="hl-red">Cheyne-Stokes ⭐</td><td>Lower Diencephalon / Forebrain</td><td>Crescendo-decrescendo hyperpnea alternating with apnea; often due to metabolic or bilateral cortical dysfunction</td></tr>
+      <tr><td class="hl">Hyperventilation</td><td>Midbrain</td><td>Rapid, deep, sustained breathing</td></tr>
+      <tr><td class="hl">Apneustic</td><td>Rostral Pons</td><td>Prolonged inspiratory pause</td></tr>
+      <tr><td class="hl">Ataxic Breathing</td><td>Lower Pons</td><td>Completely irregular, unpredictable</td></tr>
+      <tr><td class="hl-red">Respiratory Arrest</td><td>Upper Medulla</td><td>Ataxic → Apnea</td></tr>
+    </table>
+  </div>
+
+  <h3>⭐ Caloric Testing — COWS Mnemonic</h3>
+  <div class="mnemonic">
+    <div class="mnemonic-label">Mnemonic — COWS</div>
+    <div class="mnemonic-text">Cold → Opposite | Warm → Same</div>
+    <div class="mnemonic-expand">Cold water in one ear → eyes move to OPPOSITE side (normal). Warm water → eyes move to SAME side. Absent response → brainstem dysfunction. Always check tympanic membrane first (intact needed)!</div>
+  </div>
+
+  <h3>Glasgow Coma Scale</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th colspan="2">Eye Opening (1–4)</th><th colspan="2">Best Verbal (1–5)</th><th colspan="2">Best Motor (1–6)</th></tr>
+      <tr><td>4</td><td>Spontaneous</td><td>5</td><td>Oriented</td><td>6</td><td>Obeys</td></tr>
+      <tr><td>3</td><td>To speech</td><td>4</td><td>Confused</td><td>5</td><td>Localizes</td></tr>
+      <tr><td>2</td><td>To pain</td><td>3</td><td>Inappropriate</td><td>4</td><td>Withdrawal</td></tr>
+      <tr><td>1</td><td>None</td><td>2</td><td>Incomprehensible</td><td>3</td><td>Flexion (decorticate)</td></tr>
+      <tr><td></td><td></td><td>1</td><td>None</td><td>2</td><td>Extension (decerebrate)</td></tr>
+      <tr><td></td><td></td><td></td><td></td><td>1</td><td>None</td></tr>
+    </table>
+  </div>
+
+  <div class="callout blue"><strong>Range</strong> Min = 3, Max = 15. GCS ≤8 = coma (intubation threshold).</div>
+
+  <h3>⭐ Motor Posturing — Localization</h3>
+  <div class="compare">
+    <div class="compare-col">
+      <div class="compare-col-head teal">Decorticate Posturing</div>
+      <div class="compare-col-body">
+        <ul>
+          <li>Lesion ABOVE red nucleus (cortex/internal capsule)</li>
+          <li>Arms FLEXED, legs extended</li>
+          <li>Hands clasped to chest</li>
+          <li>Less severe than decerebrate</li>
+        </ul>
+      </div>
+    </div>
+    <div class="compare-col">
+      <div class="compare-col-head red">Decerebrate Posturing</div>
+      <div class="compare-col-body">
+        <ul>
+          <li>Lesion BELOW red nucleus (midbrain/upper pons)</li>
+          <li>Arms AND legs EXTENDED</li>
+          <li>Forearms pronated</li>
+          <li>More severe; worse prognosis</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     BUZZWORDS
+═══════════════════════════════════════════════ -->
+
+<section class="page-section anchor" id="buzzwords">
+  <div class="section-header">
+    <span class="section-tag green">Quick Reference</span>
+    <h2 class="section-title">Buzzwords & Must-Know Facts</h2>
+  </div>
+
+  <div class="bz-grid">
+    <div class="bz-item"><div class="bz-term">Betz cells</div><div class="bz-def">Layer V of cortex; large pyramidal neurons → corticospinal tract → motor output</div></div>
+    <div class="bz-item"><div class="bz-term">Neuron Doctrine</div><div class="bz-def">Cajal: neurons = separate cells; synapse between them; neuron = functional unit of brain</div></div>
+    <div class="bz-item"><div class="bz-term">Saltatory conduction</div><div class="bz-def">Rapid nerve conduction via Nodes of Ranvier (jumps between gaps in myelin)</div></div>
+    <div class="bz-item"><div class="bz-term">Golgi stain</div><div class="bz-def">Silver-staining technique developed by Camillo Golgi; used by Cajal to prove neuron doctrine</div></div>
+    <div class="bz-item"><div class="bz-term">Monro-Kellie Doctrine</div><div class="bz-def">Cranial cavity = fixed volume; brain + blood + CSF; change in one affects others → ICP</div></div>
+    <div class="bz-item"><div class="bz-term">~500 cc CSF/day</div><div class="bz-def">Produced by choroid plexus in ependymal cells; continuously reabsorbed</div></div>
+    <div class="bz-item"><div class="bz-term">Principle of Parsimony</div><div class="bz-def">One lesion to explain ALL neurologic findings = simplest & best localization</div></div>
+    <div class="bz-item"><div class="bz-term">Pie in the sky</div><div class="bz-def">Superior quadrantanopia = inferior (temporal) optic radiation (Meyer's loop) lesion</div></div>
+    <div class="bz-item"><div class="bz-term">Pie on the floor</div><div class="bz-def">Inferior quadrantanopia = superior (parietal) optic radiation lesion</div></div>
+    <div class="bz-item"><div class="bz-term">Macular sparing</div><div class="bz-def">Occipital lobe (PCA) lesion → homonymous hemianopia but central vision preserved; MCA also supplies macula</div></div>
+    <div class="bz-item"><div class="bz-term">Tunnel vision</div><div class="bz-def">Bitemporal hemianopia = optic chiasm lesion (nasal fibers cross; temporal fields lost)</div></div>
+    <div class="bz-item"><div class="bz-term">Word salad</div><div class="bz-def">Wernicke's aphasia: fluent, meaningless, jargon-filled speech; poor comprehension</div></div>
+    <div class="bz-item"><div class="bz-term">Telegraphic speech</div><div class="bz-def">Broca's aphasia: non-fluent, 2-word sentences; can understand; frustration evident</div></div>
+    <div class="bz-item"><div class="bz-term">Man in a barrel</div><div class="bz-def">Central cord syndrome: UE >> LE weakness; center of cord affected first</div></div>
+    <div class="bz-item"><div class="bz-term">Split deficit</div><div class="bz-def">Brown-Séquard: ipsilateral motor/proprioception lost; contralateral pain/temp lost</div></div>
+    <div class="bz-item"><div class="bz-term">Cross-deficit</div><div class="bz-def">Ipsilateral CN palsy + contralateral body weakness = BRAINSTEM lesion</div></div>
+    <div class="bz-item"><div class="bz-term">Blown pupil</div><div class="bz-def">Dilated, fixed pupil = CN III palsy from uncal herniation; ↑ICP emergency</div></div>
+    <div class="bz-item"><div class="bz-term">Pinpoint pupils</div><div class="bz-def">Pons lesion; bilateral sympathetic fiber disruption</div></div>
+    <div class="bz-item"><div class="bz-term">Ice pack test</div><div class="bz-def">Ptosis improves with ice pack = Myasthenia Gravis; NMJ disorder</div></div>
+    <div class="bz-item"><div class="bz-term">Wobbly-Wacky-Wet</div><div class="bz-def">Normal Pressure Hydrocephalus triad: gait disturbance + dementia + urinary incontinence</div></div>
+    <div class="bz-item"><div class="bz-term">Cheyne-Stokes</div><div class="bz-def">Lower diencephalon/forebrain lesion; crescendo-decrescendo breathing → apnea cycles</div></div>
+    <div class="bz-item"><div class="bz-term">RAPD</div><div class="bz-def">Relative Afferent Pupillary Defect: opposite eye dilates when light swung to affected eye (swinging flashlight test)</div></div>
+    <div class="bz-item"><div class="bz-term">Acalculia + Agraphia</div><div class="bz-def">Both localise to LEFT parietal lobe, angular gyrus</div></div>
+    <div class="bz-item"><div class="bz-term">Glove-and-stocking</div><div class="bz-def">Polyneuropathy pattern; distal, symmetric sensory loss; DM neuropathy</div></div>
+    <div class="bz-item"><div class="bz-term">Uvula deviation</div><div class="bz-def">Deviates AWAY from affected CN X side (toward functioning side)</div></div>
+    <div class="bz-item"><div class="bz-term">Tongue deviation</div><div class="bz-def">Deviates TOWARD side of CN XII lesion (ipsilateral)</div></div>
+    <div class="bz-item"><div class="bz-term">Weber lateralization</div><div class="bz-def">Conductive loss: louder in AFFECTED ear. Sensorineural: louder in NORMAL ear</div></div>
+    <div class="bz-item"><div class="bz-term">Anal wink first</div><div class="bz-def">First spinal reflex to return after spinal shock (S2-S4)</div></div>
+    <div class="bz-item"><div class="bz-term">CN IV — dorsal exit</div><div class="bz-def">Trochlear nerve = ONLY cranial nerve to exit dorsally from brainstem; superior oblique muscle</div></div>
+    <div class="bz-item"><div class="bz-term">~86 billion neurons</div><div class="bz-def">Average neuron count; each has ~7,000 synapses; brain ~2% of body weight (1200–1500g)</div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     FLOWCHARTS
+═══════════════════════════════════════════════ -->
+
+<section class="page-section anchor" id="flowcharts">
+  <div class="section-header">
+    <span class="section-tag green">Algorithms</span>
+    <h2 class="section-title">Quick Flowcharts & Algorithms</h2>
+  </div>
+
+  <div class="two-col">
+    <div class="algo">
+      <h4>⭐ Aphasia Algorithm</h4>
+      <div style="font-size:12.5px;line-height:1.8">
+        <strong>Step 1: Is speech FLUENT?</strong><br>
+        ↳ <span style="color:#8b3a3a">NO (non-fluent):</span><br>
+        &nbsp;&nbsp;→ Comprehend? YES → Broca's (can't repeat) or Transcortical Motor (can repeat)<br>
+        &nbsp;&nbsp;→ Comprehend? NO → Global (can't repeat) or Mixed Transcortical (can repeat)<br><br>
+        ↳ <span style="color:#2d6a6a">YES (fluent):</span><br>
+        &nbsp;&nbsp;→ Comprehend? NO → Wernicke's (can't repeat) or Transcortical Sensory (can repeat)<br>
+        &nbsp;&nbsp;→ Comprehend? YES → Conduction (can't repeat) or Anomic (can repeat but poor naming)
+      </div>
+    </div>
+
+```
+<div class="algo">
+  <h4>⭐ Facial Palsy: Central vs Peripheral</h4>
+  <div style="font-size:12.5px;line-height:1.8">
+    <strong>Can patient raise BOTH eyebrows?</strong><br>
+    ↳ <span style="color:#2d6a6a">YES → CENTRAL (UMN)</span><br>
+    &nbsp;&nbsp;• Forehead SPARED (bilateral cortical innervation)<br>
+    &nbsp;&nbsp;• Only LOWER face affected; contralateral to lesion<br>
+    &nbsp;&nbsp;• Look for UMN signs in limbs<br><br>
+    ↳ <span style="color:#8b3a3a">NO → PERIPHERAL (LMN)</span><br>
+    &nbsp;&nbsp;• Forehead AFFECTED (entire face ipsilateral)<br>
+    &nbsp;&nbsp;• Bell's palsy; also hyperacusis, taste loss<br>
+    &nbsp;&nbsp;• CN VII nucleus in PONS
+  </div>
+</div>
+```
+
+  </div>
+
+  <div class="algo">
+    <h4>⭐ Approach to WEAKNESS — Full Algorithm</h4>
+    <div class="flow">
+      <div class="flow-step"><div class="flow-num">1</div><div class="flow-content"><h5>UMN or LMN?</h5>UMN → spastic/hyperreflexia/Babinski | LMN → flaccid/areflexia/atrophy/fasciculations | BOTH → ALS / spinal cord</div></div>
+      <div class="flow-step"><div class="flow-num">2</div><div class="flow-content"><h5>Distribution of weakness?</h5>Hemiplegia → CNS (cortex/brainstem/SC) | Paraplegia → SC | Distal symmetric → polyneuropathy | Proximal → myopathy | Fatigable → NMJ (MG)</div></div>
+      <div class="flow-step"><div class="flow-num">3</div><div class="flow-content"><h5>Is there SENSORY involvement?</h5>YES + motor → track which modalities; spinal cord syndromes if level present | NO (pure motor) → motor cortex, ALS, MG, myopathy</div></div>
+      <div class="flow-step"><div class="flow-num">4</div><div class="flow-content"><h5>Is there a SENSORY LEVEL?</h5>YES → SPINAL CORD (identify tract pattern; use dermatome landmarks: T4=nipple, T10=umbilicus)</div></div>
+      <div class="flow-step"><div class="flow-num red">5</div><div class="flow-content"><h5>Apply Spinal Cord Syndrome Pattern</h5>Ipsilat motor+DC lost / contralat SpThal lost → Brown-Séquard | UE>>LE → Central cord | No DC → Anterior cord | Stomping gait, normal motor → Posterior cord</div></div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="algo">
+      <h4>⭐ Brainstem Lesion Localization</h4>
+      <div style="font-size:12.5px;line-height:1.8">
+        <strong>Cross-deficit present?</strong><br>
+        (ipsilateral CN + contralateral body) → <strong>BRAINSTEM</strong><br><br>
+        <strong>Which CN is involved ipsilaterally?</strong><br>
+        • CN III or IV → <strong>MIDBRAIN</strong><br>
+        &nbsp;&nbsp;(CN III = interpeduncular fossa; CN IV = dorsal exit)<br>
+        • CN V, VI, VII, VIII → <strong>PONS</strong><br>
+        &nbsp;&nbsp;(CN VI gaze palsy + CN VII LMN facial = Pons!)<br>
+        • CN IX, X, XI, XII → <strong>MEDULLA</strong><br>
+        &nbsp;&nbsp;(dysphagia, hoarseness, tongue deviation)<br>
+        • Weber (CN III + hemiplegia) → Midbrain<br>
+        • Wallenberg → Lateral Medulla (PICA)
+      </div>
+    </div>
+
+```
+<div class="algo">
+  <h4>⭐ Visual Field Loss Algorithm</h4>
+  <div style="font-size:12.5px;line-height:1.8">
+    <strong>One eye only?</strong><br>
+    → Optic nerve or ocular pathology<br><br>
+    <strong>Both eyes affected?</strong><br>
+    → Bitemporal (outer fields lost) → <strong>OPTIC CHIASM</strong><br>
+    → Homonymous (same field both eyes):<br>
+    &nbsp;&nbsp;• Is macular vision spared? → <strong>OCCIPITAL LOBE (PCA)</strong><br>
+    &nbsp;&nbsp;• Superior quadrant lost ("pie in sky") → <strong>TEMPORAL (Meyer's)</strong><br>
+    &nbsp;&nbsp;• Inferior quadrant lost ("pie on floor") → <strong>PARIETAL</strong><br>
+    &nbsp;&nbsp;• Full homonymous → Optic tract or complete optic radiation
+  </div>
+</div>
+```
+
+  </div>
+
+  <div class="algo">
+    <h4>⭐ Comatose Patient Exam — Systematic Approach</h4>
+    <div class="flow">
+      <div class="flow-step"><div class="flow-num">1</div><div class="flow-content"><h5>AIRWAY + VITALS first</h5>BP, HR, RR, Temp, SpO2; stabilize before neurologic exam</div></div>
+      <div class="flow-step"><div class="flow-num">2</div><div class="flow-content"><h5>Observe BREATHING pattern</h5>Cheyne-Stokes = lower diencephalon | Hyperventilation = midbrain | Apneustic = rostral pons | Ataxic = lower pons | Arrest = upper medulla</div></div>
+      <div class="flow-step"><div class="flow-num">3</div><div class="flow-content"><h5>Examine PUPILS</h5>Small reactive = diencephalon/metabolic | Large fixed hippus = pretectal | Dilated fixed = CN III/uncal herniation | Mid-position fixed = midbrain | Pinpoint = PONS</div></div>
+      <div class="flow-step"><div class="flow-num">4</div><div class="flow-content"><h5>OCULOCEPHALIC reflex (Doll's eyes)</h5>Normal: eyes move opposite to head turn (intact brainstem). Absent: eyes move with head = brainstem dysfunction</div></div>
+      <div class="flow-step"><div class="flow-num">5</div><div class="flow-content"><h5>CALORIC testing (COWS)</h5>Cold water → eyes opposite; Warm water → eyes same. Check tympanic membrane first!</div></div>
+      <div class="flow-step"><div class="flow-num red">6</div><div class="flow-content"><h5>MOTOR response</h5>Decorticate (flexion) = above red nucleus | Decerebrate (extension) = below red nucleus/midbrain | No response = deep coma</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     MCQ
+═══════════════════════════════════════════════ -->
+
+<section class="page-section anchor" id="mcq">
+  <div class="section-header">
+    <span class="section-tag navy">MCQ Practice</span>
+    <h2 class="section-title">Practice Questions</h2>
+  </div>
+
+  <div id="score-bar">
+    <div id="score-display">0 / 20</div>
+    <div id="score-label">answered correctly — click options to answer</div>
+    <div style="margin-left:auto"><button onclick="resetMCQ()" style="padding:6px 16px;border:1px solid var(--border);border-radius:6px;cursor:pointer;background:var(--surface);font-family:'DM Sans',sans-serif;font-size:12px">Reset All</button></div>
+  </div>
+
+  <div class="mcq-section" style="padding:0">
+
+```
+<!-- Q1 -->
+<div class="mcq" id="q1">
+  <div class="mcq-num">Question 1</div>
+  <div class="mcq-q">Which layer of the cerebral cortex contains Betz cells, and what is their primary function?</div>
+  <div class="mcq-opts">
+    <div class="mcq-opt" onclick="answer(this,'q1',false)"><span class="letter">A</span> Layer IV — Internal Granule Cell Layer; receives thalamic input</div>
+    <div class="mcq-opt" onclick="answer(this,'q1',true)"><span class="letter">B</span> Layer V — Internal Pyramidal Cell Layer; major output layer via corticospinal tract for motor control</div>
+    <div class="mcq-opt" onclick="answer(this,'q1',false)"><span class="letter">C</span> Layer VI — Multiform Layer; diverse cell types for sensory integration</div>
+    <div class="mcq-opt" onclick="answer(this,'q1',false)"><span class="letter">D</span> Layer III — External Pyramidal Cell Layer; receives input from contralateral cortex</div>
+  </div>
+  <div class="mcq-explain" id="q1-exp">Betz cells are found in Layer V (Internal Pyramidal Cell Layer). They are the largest neurons in the cortex and are responsible for supplying the corticospinal tract for voluntary motor control. Layer V = major output layer of the cerebral cortex.</div>
+</div>
+
+<!-- Q2 -->
+<div class="mcq" id="q2">
+  <div class="mcq-num">Question 2</div>
+  <div class="mcq-q">A patient presents with fluent speech, impaired comprehension, and impaired repetition. Where is the most likely lesion?</div>
+  <div class="mcq-opts">
+    <div class="mcq-opt" onclick="answer(this,'q2',false)"><span class="letter">A</span> Left posterior inferior frontal operculum (Broca's area)</div>
+    <div class="mcq-opt" onclick="answer(this,'q2',false)"><span class="letter">B</span> Entire perisylvian area</div>
+    <div class="mcq-opt" onclick="answer(this,'q2',true)"><span class="letter">C</span> Posterior perisylvian, temporal operculum (Wernicke's area)</div>
+    <div class="mcq-opt" onclick="answer(this,'q2',false)"><span class="letter">D</span> Angular gyrus</div>
+  </div>
+  <div class="mcq-explain" id="q2-exp">Fluent + poor comprehension + poor repetition = Wernicke's aphasia. Location: posterior perisylvian/temporal operculum. Remember: Broca's = non-fluent; Anomic = fluent, comprehends, can repeat but poor naming; Global = all three impaired.</div>
+</div>
+
+<!-- Q3 -->
+<div class="mcq" id="q3">
+  <div class="mcq-num">Question 3</div>
+  <div class="mcq-q">A 72-year-old man has sudden right-sided body weakness. He is drowsy, gaze is deviated to the LEFT, right face sags but he can raise BOTH eyebrows. DTRs +++, (+) Babinski on the right. Where is the lesion?</div>
+  <div class="mcq-opts">
+    <div class="mcq-opt" onclick="answer(this,'q3',false)"><span class="letter">A</span> Right frontoparietal cortex</div>
+    <div class="mcq-opt" onclick="answer(this,'q3',true)"><span class="letter">B</span> Left frontoparietal cortex</div>
+    <div class="mcq-opt" onclick="answer(this,'q3',false)"><span class="letter">C</span> Left pons</div>
+    <div class="mcq-opt" onclick="answer(this,'q3',false)"><span class="letter">D</span> Right pons</div>
+  </div>
+  <div class="mcq-explain" id="q3-exp">Gaze deviated to LEFT = destructive lesion → FEF on the LEFT (eyes look toward the lesion). Right-sided body weakness = left hemisphere lesion (CST decussates). Bilateral eyebrow sparing = UMN (central) facial palsy. Right-sided hyperreflexia + Babinski confirms UMN. FINAL: Left frontoparietal cortex (MCA territory).</div>
+</div>
+
+<!-- Q4 -->
+<div class="mcq" id="q4">
+  <div class="mcq-num">Question 4</div>
+  <div class="mcq-q">A patient has loss of pain and temperature on the LEFT body below T10, AND loss of motor function + proprioception/vibration on the RIGHT leg. What is the diagnosis?</div>
+  <div class="mcq-opts">
+    <div class="mcq-opt" onclick="answer(this,'q4',false)"><span class="letter">A</span> Anterior cord syndrome</div>
+    <div class="mcq-opt" onclick="answer(this,'q4',false)"><span class="letter">B</span> Central cord syndrome</div>
+    <div class="mcq-opt" onclick="answer(this,'q4',true)"><span class="letter">C</span> Brown-Séquard syndrome (right hemisection at T10)</div>
+    <div class="mcq-opt" onclick="answer(this,'q4',false)"><span class="letter">D</span> Posterior cord syndrome</div>
+  </div>
+  <div class="mcq-explain" id="q4-exp">Brown-Séquard = spinal cord HEMISECTION. RIGHT side hemisection: IPSILATERAL (right) motor + proprioception/vibration lost (CST + dorsal column don't cross until medulla). CONTRALATERAL (left) pain/temp lost (spinothalamic crosses in cord at 1–2 levels above entry). "Split the cord, split the deficits."</div>
+</div>
+
+<!-- Q5 -->
+<div class="mcq" id="q5">
+  <div class="mcq-num">Question 5</div>
+  <div class="mcq-q">A patient with bitemporal hemianopia (tunnel vision) most likely has a lesion at which structure?</div>
+  <div class="mcq-opts">
+    <div class="mcq-opt" onclick="answer(this,'q5',false)"><span class="letter">A</span> Right optic nerve</div>
+    <div class="mcq-opt" onclick="answer(this,'q5',true)"><span class="letter">B</span> Optic chiasm</div>
+    <div class="mcq-opt" onclick="answer(this,'q5',false)"><span class="letter">C</span> Left optic tract</div>
+    <div class="mcq-opt" onclick="answer(this,'q5',false)"><span class="letter">D</span> Right occipital lobe</div>
+  </div>
+  <div class="mcq-explain" id="q5-exp">Bitemporal hemianopia (loss of peripheral temporal fields both eyes = "tunnel vision") = optic chiasm lesion. The nasal retinal fibers from both eyes cross at the chiasm — damage here knocks out both temporal visual fields. Classic cause: pituitary adenoma compressing from below.</div>
+</div>
+
+<!-- Q6 -->
+<div class="mcq" id="q6">
+  <div class="mcq-num">Question 6</div>
+  <div class="mcq-q">A 54-year-old male has progressive weakness, tongue atrophy with fibrillations, bilateral hyperreflexia, and bilateral Babinski. Sensory examination is NORMAL. What is the most likely diagnosis?</div>
+  <div class="mcq-opts">
+    <div class="mcq-opt" onclick="answer(this,'q6',false)"><span class="letter">A</span> Myasthenia Gravis</div>
+    <div class="mcq-opt" onclick="answer(this,'q6',false)"><span class="letter">B</span> Brown-Séquard Syndrome</div>
+    <div class="mcq-opt" onclick="answer(this,'q6',true)"><span class="letter">C</span> Amyotrophic Lateral Sclerosis (ALS)</div>
+    <div class="mcq-opt" onclick="answer(this,'q6',false)"><span class="letter">D</span> Guillain-Barré Syndrome</div>
+  </div>
+  <div class="mcq-explain" id="q6-exp">ALS = simultaneous UMN signs (hyperreflexia, Babinski) + LMN signs (tongue atrophy, fibrillations/fasciculations, muscle atrophy) with PRESERVED SENSATION. This is pathognomonic. MG = NMJ (fatigable, no UMN signs). GBS = ascending flaccid paralysis with areflexia. Brown-Séquard = sensory deficits present.</div>
+</div>
+
+<!-- Q7 -->
+<div class="mcq" id="q7">
+  <div class="mcq-num">Question 7</div>
+  <div class="mcq-q">Which glial cell is responsible for waste clearance from the brain and plays a role in CSF homeostasis?</div>
+  <div class="mcq-opts">
+    <div class="mcq-opt" onclick="answer(this,'q7',false)"><span class="letter">A</span> Astrocytes</div>
+    <div class="mcq-opt" onclick="answer(this,'q7',true)"><span class="letter">B</span> Ependymal cells</div>
+    <div class="mcq-opt" onclick="answer(this,'q7',false)"><span class="letter">C</span> Oligodendrocytes</div>
+    <div class="mcq-opt" onclick="answer(this,'q7',false)"><span class="letter">D</span> Microglia</div>
+  </div>
+  <div class="mcq-explain" id="q7-exp">Ependymal cells line the ventricles; they produce CSF via the choroid plexus and are responsible for waste clearance and brain metabolism. Astrocytes provide nourishment (different function). Oligodendrocytes = myelin in CNS. Microglia = immune/scavenger.</div>
+</div>
+
+<!-- Q8 -->
+<div class="mcq" id="q8">
+  <div class="mcq-num">Question 8</div>
+  <div class="mcq-q">A comatose patient has PINPOINT pupils. Where is the most likely lesion?</div>
+  <div class="mcq-opts">
+    <div class="mcq-opt" onclick="answer(this,'q8',false)"><span class="letter">A</span> Midbrain</div>
+    <div class="mcq-opt" onclick="answer(this,'q8',false)"><span class="letter">B</span> Diencephalon</div>
+    <div class="mcq-opt" onclick="answer(this,'q8',true)"><span class="letter">C</span> Pons</div>
+    <div class="mcq-opt" onclick="answer(this,'q8',false)"><span class="letter">D</span> CN III (uncal herniation)</div>
+  </div>
+  <div class="mcq-explain" id="q8-exp">Pinpoint pupils = PONS lesion. Mnemonic: Pin-PONT-ine → Pinpoint. This occurs due to bilateral disruption of descending sympathetic fibers in the pons. Midbrain = mid-position fixed pupils. CN III/uncal herniation = dilated fixed (blown) pupil. Diencephalon = small reactive pupils.</div>
+</div>
+
+<!-- Q9 -->
+<div class="mcq" id="q9">
+  <div class="mcq-num">Question 9</div>
+  <div class="mcq-q">A patient has ipsilateral oculomotor palsy (CN III) AND contralateral hemiplegia. What brainstem syndrome is this, and at what level?</div>
+  <div class="mcq-opts">
+    <div class="mcq-opt" onclick="answer(this,'q9',false)"><span class="letter">A</span> Wallenberg syndrome; lateral medulla</div>
+    <div class="mcq-opt" onclick="answer(this,'q9',false)"><span class="letter">B</span> Medial medullary syndrome; medial medulla</div>
+    <div class="mcq-opt" onclick="answer(this,'q9',true)"><span class="letter">C</span> Weber syndrome; midbrain (ventromedial)</div>
+    <div class="mcq-opt" onclick="answer(this,'q9',false)"><span class="letter">D</span> Millard-Gubler syndrome; pons</div>
+  </div>
+  <div class="mcq-explain" id="q9-exp">Weber syndrome = midbrain (ventromedial) lesion affecting CN III nucleus/fascicles + corticospinal tract. Ipsilateral CN III palsy (ptosis, dilated pupil, eye down and out) + contralateral hemiplegia. CN III is in the MIDBRAIN. Millard-Gubler = pons (CN VI + VII + contralateral hemiplegia).</div>
+</div>
+
+<!-- Q10 -->
+<div class="mcq" id="q10">
+  <div class="mcq-num">Question 10</div>
+  <div class="mcq-q">A 28-year-old woman has fatigable ptosis that is WORSE at the end of the day and IMPROVES with ice pack application. Proximal muscle weakness is noted bilaterally. Sensory exam and reflexes are normal. What is the most likely diagnosis?</div>
+  <div class="mcq-opts">
+    <div class="mcq-opt" onclick="answer(this,'q10',false)"><span class="letter">A</span> Horner's syndrome</div>
+    <div class="mcq-opt" onclick="answer(this,'q10',false)"><span class="letter">B</span> Polymyositis</div>
+    <div class="mcq-opt" onclick="answer(this,'q10',true)"><span class="letter">C</span> Myasthenia Gravis (NMJ disorder)</div>
+    <div class="mcq-opt" onclick="answer(this,'q10',false)"><span class="letter">D</span> CN III palsy from aneurysm</div>
+  </div>
+  <div class="mcq-explain" id="q10-exp">Myasthenia Gravis hallmarks: (1) Fatigable weakness — worse at end of day; (2) Ice pack test positive (cold improves NMJ transmission); (3) Ptosis and diplopia common; (4) Proximal > distal weakness; (5) No atrophy or fasciculations; (6) Normal reflexes and sensation. NMJ = post-synaptic acetylcholine receptor antibodies.</div>
+</div>
+
+<!-- Q11 -->
+<div class="mcq" id="q11">
+  <div class="mcq-num">Question 11</div>
+  <div class="mcq-q">Which CSF pathway structure directly connects the 3rd ventricle to the 4th ventricle?</div>
+  <div class="mcq-opts">
+    <div class="mcq-opt" onclick="answer(this,'q11',false)"><span class="letter">A</span> Foramen of Monro</div>
+    <div class="mcq-opt" onclick="answer(this,'q11',false)"><span class="letter">B</span> Foramen of Magendie</div>
+    <div class="mcq-opt" onclick="answer(this,'q11',true)"><span class="letter">C</span> Aqueduct of Sylvius (cerebral aqueduct)</div>
+    <div class="mcq-opt" onclick="answer(this,'q11',false)"><span class="letter">D</span> Central canal</div>
+  </div>
+  <div class="mcq-explain" id="q11-exp">Aqueduct of Sylvius (cerebral aqueduct) connects the 3rd ventricle to the 4th ventricle. Foramen of Monro = lateral ventricles → 3rd ventricle. Foramen of Magendie + Luschka = 4th ventricle → subarachnoid space. Central canal = inferior drainage from 4th ventricle into spinal cord.</div>
+</div>
+
+<!-- Q12 -->
+<div class="mcq" id="q12">
+  <div class="mcq-num">Question 12</div>
+  <div class="mcq-q">A patient is asked to perform the MMSE. On immediate recall, they get 2 words correct on the 1st attempt, then all 3 on the 2nd attempt. What is the immediate recall score?</div>
+  <div class="mcq-opts">
+    <div class="mcq-opt" onclick="answer(this,'q12',false)"><span class="letter">A</span> 3/3</div>
+    <div class="mcq-opt" onclick="answer(this,'q12',true)"><span class="letter">B</span> 2/3</div>
+    <div class="mcq-opt" onclick="answer(this,'q12',false)"><span class="letter">C</span> 0/3 (need to redo)</div>
+    <div class="mcq-opt" onclick="answer(this,'q12',false)"><span class="letter">D</span> Average of all attempts</div>
+  </div>
+  <div class="mcq-explain" id="q12-exp">Only the FIRST attempt is scored in MMSE immediate recall! Even if the patient gets all 3 on subsequent attempts (up to 6 attempts allowed), only the 1st repetition determines the score. Answer = 2/3.</div>
+</div>
+
+<!-- Q13 -->
+<div class="mcq" id="q13">
+  <div class="mcq-num">Question 13</div>
+  <div class="mcq-q">A 72-year-old man presents with right arm > leg weakness with sudden onset. His leg is relatively spared compared to his arm and face. Which artery is most likely occluded?</div>
+  <div class="mcq-opts">
+    <div class="mcq-opt" onclick="answer(this,'q13',false)"><span class="letter">A</span> Right Anterior Cerebral Artery (ACA)</div>
+    <div class="mcq-opt" onclick="answer(this,'q13',true)"><span class="letter">B</span> Left Middle Cerebral Artery (MCA)</div>
+    <div class="mcq-opt" onclick="answer(this,'q13',false)"><span class="letter">C</span> Left Posterior Cerebral Artery (PCA)</div>
+    <div class="mcq-opt" onclick="answer(this,'q13',false)"><span class="letter">D</span> Left Anterior Cerebral Artery (ACA)</div>
+  </div>
+  <div class="mcq-explain" id="q13-exp">MCA supplies face and arm motor/sensory cortex (lateral brain). ACA supplies leg motor/sensory cortex (medial brain). Face + arm > leg → MCA territory. Right-sided weakness → LEFT hemisphere lesion. PCA = visual cortex/thalamus. Left MCA infarct = most common stroke causing arm/face > leg weakness ± aphasia (if dominant hemisphere).</div>
+</div>
+
+<!-- Q14 -->
+<div class="mcq" id="q14">
+  <div class="mcq-num">Question 14</div>
+  <div class="mcq-q">On the Rinne test, bone conduction (BC) is equal to or greater than air conduction (AC). What does this indicate?</div>
+  <div class="mcq-opts">
+    <div class="mcq-opt" onclick="answer(this,'q14',false)"><span class="letter">A</span> Normal hearing</div>
+    <div class="mcq-opt" onclick="answer(this,'q14',true)"><span class="letter">B</span> Conductive hearing loss</div>
+    <div class="mcq-opt" onclick="answer(this,'q14',false)"><span class="letter">C</span> Sensorineural hearing loss</div>
+    <div class="mcq-opt" onclick="answer(this,'q14',false)"><span class="letter">D</span> Mixed hearing loss</div>
+  </div>
+  <div class="mcq-explain" id="q14-exp">Normal (Positive Rinne): AC > BC. Conductive hearing loss: BC ≥ AC (sound from bone lasts as long or longer than air because the air-conduction pathway is blocked; bone vibrations bypass the obstruction). Sensorineural: AC > BC but both are diminished vs. normal. Examples of conductive: otitis media, cerumen impaction, otosclerosis.</div>
+</div>
+
+<!-- Q15 -->
+<div class="mcq" id="q15">
+  <div class="mcq-num">Question 15</div>
+  <div class="mcq-q">A patient has triad of MIOSIS, PTOSIS, and ANHIDROSIS on the right side of the face. What is the diagnosis and which system is disrupted?</div>
+  <div class="mcq-opts">
+    <div class="mcq-opt" onclick="answer(this,'q15',false)"><span class="letter">A</span> CN III palsy; parasympathetic disruption</div>
+    <div class="mcq-opt" onclick="answer(this,'q15',true)"><span class="letter">B</span> Horner's syndrome; sympathetic disruption</div>
+    <div class="mcq-opt" onclick="answer(this,'q15',false)"><span class="letter">C</span> CN VII palsy; motor disruption</div>
+    <div class="mcq-opt" onclick="answer(this,'q15',false)"><span class="letter">D</span> Argyll Robertson pupil; syphilitic infection</div>
+  </div>
+  <div class="mcq-explain" id="q15-exp">Horner's syndrome = Miosis + Ptosis + Anhidrosis = sympathetic chain disruption. Miosis = unopposed parasympathetic (dilator paralyzed). Ptosis = loss of Müller's muscle innervation (not levator, so partial ptosis). Anhidrosis = no sympathetic supply to sweat glands. CN III palsy = mydriasis (dilated pupil), not miosis.</div>
+</div>
+
+<!-- Q16 -->
+<div class="mcq" id="q16">
+  <div class="mcq-num">Question 16</div>
+  <div class="mcq-q">A patient can move their arm through the FULL range of motion against gravity but CANNOT resist any force the examiner applies. What MRC grade is this?</div>
+  <div class="mcq-opts">
+    <div class="mcq-opt" onclick="answer(this,'q16',false)"><span class="letter">A</span> Grade 2</div>
+    <div class="mcq-opt" onclick="answer(this,'q16',true)"><span class="letter">B</span> Grade 3</div>
+    <div class="mcq-opt" onclick="answer(this,'q16',false)"><span class="letter">C</span> Grade 4</div>
+    <div class="mcq-opt" onclick="answer(this,'q16',false)"><span class="letter">D</span> Grade 1</div>
+  </div>
+  <div class="mcq-explain" id="q16-exp">MRC Grade 3 = Full range of motion AGAINST GRAVITY, but no resistance can be applied. Grade 4 = full range + some resistance. Grade 2 = only moves when gravity eliminated. Grade 1 = flicker only.</div>
+</div>
+
+<!-- Q17 -->
+<div class="mcq" id="q17">
+  <div class="mcq-num">Question 17</div>
+  <div class="mcq-q">A patient with a right parietal lobe lesion is asked to draw a clock. They draw all numbers only on the right side of the clock, omitting the left. What phenomenon is this?</div>
+  <div class="mcq-opts">
+    <div class="mcq-opt" onclick="answer(this,'q17',false)"><span class="letter">A</span> Anosognosia</div>
+    <div class="mcq-opt" onclick="answer(this,'q17',false)"><span class="letter">B</span> Constructional apraxia</div>
+    <div class="mcq-opt" onclick="answer(this,'q17',true)"><span class="letter">C</span> Left hemispatial inattention/neglect</div>
+    <div class="mcq-opt" onclick="answer(this,'q17',false)"><span class="letter">D</span> Astereognosia</div>
+  </div>
+  <div class="mcq-explain" id="q17-exp">Left hemispatial inattention/neglect: Right parietal lobe lesions cause patients to fail to attend to the LEFT half of space. They will draw the right half of figures accurately but make errors on the left. Classic test = clock drawing (crowded numbers on right side).</div>
+</div>
+
+<!-- Q18 -->
+<div class="mcq" id="q18">
+  <div class="mcq-num">Question 18</div>
+  <div class="mcq-q">Cheyne-Stokes respiration (crescendo-decrescendo breathing alternating with apnea) in a comatose patient localizes the lesion to:</div>
+  <div class="mcq-opts">
+    <div class="mcq-opt" onclick="answer(this,'q18',false)"><span class="letter">A</span> Upper diencephalon</div>
+    <div class="mcq-opt" onclick="answer(this,'q18',true)"><span class="letter">B</span> Lower diencephalon / forebrain</div>
+    <div class="mcq-opt" onclick="answer(this,'q18',false)"><span class="letter">C</span> Midbrain</div>
+    <div class="mcq-opt" onclick="answer(this,'q18',false)"><span class="letter">D</span> Rostral pons</div>
+  </div>
+  <div class="mcq-explain" id="q18-exp">Cheyne-Stokes = LOWER diencephalon (forebrain) lesion. Also seen in metabolic encephalopathy and bilateral cortical dysfunction. Midbrain = central neurogenic hyperventilation. Rostral pons = apneustic breathing. Lower pons = ataxic breathing. Upper medulla = respiratory arrest.</div>
+</div>
+
+<!-- Q19 -->
+<div class="mcq" id="q19">
+  <div class="mcq-num">Question 19</div>
+  <div class="mcq-q">The PPRF (Parapontine Reticular Formation) receives input from the contralateral FEF and sends signals to the IPSILATERAL CN VI nucleus. If there is a DESTRUCTIVE lesion of the LEFT PPRF, where will the patient's eyes be deviated?</div>
+  <div class="mcq-opts">
+    <div class="mcq-opt" onclick="answer(this,'q19',false)"><span class="letter">A</span> Toward the left (ipsilateral to lesion)</div>
+    <div class="mcq-opt" onclick="answer(this,'q19',true)"><span class="letter">B</span> Toward the right (away from the lesion)</div>
+    <div class="mcq-opt" onclick="answer(this,'q19',false)"><span class="letter">C</span> Downward bilaterally</div>
+    <div class="mcq-opt" onclick="answer(this,'q19',false)"><span class="letter">D</span> No change in gaze</div>
+  </div>
+  <div class="mcq-explain" id="q19-exp">Destructive PPRF lesion → eyes deviate AWAY from the lesion (ipsilateral gaze palsy). The LEFT PPRF normally drives LEFT gaze; destroy it and the patient cannot look LEFT → eyes deviate to the RIGHT. Compare with FEF: destructive FEF lesion → eyes look TOWARD the lesion (FEF normally drives contralateral gaze).</div>
+</div>
+
+<!-- Q20 -->
+<div class="mcq" id="q20">
+  <div class="mcq-num">Question 20</div>
+  <div class="mcq-q">Which of the following correctly describes the Brudzinski sign?</div>
+  <div class="mcq-opts">
+    <div class="mcq-opt" onclick="answer(this,'q20',false)"><span class="letter">A</span> Passive knee extension from 90° hip flexion causes pain → meningeal irritation</div>
+    <div class="mcq-opt" onclick="answer(this,'q20',false)"><span class="letter">B</span> The patient actively flexes their neck, causing hip and knee flexion</div>
+    <div class="mcq-opt" onclick="answer(this,'q20',true)"><span class="letter">C</span> Passive neck flexion by examiner causes involuntary hip and knee flexion</div>
+    <div class="mcq-opt" onclick="answer(this,'q20',false)"><span class="letter">D</span> Pressing the cheek causes facial muscle contraction</div>
+  </div>
+  <div class="mcq-explain" id="q20-exp">Brudzinski sign: PASSIVE neck flexion by EXAMINER → involuntary hip and knee flexion. This is due to meningeal irritation. Memory trick: "Batok = Brudzinski" (batok = back of neck in Filipino). Kernig = "Ker-knee": PASSIVE knee extension from 90° hip flex → pain/resistance. Both tests are PASSIVE (examiner performs the movement).</div>
+</div>
+```
+
+  </div><!-- end mcq-section -->
+</section>
+
+<div style="text-align:center;padding:30px;color:var(--text-muted);font-size:12px;border-top:1px solid var(--border)">
+  High-Yield Neurosciences 1 Reviewer &nbsp;|&nbsp; AY 2025–2026 &nbsp;|&nbsp; Study well! 🧠
+</div>
+
+</main>
+
+<script>
+// Smooth scroll
+function scrollTo(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+}
+
+// MCQ system
+let scores = {};
+let correct = 0;
+const total = 20;
+
+function answer(el, qId, isCorrect) {
+  if (scores[qId] !== undefined) return; // already answered
+  scores[qId] = isCorrect;
+  if (isCorrect) { correct++; el.classList.add('correct'); }
+  else {
+    el.classList.add('incorrect');
+    // highlight correct
+    const opts = el.parentElement.querySelectorAll('.mcq-opt');
+    opts.forEach(o => {
+      if (o.getAttribute('onclick').includes('true')) o.classList.add('correct');
+    });
+  }
+  document.getElementById(qId + '-exp').classList.add('show');
+  updateScore();
+}
+
+function updateScore() {
+  const answered = Object.keys(scores).length;
+  document.getElementById('score-display').textContent = correct + ' / ' + answered;
+  document.getElementById('score-label').textContent = 'answered correctly out of ' + answered + ' attempted (of ' + total + ' total)';
+}
+
+function resetMCQ() {
+  scores = {}; correct = 0;
+  document.querySelectorAll('.mcq-opt').forEach(o => { o.classList.remove('correct','incorrect'); });
+  document.querySelectorAll('.mcq-explain').forEach(e => e.classList.remove('show'));
+  updateScore();
+}
+
+// Nav active state on scroll
+window.addEventListener('scroll', () => {
+  const sections = document.querySelectorAll('.anchor');
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 100) current = s.id;
+  });
+  document.querySelectorAll('.nav-item').forEach(n => {
+    n.classList.toggle('active', n.getAttribute('onclick') && n.getAttribute('onclick').includes(current));
+  });
+});
+</script>
+
+</body>
+</html>
